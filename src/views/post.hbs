@@ -1,0 +1,48 @@
+<div class="card">
+    <div class="card-header">
+        <h1><b>{{post.title}}</b></h1>
+    </div>
+    <div class="card-body">
+        <div id="post">
+            <p>@ <a href="/city/{{post.where}}"><i>{{post.where}}</i></a>,
+                about <a href="/topic/{{post.about}}"><i>{{post.about}}</i></a>
+                by <a id="link" href="/user/profile/{{ author._id  }}"><i>{{author.name}}</i></a>
+            </p>
+            <div class="text-center">
+                <p>{{post.description}}</p>
+            </div>
+            <div class="text-center">
+                <img src="../public/upload/{{post.filename}}" width="200" height="200" class="img-fluid">
+            </div>
+        </div>
+        <div class="d-flex justify-content-between align-items-center">
+            {{#if user}}
+            <button class="btn btn-success" id="btn-like" data-id="{{post._id}}">
+                <i class="fa fa-thumbs-o-up" aria-hidden="true"></i> Like
+            </button>
+            {{else}}
+            <button class="btn btn-success"><a href="/user/login">
+                    <i class="fa fa-thumbs-o-up" aria-hidden="true"></i> Like</a>
+            </button>
+            {{/if}}
+            {{#if is_user}}
+            <div id="likes">
+                <span class="likes-count">{{post.likes.length}}</span>
+                <i class="fa fa-heart" aria-hidden="true"></i>
+            </div>
+            {{else}}
+            <div id="likes">
+                <span class="likes-count">{{post.likes.length}}</span>
+                <i class="fa fa-heart-o" aria-hidden="true"></i>
+            </div>
+            {{/if}}
+            <div>
+                {{post.views}}<i class="fa fa-eye" aria-hidden="true"></i>
+            </div>
+            <div class="black">
+                <i class="fa fa-clock-o" aria-hidden="true"></i>
+                {{timeago post.timestamp}}
+            </div>
+        </div>
+    </div>
+</div>

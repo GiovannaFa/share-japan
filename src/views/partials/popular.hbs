@@ -1,0 +1,14 @@
+<div class="card">
+    <div class="card-header bg-light text-black">
+        <h5><i class="fa fa-paper-plane" aria-hidden="true"></i> Most Popular</h5>
+    </div>
+    <div class="card-body">
+        {{#each popular}}
+        <a href="/posts/{{_id}}" id="link">
+            <div class="row mb-2">
+                <p><b>{{title}} @ <i>{{where}}</i></b> with {{likes.length}} <i class="fa fa-thumbs-o-up" aria-hidden="true"></i>
+            </div>
+        </a>
+        {{/each}}
+    </div>
+</div>

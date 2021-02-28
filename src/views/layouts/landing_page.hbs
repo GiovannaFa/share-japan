@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {{>head}}
+</head>
+<body>
+    {{>navigation}}
+    <div class="container p-4">
+        <div class="row">
+            <div class="col-md-8">
+                {{> messages}}
+                {{> errors}}
+
+                {{{ body }}}
+            </div>
+            <div class="col-md-4">
+                {{> segmentation }}
+            </div>
+        </div>
+    </div>
+
+    {{>footer}}
+    <!--SCRIPT-->
+    <script
+    src="https://code.jquery.com/jquery-3.5.1.js"
+    integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+    crossorigin="anonymous"></script>
+  <!--CUSTOM CODE-->
+  <script src="/public/js/scripts.js"></script>
+</body>
+</html>

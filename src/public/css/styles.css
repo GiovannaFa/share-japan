@@ -1,0 +1,62 @@
+/* @media (max-width: 1500px) {
+    .container{
+        min-width: 1000px;
+    }
+}
+ */
+.navbar-brand img{
+    width: 10%;
+    padding-left: 10px;
+}
+
+.fa{
+    color: black;
+}
+
+i{
+    color: green;
+}
+.black{
+    color: black;
+    font-size: 10px;
+    font-family: Monospace;
+}
+
+#main{
+    top:15px;
+    height: 460px;
+    overflow: scroll;
+  }
+#post{
+    top:15px;
+    height: 350px;
+    overflow: scroll;
+  }
+
+::-webkit-scrollbar {
+    width: 0px;
+    background: transparent; /* make scrollbar transparent */
+}
+
+#link:link {
+    text-decoration: none;
+}
+#link:visited {
+    text-decoration: none;
+  }
+#link:hover {
+    text-decoration: none;
+  }
+#link:active {
+    text-decoration: none;
+  }
+#link{
+    color: black;
+}
+.logo{
+    width: 10%;
+}
+.jpmap {
+    width: 85%;
+    height: auto;
+  }

@@ -1,0 +1,35 @@
+{{!--
+{{#each about_posts}}
+<button onClick="toggleImage()">{{this.length}} about {{@key}}</button>
+
+<div id="content" class="hidden card-body">
+    {{#each this}}
+    <div class="container">
+        <a href="/posts/{{ _id }}">{{title}}</a>
+    </div>
+    {{/each}}
+</div>
+{{/each}} --}}
+
+
+<div id="accordion">
+    <div class="card">
+        {{#each about_posts}}
+        <div class="card-header" id="headingOne">
+            <h5 class="mb-0">
+                <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true"
+                    aria-controls="collapseOne">
+                    {{this.length}} about {{@key}}
+                </button>
+            </h5>
+        </div>
+        <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+            {{#each this}}
+            <div class="card-body">
+                <a href="/posts/{{ _id }}">{{title}}</a>
+            </div>
+            {{/each}}
+        </div>
+        {{/each}}
+    </div>
+</div>

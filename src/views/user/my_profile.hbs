@@ -1,0 +1,56 @@
+<div>
+    <div class="card-header bg-light text-black">
+        <i class="fa fa-newspaper-o" aria-hidden="true"></i> My posts
+        {{!-- <p><a href="/form">Leave a post!</a></p> --}}
+    </div>
+    <div id="main">
+        <div class="card-body">
+            {{#each posts}}
+            <div class="row">
+                <div class="col-md-10">
+                    <div class="card-header text-left">
+                        <div class="text-right">
+                            <form action="/posts/{{ _id }}?_method=DELETE" method="POST">
+                                <input type="hidden" name="_method" value="DELETE">
+                                <button class="btn btn-danger btn-block btn-sm" type="submit">
+                                    delete
+                                </button>
+                            </form>
+                            <a href="/posts/edit/{{ _id }}">modify</a>
+                        </div>
+                        <i class="black"><i class="fa fa-clock-o" aria-hidden="true"></i> {{timeago
+                            timestamp}}</i><br>
+                        @<i> {{where}}</i>
+                        about<i> {{about}}</i>
+                    </div>
+                    <a id="link" href="/posts/{{ _id  }}">
+                        <div class="card-body col-md-10 text-center">
+                            <h1>{{title}}</h1>
+                            <img src="/public/upload/{{filename}}" alt="{{title}}" class="img-fluid" width="100"
+                                height="100">
+                            <p>
+                                {{likes.length}} <i class="fa fa-heart-o" aria-hidden="true"></i>
+                                {{views}} <i class="fa fa-eye" aria-hidden="true"></i>
+                            </p>
+                        </div>
+                        <br>
+                    </a>
+                </div>
+            </div>
+            {{else}}
+            <div class="card-header bg-light text-black">
+                <i class="fa fa-newspaper-o" aria-hidden="true"></i> My Posts
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-10">
+                        <div class="card-body col-md-10 text-center">
+                            No post yet, <a href="/form" id="link"> click<b> here </b></a>and write your first one!
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {{/each}}
+        </div>
+    </div>
+</div>
