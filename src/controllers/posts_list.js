@@ -19,7 +19,13 @@ ctrl.index = async (req, res) => {
             }
         }).sort({timestamp: -1}).lean()
     } else {
-        const posts  = await Post.find().sort({timestamp: -1}).lean() ;
+        const pagination = req.query.pagination ? parseInt(req.query.pagination): 4;
+        const page = req.query.page ? parseInt(req.query.page): 1;
+        const posts  = await Post.find()
+        .skip((page - 1) * pagination)
+        .limit(pagination)
+        .sort({timestamp: -1}).lean()
+
         var posts_and_more = [];
         for (let i in posts){
             const writer = await Post.aggregate([{
@@ -37,8 +43,14 @@ ctrl.index = async (req, res) => {
             posts_and_more.push(posts[i])
             };
         let viewModel = { posts_and_more: [] };
-        //viewModel.posts = posts;
+        const totalPosts = await Post.find()
+        const pages = Math.ceil(totalPosts.length/pagination)
+        var count = []
+        for (var i = 1; i <= pages; i++) {
+            count.push(i);
+        }
         viewModel.posts = posts_and_more;
+        viewModel.pages = count;
         viewModel = await sidebar(viewModel);
         res.render('posts_list', viewModel);
     }

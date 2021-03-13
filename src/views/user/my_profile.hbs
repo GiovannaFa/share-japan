@@ -12,11 +12,13 @@
                         <div class="text-right">
                             <form action="/posts/{{ _id }}?_method=DELETE" method="POST">
                                 <input type="hidden" name="_method" value="DELETE">
-                                <button class="btn btn-danger btn-block btn-sm" type="submit">
-                                    delete
+                                <button type="submit">
+                                    <i class="fa fa-trash-o" aria-hidden="true"></i>
                                 </button>
                             </form>
-                            <a href="/posts/edit/{{ _id }}">modify</a>
+                            <button>
+                            <a href="/posts/edit/{{ _id }}"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+                            </button>
                         </div>
                         <i class="black"><i class="fa fa-clock-o" aria-hidden="true"></i> {{timeago
                             timestamp}}</i><br>

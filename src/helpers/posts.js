@@ -6,6 +6,7 @@ module.exports = {
             [
                 { "$project": {
                     "title": 1,
+                    "where": 1,
                     "likes": 1,
                     "length": { "$size": "$likes" }
                 }},
