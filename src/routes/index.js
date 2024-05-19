@@ -44,6 +44,7 @@ module.exports = app => {
     });
 
     router.post('/user/signup', user.signup);
+    router.get('/user/verify/:token', user.verify);
 
     router.get('/user/login', (req,res) => {
         res.render('user/login', { layout: 'post_main.hbs'});

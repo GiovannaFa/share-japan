@@ -8,7 +8,9 @@ const userSchema = new Schema({
     email: {type: String },
     password: { type: String },
     confirm_password: { type: String },
-    timestamp: { type: Date, default: Date.now }
+    secretToken: {type: String},
+    timestamp: { type: Date, default: Date.now },
+    active: { type: Boolean, default: false },
 });
 
 userSchema.methods.encryptPassword = async (password) => {

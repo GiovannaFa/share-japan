@@ -1,5 +1,5 @@
 const path = require('path');
-const {randomName} = require("../helpers/libs");
+const {randomString} = require("../helpers/libs");
 const fs = require('fs-extra')
 const { Post } = require('../models');
 const sidebar = require('../helpers/sidebar');
@@ -70,7 +70,7 @@ ctrl.index = async (req, res) => {
 
 ctrl.create = (req, res) => {
     const savePost = async () => {
-        const imageUrl = randomName();
+        const imageUrl = randomString();
         const images = await Post.find({filename: imageUrl});
         if (images.length > 0){
             savePost();

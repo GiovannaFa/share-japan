@@ -2,8 +2,10 @@ const { User }  = require('../models');
 const { Post }  = require('../models');
 const passport = require('passport');
 const sidebar = require('../helpers/sidebar');
+const {randomString} = require("../helpers/libs");
 var ObjectId = require('mongoose').Types.ObjectId;
 const { write } = require('fs-extra');
+const { verifyemail } = require('../helpers/auth');
 require('../server/passport');
 const ctrl = {};
 ctrl.signup = async (req, res) => {
@@ -34,20 +36,55 @@ ctrl.signup = async (req, res) => {
                 password: req.body.password
             });
             newUser.password = await newUser.encryptPassword(password);
+            const token = randomString();
+            newUser.secretToken = token
+            const link = `http://localhost:3005/user/verify/${token}`;
             await newUser.save();
-            req.flash('success_msg', 'Welcome to Share Japan! \n You can now leave your review :)');
-            passport.authenticate('local')(req, res, function () {
-                res.redirect('/user/profile');
-            })
+            await verifyemail(email, link);
+            req.flash('success_msg', 'An e-mail has been sent, verify your address before login!');
+            res.redirect('/user/login');
         };
     }
 };
 
-ctrl.login = passport.authenticate('local', {
-    successRedirect: '/posts',
-    failureRedirect: '/user/login',
-    failureFlash: true
-});
+
+ctrl.verify = async(req, res) => {
+    try{
+        const token = req.params.token
+        console.log("token: " + token);
+        await User.updateOne({secretToken: token}, {$set: {active: true}});
+        return res.redirect('/user/login');
+    }
+    catch(error){
+        return res.redirect('/user/signup');
+    }
+    
+}
+
+ctrl.login = function(req, res, next) {
+    passport.authenticate('local', function(err, user, info) {
+        if (err) {
+            return next(err);
+        }
+        if (!user) { 
+            return res.redirect('/user/signup');
+        }
+        if (user.active === true) {
+            // Authenticate the user and maintain session
+            req.logIn(user, function(err) {
+                if (err) {
+                    return next(err);
+                }
+                return res.redirect('/posts');
+            });
+        } else {
+            req.flash('error_msg', 'Verify your e-mail before logging in.')
+            return res.redirect('/user/login');
+        }
+    })(req, res, next);
+};
+
+
 
 ctrl.index = async (req, res) => {
     const user_posts  = await Post.find({user: req.user._id}).sort({timestamp: -1}).lean() ;
