@@ -1,8 +1,10 @@
+const { reset } = require("nodemon");
+
 const helpers = {};
-helpers.randomString = () => {
+helpers.randomString = (n) => {
     const possible = 'abcdefghilmnopqrstxwyk0123456789';
     let randomString = 0;
-    for (let i = 0; i<6; i++) {
+    for (let i = 0; i<n; i++) {
         randomString += possible.charAt(Math.floor(Math.random() * possible.length))
     }
     return randomString;

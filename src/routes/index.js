@@ -6,9 +6,11 @@ const post = require('../controllers/post');
 const user = require('../controllers/user');
 const landing = require('../controllers/landing');
 const { Post } = require('../models');
+const { User } = require('../models');
 const sidebar = require('../helpers/sidebar');
-var ObjectId = require('mongoose').Types.ObjectId;
-const { isAuthenticated } = require('../helpers/auth');
+//var ObjectId = require('mongoose').Types.ObjectId;
+//const { isAuthenticated } = require('../helpers/auth');
+const crypto = require('crypto');
 
 module.exports = app => {
     router.get('/', landing.find_count);
@@ -42,15 +44,28 @@ module.exports = app => {
     router.get('/user/signup', (req,res) => {
         res.render('user/signup', { layout: 'post_main.hbs'});
     });
-
     router.post('/user/signup', user.signup);
+    
     router.get('/user/verify/:token', user.verify);
 
     router.get('/user/login', (req,res) => {
         res.render('user/login', { layout: 'post_main.hbs'});
     });
-
     router.post('/user/login', user.login);
+    
+    router.post('/user/forgotPassword', user.forgotPassword);
+    router.get('/user/forgot_password', (req, res) => {
+        res.render('user/forgot_password', { layout: 'post_main.hbs'});
+    });
+
+    router.patch('/user/resetPassword/:token', user.resetPassword);
+    router.get('/user/resetPassword/:token', async (req, res) => {
+        const resetToken = crypto.createHash('sha256').update(req.params.token).digest('hex')
+        const user = await User.findOne({passwordResetToken: resetToken}).lean();
+        user.originalSecretToken = req.params.token
+        res.render('user/reset_password', {user, layout: 'post_main.hbs'});
+    })
+    
 
     router.get('/user/logout', (req, res) => {
         req.logout();
