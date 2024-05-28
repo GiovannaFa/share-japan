@@ -70,7 +70,7 @@ ctrl.index = async (req, res) => {
 
 ctrl.create = (req, res) => {
     const savePost = async () => {
-        const imageUrl = randomString();
+        const imageUrl = randomString(n=6);
         const images = await Post.find({filename: imageUrl});
         if (images.length > 0){
             savePost();
