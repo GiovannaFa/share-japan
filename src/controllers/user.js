@@ -24,7 +24,7 @@ ctrl.signup = async (req, res) => {
         errors.push({text: 'Password need to have at least 4 characters'});
     }
     if (errors.length > 0){
-        res.render('user/signup', {errors, name, email, password, confirmPassword});
+        res.render('user/signup', {errors, name, email, password, confirmPassword, layout: 'post_main.hbs'});
     }
     else{
         const emailUser = await User.findOne({email:email});
@@ -44,8 +44,8 @@ ctrl.signup = async (req, res) => {
             const link = `http://localhost:3005/user/verify/${token}`;
             await newUser.save();
             await verifyEmail(email, link);
-            req.flash('success_msg', 'An e-mail has been sent, verify your address before login!');
-            return res.redirect('/user/login');
+            req.flash('success_msg', 'An e-mail has been sent to ' + newUser.email + '. Verify your address before login!');
+            res.redirect('/user/login');
         };
     }
 };
@@ -54,10 +54,18 @@ ctrl.signup = async (req, res) => {
 ctrl.verify = async(req, res) => {
     try{
         const token = req.params.token
-        console.log("token: " + token);
+        const user = await User.findOne({secretToken: token});
         await User.updateOne({secretToken: token}, {$set: {active: true}});
         await User.updateOne({secretToken: token}, {$unset: {secretToken: 1}});
-        return res.redirect('/user/login');
+
+        // Login after confirmation
+        req.logIn(user, function(err) {
+            if (err) {
+                return next(err);
+            }
+            req.flash('success_msg', 'Welcome to Share Japan!');
+            return res.redirect('/');
+        });
     }
     catch(error){
         return res.redirect('/user/signup');
@@ -66,29 +74,33 @@ ctrl.verify = async(req, res) => {
 
 
 ctrl.forgotPassword = async (req, res, next) => {
+    const errors = [];
     const user = await User.findOne({email: req.body.email});  // Get the user
     if (!user){
-        //req.flash('error_msg', 'No user with the specified email account.');
-        console.log('No user with the specified email account.');
+        errors.push({text: 'No user with the specified email account.'});
     }
+    if (errors.length > 0){
+        res.render('user/forgot_password', {errors, layout: 'post_main.hbs'});
+    }
+    else{
+        // Generate a random token
+        const resetToken = user.createResetPasswordToken();
+        await user.save({validateBeforeSave: false});
 
-    // Generate a random token
-    const resetToken = user.createResetPasswordToken();
-    await user.save({validateBeforeSave: false});
+        // Send token to the user e-mail
+        const resetUrl = `http://localhost:3005/user/resetPassword/${resetToken}`;
+        try{
+            await sendEmail(user.email, resetUrl);
+            req.flash('success_msg', 'An e-mail has been sent to your account ' + user.email + ' for password reset.');
+            res.redirect("/user/forgot_password")
 
-    // Send token to the user e-mail
-    const resetUrl = `http://localhost:3005/user/resetPassword/${resetToken}`;
-    try{
-        await sendEmail(user.email, resetUrl);
-        req.flash('success_msg', 'An e-mail has been sent to your account!');
-        return res.redirect("/user/forgot_password")
-
-    } catch(error){
-        user.passwordResetToken = undefined;
-        user.passwordResetTokenExpire = undefined;
-        user.save({validateBeforeSave: false});
-        req.flash('error_msg', 'Error sending password reset e-mail. Please, try again later.');
-        return next();
+        } catch(error){
+            user.passwordResetToken = undefined;
+            user.passwordResetTokenExpire = undefined;
+            user.save({validateBeforeSave: false});
+            req.flash('error_msg', 'Error sending password reset e-mail. Please, try again later.');
+            return next();
+        }
     }
 }
 
@@ -100,12 +112,14 @@ ctrl.resetPassword = async (req, res, next) => {
     const user = await User.findOne({passwordResetToken: resetToken, passwordResetTokenExpire: {$gt: Date.now()}});
 
     if (!user){
-        //req.flash('error_msg', 'Token is invalid or has expired.');
-        console.log('Token is invalid or has expired.');
+        errors.push({text: 'Link is not valid or has expired'});
     }
     // 2. Reset password
     if (req.body.password != req.body.confirmPassword){
         errors.push({text: 'Password does not match!'});
+    }
+    if (errors.length > 0){
+        res.render('user/reset_password', {errors, layout: 'post_main.hbs'});
     }
     else{
         user.password = await user.encryptPassword(req.body.password);
@@ -145,7 +159,7 @@ ctrl.login = function(req, res, next) {
             });
         } else {
             req.flash('error_msg', 'Verify your e-mail before logging in.')
-            return res.redirect('/user/login');
+            res.redirect('/user/login');
         }
     })(req, res, next);
 };

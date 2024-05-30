@@ -45,6 +45,7 @@ helpers.sendEmail = async  (req, res) => {
     let emailOptions = await transporter.sendMail({
         from: process.env.USER,
         to: req,
+        subject: "Share Japan Password Change",
         text: "Password Change",
         html: `
             <div>
