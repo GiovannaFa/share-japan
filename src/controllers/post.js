@@ -3,7 +3,7 @@ const {randomString} = require("../helpers/libs");
 const fs = require('fs-extra')
 const { Post } = require('../models');
 const sidebar = require('../helpers/sidebar');
-const { runInNewContext } = require('vm');
+//const { runInNewContext } = require('vm');
 var ObjectId = require('mongoose').Types.ObjectId;
 //controlador: objeto con funciones
 const ctrl = {};
