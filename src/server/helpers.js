@@ -10,4 +10,11 @@ helpers.UpperCase = value => {
     return value.toUpperCase();
 };
 
+helpers.ifLengthGreaterThan = function(value, length, options) {
+    if (value.length > length) {
+        return options.fn(this);
+    }
+    return options.inverse(this);
+};
+
 module.exports = helpers;

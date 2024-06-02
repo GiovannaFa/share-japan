@@ -142,28 +142,35 @@ ctrl.resetPassword = async (req, res, next) => {
 
 
 ctrl.login = function(req, res, next) {
+    const errors = [];
     passport.authenticate('local', function(err, user, info) {
         if (err) {
             return next(err);
         }
-        if (!user) { 
-            return res.redirect('/user/signup');
+        if (!user) {
+            errors.push({text: 'Incorrect e-mail or password.'});
         }
+        if (user.active === false){
+            errors.push({text: 'Verify your e-mail before logging in.'});
+        }
+        if (errors.length > 0){
+            return res.render('user/login', {errors, layout: 'post_main.hbs'});
+        } 
         if (user.active === true) {
             // Authenticate the user and maintain session
             req.logIn(user, function(err) {
                 if (err) {
                     return next(err);
                 }
-                return res.redirect('/posts');
+                req.flash('success_msg', 'Welcome back!');
+                return res.redirect('/');
             });
-        } else {
-            req.flash('error_msg', 'Verify your e-mail before logging in.')
+        }
+        else {
             res.redirect('/user/login');
         }
     })(req, res, next);
 };
-
 
 
 ctrl.index = async (req, res) => {

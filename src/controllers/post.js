@@ -48,11 +48,14 @@ ctrl.index = async (req, res) => {
             const author = writer[0].usuario[0];
 
             const post = await Post.findOneAndUpdate({_id: req.params.post_id}, { $inc: { views: 1 }}).lean();
-            for (let x in post.likes){
-                if (post.likes[x] == req.user.id)
-                    is_user = true;
-                else{
-                    is_user = false;
+            is_user = false;
+            if (post.likes.length >= 1) {
+                for (let x in post.likes){
+                    if (post.likes[x] == req.user.id)
+                        is_user = true;
+                    else{
+                        is_user = false;
+                    }
                 }
             }
             let viewModel = { post: [] };

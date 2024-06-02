@@ -6,6 +6,7 @@
 </head>
 <body>
     {{>navigation}}
+    {{#if popular}}
     <div class="container p-4">
         <div class="row">
             <div class="col-md-8">
@@ -19,6 +20,18 @@
             </div>
         </div>
     </div>
+    {{else}}
+    <main class="container p-4">
+        <div class="row">
+            <div class="col-md-12">
+                {{> messages}}
+                {{> errors}}
+
+                {{{ body }}}
+            </div>
+        </div>
+    </main>
+    {{/if}}
 
     {{>footer}}
     <!--SCRIPT-->
