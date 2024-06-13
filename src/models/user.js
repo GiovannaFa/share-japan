@@ -15,6 +15,7 @@ const userSchema = new Schema({
     passwordResetToken: {type: String},
     passwordResetTokenExpire: {type: Date},
     timestamp: { type: Date, default: Date.now },
+    deletedAt: { type: Date},
     active: { type: Boolean, default: false },
 });
 

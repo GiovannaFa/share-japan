@@ -1,6 +1,12 @@
 <footer class="page-footer bg-dark font-small blue fixed-bottom">
   <!-- Copyright -->
   <div class="footer-copyright text-center py-3 text-light">© 2021 Copyright: Share Japan</div>
+  
+  {{#if user}}
+    <a href="/user/{{ loggedUser._id }}?_method=DELETE" data-method="delete">
+      <i class="fa fa-trash-o" aria-hidden="true"></i> Delete my account
+    </a>
+  {{/if}}
 </footer>
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
   integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>

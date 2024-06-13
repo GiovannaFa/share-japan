@@ -56,6 +56,15 @@ module.exports = app => {
         res.locals.error_msg= req.flash("error_msg");
         res.locals.error= req.flash("error");
         res.locals.user= req.user || null;
+        if (req.user) {
+            // If req.user exists, transform it to JSON and assign it to another variable
+            const loggedUser = req.user.toJSON();
+            // Assign userJson to res.locals
+            res.locals.loggedUser = loggedUser;
+        } else {
+            // If req.user is null, assign null to res.locals
+            res.locals.userJson = null;
+        }
         next();
     });
 
