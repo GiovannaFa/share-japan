@@ -132,10 +132,10 @@ ctrl.like = async (req, res) => {
 ctrl.remove = async (req, res) => {
     try{
         const post = await Post.findOneAndRemove({_id: req.params.post_id}).lean();
-        await fs.unlink(path.resolve('./src/public/upload/' + post.filename));//remove the image from upload folder
+        await fs.unlink(path.resolve('./src/public/upload/' + post.filename)); //remove the image from upload folder
         res.redirect("/user/profile");
     } catch (error) {
-        res.status(500).json({error: "Error occurred"});
+        res.render('error404', { layout: 'post_main.hbs'});
     }
 };
 
@@ -147,7 +147,7 @@ ctrl.modify = async (req, res) => {
         req.flash('success_msg', 'Post Updated Correctly!');
         res.redirect('/posts/'+post._id);
     } catch (error) {
-        res.status(500).json({error: "Error occurred"});
+        res.render('error404', { layout: 'post_main.hbs'});
     }
 };
 

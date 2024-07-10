@@ -66,12 +66,13 @@ module.exports = app => {
         res.render('user/reset_password', {user, layout: 'post_main.hbs'});
     })
     
-
     router.get('/user/logout', (req, res) => {
         req.logout();
         req.flash('success_msg', 'Logged out!');
         res.redirect('/');
     });
+
+    router.delete('/user/:user_id', user.remove);
 
     router.get('/user/profile', user.index);
     router.get('/user/profile/:user_id', user.find_user);

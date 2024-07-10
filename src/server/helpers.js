@@ -17,4 +17,8 @@ helpers.ifLengthGreaterThan = function(value, length, options) {
     return options.inverse(this);
 };
 
+helpers.toJson = function(object) {
+    return JSON.stringify(object);
+  };
+
 module.exports = helpers;
