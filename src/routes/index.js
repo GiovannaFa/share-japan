@@ -66,7 +66,8 @@ module.exports = app => {
         res.render('user/reset_password', {user, layout: 'post_main.hbs'});
     })
     
-
+    router.get('/user/settings', user.settings);
+    router.put('/user/settings/:user_id', user.modify);
     router.get('/user/logout', (req, res) => {
         req.logout();
         req.flash('success_msg', 'Logged out!');
