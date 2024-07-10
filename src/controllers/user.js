@@ -184,6 +184,23 @@ ctrl.index = async (req, res) => {
     res.render('user/my_profile', viewModel);
     };
 
+ctrl.settings = async (req, res) => {
+    const user  = await User.find({user: req.user._id}).lean() ;
+    res.render('user/settings', user);
+    };
+
+ctrl.modify = async (req, res) => {
+    try{
+        const {name} =  req.body;
+
+        const user = await User.findByIdAndUpdate(req.params.user_id, {name});
+        req.flash('success_msg', 'Profile Updated Correctly!');
+        res.redirect('/user/settings/');
+    } catch (error) {
+        res.render('error404', { layout: 'post_main.hbs'});
+    }
+};
+
 ctrl.find_user = async (req, res) => {
     //return posts from this author
     const writer = await User.findById({_id: req.params.user_id});
