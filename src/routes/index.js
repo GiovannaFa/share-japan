@@ -74,6 +74,8 @@ module.exports = app => {
         res.redirect('/');
     });
 
+    router.delete('/user/:user_id', user.remove);
+
     router.get('/user/profile', user.index);
     router.get('/user/profile/:user_id', user.find_user);
 

@@ -153,6 +153,9 @@ ctrl.login = function(req, res, next) {
         if (user.active === false){
             errors.push({text: 'Verify your e-mail before logging in.'});
         }
+        if (user.passwordResetToken && user.passwordResetToken != undefined){
+            errors.push({text: 'Verify your e-mail. You requested a password change.'});
+        }
         if (errors.length > 0){
             return res.render('user/login', {errors, layout: 'post_main.hbs'});
         } 
@@ -219,5 +222,30 @@ ctrl.find_user = async (req, res) => {
         res.render('user/profile', viewModel);
     }
     };
+
+
+ctrl.remove = async (req, res) => {
+    console.log("req.params.user_id")
+    console.log(req.params.user_id)
+    // try{
+    const user = await User.findById({_id: req.params.user_id});
+    console.log("The user is:")
+    console.log(user)
+    // keeping only _id and name
+    user.name = "Unknown";
+    user.active = false;
+    user.email = undefined;
+    user.password = undefined;
+    user.deletedAt = Date.now();
+    user.save({validateBeforeSave: false});
+    if (req.isAuthenticated()) { // TODO: this seems not to work
+        req.logout();
+    }
+    req.flash('success_msg', 'Account deleted!')
+    res.redirect("/");
+    // } catch (error) {
+    //     res.render('error404', { layout: 'post_main.hbs'});
+    // }
+};
 
 module.exports = ctrl;

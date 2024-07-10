@@ -20,7 +20,7 @@ passport.use(new LocalStrategy({
 }));
 
 passport.serializeUser((user, done) => {
-    done(null,user.id); //par guardar los datos de usuario durante toda la nevigación
+    done(null,user.id); //par guardar los datos de usuario durante toda la navigación
 });
 
 passport.deserializeUser((id, done) => {
