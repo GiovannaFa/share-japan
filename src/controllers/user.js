@@ -210,7 +210,11 @@ ctrl.find_user = async (req, res) => {
     viewModel.posts = posts;
     viewModel.author = author;
     viewModel = await sidebar(viewModel);
-    if (req.user != null){
+
+    if(author == "Unknown"){
+        res.render('user/unknown_profile');
+    }
+    else if (req.user != null){
         if (req.user.id == writer._id){
             res.render('user/my_profile', viewModel);
         }
@@ -219,7 +223,7 @@ ctrl.find_user = async (req, res) => {
             }
     }
     else{
-        res.render('user/profile', viewModel);
+        res.render('user/profile', viewModel);  // We still want to show the post even if logout
     }
     };
 
