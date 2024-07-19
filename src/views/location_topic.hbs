@@ -1,0 +1,34 @@
+<div>
+    <div class="card-header bg-light text-black">
+        <i class="fa fa-newspaper-o" aria-hidden="true"></i> Posts in {{ city }} about {{ topic }}
+        {{!-- <p><a href="/form">Leave a post!</a></p> --}}
+    </div>
+    <div id="main">
+        <div class="card-body">
+            {{#each posts}}
+            <div class="row">
+                <div class="col-md-10">
+                    <div class="card-header text-left">
+                        <i class="black"><i class="fa fa-clock-o" aria-hidden="true"></i> {{timeago timestamp}}</i><br>
+                        @<a href="/city/{{where}}"><i> {{where}}</i></a>
+                        about <a href="/topic/{{about}}"><i>{{about}}</i></a>
+                        published by <a href="/user/profile/{{ user }}"><i> {{ author }}</i></a>
+                    </div>
+                    <a id="link" href="/posts/{{ _id  }}">
+                        <div class="card-body col-md-10 text-center">
+                            <h1>{{title}}</h1>
+                            <img src="/public/upload/{{filename}}" alt="{{title}}" class="img-fluid" width="100"
+                                height="100">
+                            <p>
+                                {{likes.length}} <i class="fa fa-heart-o" aria-hidden="true"></i>
+                                {{views}} <i class="fa fa-eye" aria-hidden="true"></i>
+                            </p>
+                        </div>
+                        <br>
+                    </a>
+                </div>
+            </div>
+            {{/each}}
+        </div>
+    </div>
+</div>
