@@ -114,4 +114,33 @@ ctrl.find_where = async (req, res) => {
         res.render('topic', viewModel);
 }
 
+ctrl.find_where_about = async (req, res) => {
+    const city = req.params.city;
+    const topic = req.params.topic;
+    const posts = await Post.find({where: req.params.city, about: req.params.topic}).sort({timestamp: -1}).lean();
+
+    var posts_and_more = [];
+        for (let i in posts){
+            const writer = await Post.aggregate([{
+                $match:{_id: posts[i]._id}},
+                {
+                $lookup: {
+                    from: "users",
+                    localField: "user",
+                    foreignField: "_id",
+                    as: "usuario"}
+                }
+                ]);
+            const author = writer[0].usuario[0];
+            posts[i].author = author.name;
+            posts_and_more.push(posts[i])
+            };
+        let viewModel = { posts_and_more: [] };
+        viewModel.city = city;
+        viewModel.topic = topic;
+        viewModel.posts = posts_and_more;
+        viewModel = await sidebar(viewModel);
+        res.render('location_topic', viewModel);
+}
+
 module.exports = ctrl;

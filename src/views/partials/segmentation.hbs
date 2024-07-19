@@ -1,19 +1,32 @@
 
-{{#each about_posts}}
-<div class="card">
+{{#ifLengthDictGreaterThan about_posts 0}}
+    {{#each about_posts}}
+        {{#each this}}
+        <p>
+            <a href="/select/{{ @../key }}/{{ @key }}">{{ this }} post{{#gt this 1}}s{{/gt}} about {{ @key }}</a>
+        </p>
+        {{/each}}
+    {{/each}}
+{{else}}
+    <p>
+        No posts have been published yet for this city.
+    </p>
+{{/ifLengthDictGreaterThan}}
 
-        <button class="btn btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
-            aria-haspopup="true" aria-expanded="false">
-            {{this.length}} about {{@key}}
-        </button>
+
+{{!-- <div class="card">
+
+            <button class="btn btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                {{this.length}} about {{@key}}
+            </button>
 
 
-        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            {{#each this}}
-            <a class="dropdown-item" href="/posts/{{ _id }}">{{title}}</a>
-            {{/each}}
-        </div>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                {{#each this}}
+                <a class="dropdown-item" href="/posts/{{ _id }}">{{title}}</a>
+                {{/each}}
+            </div>
 
 
-</div>
-{{/each}}
+    </div> --}}

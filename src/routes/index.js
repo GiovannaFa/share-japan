@@ -13,11 +13,14 @@ const sidebar = require('../helpers/sidebar');
 const crypto = require('crypto');
 
 module.exports = app => {
-    router.get('/', landing.find_count);
+    router.get('/', (req, res) => {
+        res.render('index', { layout: 'landing_page.hbs'});
+    });
     router.get('/select/:city', landing.find_count);
     router.get('/posts', posts_list.index);
     router.get('/city/:city', posts_list.find_where);
     router.get('/topic/:about', posts_list.find_about);
+    router.get('/select/:city/:topic', posts_list.find_where_about);
     router.get('/posts/:post_id', post.index);
     router.post('/posts', post.create);
     router.post('/posts/:post_id/like', post.like);
