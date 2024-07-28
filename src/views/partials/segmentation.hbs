@@ -8,9 +8,15 @@
         {{/each}}
     {{/each}}
 {{else}}
+    {{#if is_user}}
     <p>
-        No posts have been published yet for this city.
+        No posts have been published yet for this city. <br> Be the first, click <a href="/form">here</a>
     </p>
+    {{else}}
+    <p>
+        No posts have been published yet for this city. <br> Be the first, click <a href="/user/login">here</a>
+    </p>
+    {{/if}}
 {{/ifLengthDictGreaterThan}}
 
 

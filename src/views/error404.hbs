@@ -1,6 +1,12 @@
 <h1>
     Sorry, this post doesn't exist... yet!
 </h1>
-<h3>
-    Create one yourself!
-</h3>
+{{#if is_user}}
+    <h3>
+        Create one yourself <a href="/form">here</a>!
+    </h3>
+{{else}}
+    <h3>
+        Create one yourself <a href="/user/login">here</a>!
+    </h3>
+{{/if}}

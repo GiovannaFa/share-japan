@@ -11,9 +11,19 @@
             <div class="text-center">
                 <p>{{post.description}}</p>
             </div>
-            <div class="text-center">
-                <img src="../public/upload/{{post.filename}}" width="200" height="200" class="img-fluid">
-            </div>
+            {{#if post.filename}}
+                {{#ifExtensionEquals post.filename "mp4"}}
+                    <div class="text-center">
+                        <video width="200px" height="200px" controls="controls">
+                            <source src="../public/upload/{{post.filename}}" type="video/mp4" />
+                        </video>
+                    </div>
+                {{else}}
+                    <div class="text-center">
+                        <img src="../public/upload/{{post.filename}}" width="200" height="200" class="img-fluid">
+                    </div>
+                {{/ifExtensionEquals}}
+            {{/if}}
         </div>
         <div class="d-flex justify-content-between align-items-center">
             {{#if user}}

@@ -24,8 +24,19 @@
                 <a id="link" href="/posts/{{ _id  }}">
                     <div class="card-body col-md-10 text-center">
                         <h1>{{title}}</h1>
-                        <img src="/public/upload/{{filename}}" alt="{{title}}" class="img-fluid" width="100"
-                            height="100">
+                        {{#if filename}}
+                            {{#ifExtensionEquals filename "mp4"}}
+                                <video width="200px" height="200px" controls="controls">
+                                    <source src="../public/upload/{{filename}}" type="video/mp4" />
+                                </video>
+                            {{else}}
+                                <img src="/public/upload/{{filename}}" alt="{{title}}" class="img-fluid" width="100"
+                                    height="100">
+                            {{/ifExtensionEquals}}
+                        {{else}}
+                        <img src="/public/img/share-japan_logo.png" alt="{{title}}" class="img-fluid" width="40"
+                            height="40">
+                        {{/if}}
                         <p>
                             {{#if is_user}}
                             {{likes.length}} <i class="fa fa-heart" aria-hidden="true"></i>

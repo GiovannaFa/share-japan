@@ -3,6 +3,7 @@ const {randomString} = require("../helpers/libs");
 const fs = require('fs-extra')
 const { Post } = require('../models');
 const sidebar = require('../helpers/sidebar');
+const { exec } = require('child_process');
 //const { runInNewContext } = require('vm');
 var ObjectId = require('mongoose').Types.ObjectId;
 //controlador: objeto con funciones
@@ -79,26 +80,39 @@ ctrl.create = (req, res) => {
             savePost();
         }
         else {
-            const imageTempPath = req.file.path;
-            const ext = path.extname(req.file.originalname).toLowerCase();
-            const targetPath = path.resolve(`src/public/upload/${imageUrl}${ext}`)
+            try{
+                const imageTempPath = req.file.path;
+                const ext = path.extname(req.file.originalname).toLowerCase();
+                const targetPath = path.resolve(`src/public/upload/${imageUrl}${ext}`)
 
-            if (ext === '.png' || ext === '.jpg' || ext === '.jpeg' || ext === '.gif'){
-                await fs.rename(imageTempPath, targetPath);
+                if (ext === '.png' || ext === '.jpg' || ext === '.jpeg' || ext === '.gif' || ext === '.mp4'){
+                    await fs.rename(imageTempPath, targetPath);
+                    const newPost = new Post({
+                        where: req.body.where,
+                        about: req.body.about,
+                        title: req.body.title,
+                        description: req.body.description,
+                        filename: imageUrl + ext,
+                    });
+                    newPost.user = req.user.id;
+                    await newPost.save();
+                    res.redirect('/posts/'+ newPost._id);
+                }
+                else {
+                    await fs.unlink(imageTempPath);
+                    res.status(500).json({error: 'Sorry, only images can be uploaded'})
+                }
+            }
+            catch {
                 const newPost = new Post({
                     where: req.body.where,
                     about: req.body.about,
                     title: req.body.title,
                     description: req.body.description,
-                    filename: imageUrl + ext,
                 });
                 newPost.user = req.user.id;
                 await newPost.save();
                 res.redirect('/posts/'+ newPost._id);
-            }
-            else {
-                await fs.unlink(imageTempPath);
-                res.status(500).json({error: 'Sorry, only images can be uploaded'})
             }
         }
     };
