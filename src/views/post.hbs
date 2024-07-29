@@ -15,14 +15,18 @@
                 {{#ifExtensionEquals post.filename "mp4"}}
                     <div class="text-center">
                         <video width="200px" height="200px" controls="controls">
-                            <source src="../public/upload/{{post.filename}}" type="video/mp4" />
+                            <source src="../public/upload/{{post._id}}/{{post.filename}}" type="video/mp4" />
                         </video>
                     </div>
                 {{else}}
                     <div class="text-center">
-                        <img src="../public/upload/{{post.filename}}" width="200" height="200" class="img-fluid">
+                        <img src="../public/upload/{{post._id}}/{{post.filename}}" width="200" height="200" class="img-fluid">
                     </div>
                 {{/ifExtensionEquals}}
+            {{else}}
+            <div class="text-center">
+                <img src="/public/img/share-japan_logo.png" width="80" height="80" class="img-fluid">
+            </div>
             {{/if}}
         </div>
         <div class="d-flex justify-content-between align-items-center">
