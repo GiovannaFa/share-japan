@@ -24,7 +24,7 @@ ctrl.signup = async (req, res) => {
         errors.push({text: 'Password need to have at least 4 characters'});
     }
     if (errors.length > 0){
-        res.render('user/signup', {errors, name, email, password, confirmPassword, layout: 'post_main.hbs'});
+        res.render('user/signup', {errors, name, email, password, confirmPassword, layout: 'pages.hbs'});
     }
     else{
         const emailUser = await User.findOne({email:email});
@@ -80,7 +80,7 @@ ctrl.forgotPassword = async (req, res, next) => {
         errors.push({text: 'No user with the specified email account.'});
     }
     if (errors.length > 0){
-        res.render('user/forgot_password', {errors, layout: 'post_main.hbs'});
+        res.render('user/forgot_password', {errors, layout: 'pages.hbs'});
     }
     else{
         // Generate a random token
@@ -119,7 +119,7 @@ ctrl.resetPassword = async (req, res, next) => {
         errors.push({text: 'Password does not match!'});
     }
     if (errors.length > 0){
-        res.render('user/reset_password', {errors, layout: 'post_main.hbs'});
+        res.render('user/reset_password', {errors, layout: 'pages.hbs'});
     }
     else{
         user.password = await user.encryptPassword(req.body.password);
@@ -157,7 +157,7 @@ ctrl.login = function(req, res, next) {
             errors.push({text: 'Verify your e-mail. You requested a password change.'});
         }
         if (errors.length > 0){
-            return res.render('user/login', {errors, layout: 'post_main.hbs'});
+            return res.render('user/login', {errors, layout: 'pages.hbs'});
         } 
         if (user.active === true) {
             // Authenticate the user and maintain session
@@ -197,7 +197,7 @@ ctrl.modify = async (req, res) => {
         req.flash('success_msg', 'Profile Updated Correctly!');
         res.redirect('/user/settings/');
     } catch (error) {
-        res.render('error404', { layout: 'post_main.hbs'});
+        res.render('error404', { layout: 'pages.hbs'});
     }
 };
 
@@ -248,7 +248,7 @@ ctrl.remove = async (req, res) => {
     req.flash('success_msg', 'Account deleted!')
     res.redirect("/");
     // } catch (error) {
-    //     res.render('error404', { layout: 'post_main.hbs'});
+    //     res.render('error404', { layout: 'pages.hbs'});
     // }
 };
 

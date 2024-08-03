@@ -12,48 +12,71 @@
 <div id="main">
     <div class="card-body">
         {{#if posts}}
-        {{#each posts}}
-        <div class="row">
-            <div class="col-md-10">
-                <div class="card-header text-left">
-                    <i class="black"><i class="fa fa-clock-o" aria-hidden="true"></i> {{timeago timestamp}}</i><br>
-                    @<a href="/city/{{where}}"><i> {{where}}</i></a>
-                    about<a href="/topic/{{about}}"><i> {{about}}</i></a>
-                    published by <a href="/user/profile/{{ user }}"><i> {{ author }}</i></a>
-                </div>
-                <a id="link" href="/posts/{{ _id  }}">
-                    <div class="card-body col-md-10 text-center">
-                        <h1>{{title}}</h1>
-                        {{#if filename}}
-                            {{#ifExtensionEquals filename "mp4"}}
-                                <video width="200px" height="200px" controls="controls">
-                                    <source src="../public/upload/{{filename}}" type="video/mp4" />
-                                </video>
-                            {{else}}
-                                <img src="/public/upload/{{filename}}" alt="{{title}}" class="img-fluid" width="100"
-                                    height="100">
-                            {{/ifExtensionEquals}}
-                        {{else}}
-                        <img src="/public/img/share-japan_logo.png" alt="{{title}}" class="img-fluid" width="40"
-                            height="40">
-                        {{/if}}
-                        <p>
-                            {{#if is_user}}
-                            {{likes.length}} <i class="fa fa-heart" aria-hidden="true"></i>
-                            {{else}}
-                            {{likes.length}} <i class="fa fa-heart-o" aria-hidden="true"></i>
-                            {{/if}}
+            {{#each posts}}
+                <div class="row">
+                    <div class="col-md-10">
+                        <div class="card-header text-left">
+                            <i class="black"><i class="fa fa-clock-o" aria-hidden="true"></i> {{timeago timestamp}}</i><br>
+                            @<a href="/city/{{where}}"><i> {{where}}</i></a>
+                            about<a href="/topic/{{about}}"><i> {{about}}</i></a>
+                            published by <a href="/user/profile/{{ user }}"><i> {{ author }}</i></a>
+                        </div>
+                        <a id="link" href="/posts/{{ _id  }}">
+                            <div class="card-body col-md-10 text-center">
+                                <h1>{{title}}</h1>
+                                {{#if filenames}}
+                                    <div id="carousel-{{@index}}" class="carousel slide">
+                                        <ol class="carousel-indicators">
+                                            {{#each filenames}}
+                                                {{#if @first}}
+                                                    <li data-target="#carousel-{{@../index}}" data-slide-to="{{@index}}" class="active"></li>
+                                                {{else}}
+                                                    <li data-target="#carousel-{{@../index}}" data-slide-to="{{@index}}"></li>
+                                                {{/if}}
+                                            {{/each}}
+                                        </ol>
+                                        <div class="carousel-inner">
+                                            {{#each filenames}}
+                                                <div class="carousel-item {{#if @first}}active{{/if}}">
+                                                    {{#ifExtensionEquals this "mp4"}}
+                                                        <video width="100%" controls>
+                                                            <source src="/public/upload/{{ ../_id }}/{{this}}" type="video/mp4">
+                                                        </video>
+                                                    {{else}}
+                                                        <img src="/public/upload/{{ ../_id }}/{{this}}" alt="{{../title}}" class="d-block w-100">
+                                                    {{/ifExtensionEquals}}
+                                                </div>
+                                            {{/each}}
+                                        </div>
+                                        <a class="carousel-control-prev" href="#carousel-{{@index}}" role="button" data-slide="prev">
+                                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                            <span class="sr-only">Previous</span>
+                                        </a>
+                                        <a class="carousel-control-next" href="#carousel-{{@index}}" role="button" data-slide="next">
+                                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                            <span class="sr-only">Next</span>
+                                        </a>
+                                    </div>
+                                {{else}}
+                                    <img src="/public/img/share-japan_logo.png" alt="{{title}}" class="img-fluid" width="40" height="40">
+                                {{/if}}
+                                <p>
+                                    {{#if is_user}}
+                                        {{likes.length}} <i class="fa fa-heart" aria-hidden="true"></i>
+                                    {{else}}
+                                        {{likes.length}} <i class="fa fa-heart-o" aria-hidden="true"></i>
+                                    {{/if}}
 
-                            {{views}} <i class="fa fa-eye" aria-hidden="true"></i>
-                        </p>
+                                    {{views}} <i class="fa fa-eye" aria-hidden="true"></i>
+                                </p>
+                            </div>
+                            <br>
+                        </a>
                     </div>
-                    <br>
-                </a>
-            </div>
-        </div>
-        {{/each}}
+                </div>
+            {{/each}}
         {{else}}
-        <p> No posts found :(</p>
+            <p>No posts found :(</p>
         {{/if}}
     </div>
 </div>

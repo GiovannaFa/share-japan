@@ -31,7 +31,7 @@ ctrl.index = async (req, res) => {
             viewModel = await sidebar(viewModel);
             res.render('post', viewModel);
         } catch (error) {
-            res.render('error404', { layout: 'post_main.hbs'});
+            res.render('error404', { layout: 'pages.hbs'});
         }
     }
     else{
@@ -67,57 +67,67 @@ ctrl.index = async (req, res) => {
             res.render('post', viewModel);
             }
         catch (error) {
-            res.render('error404', { layout: 'post_main.hbs'});
+            res.render('error404', { layout: 'pages.hbs'});
         }
     }
 };
 
-ctrl.create = (req, res) => {
-    const savePost = async () => {
-        const imageUrl = randomString(n=6);
-        const images = await Post.find({filename: imageUrl});
-        if (images.length > 0){
-            savePost();
-        }
-        else {
-            try{
-                const imageTempPath = req.file.path;
-                const ext = path.extname(req.file.originalname).toLowerCase();
-                const targetPath = path.resolve(`src/public/upload/${imageUrl}${ext}`)
 
-                if (ext === '.png' || ext === '.jpg' || ext === '.jpeg' || ext === '.gif' || ext === '.mp4'){
-                    await fs.rename(imageTempPath, targetPath);
-                    const newPost = new Post({
-                        where: req.body.where,
-                        about: req.body.about,
-                        title: req.body.title,
-                        description: req.body.description,
-                        filename: imageUrl + ext,
-                    });
-                    newPost.user = req.user.id;
-                    await newPost.save();
-                    res.redirect('/posts/'+ newPost._id);
+ctrl.create = async (req, res) => {
+
+        const generateUniqueImageUrl = (existingFilenames) => {
+            let newImageUrl;
+            const generate = () => {
+                newImageUrl = randomString(6);
+                if (existingFilenames.includes(newImageUrl)) {
+                    return generate(); // Recursively generate a new string if there’s a duplicate
                 }
-                else {
-                    await fs.unlink(imageTempPath);
-                    res.status(500).json({error: 'Sorry, only images can be uploaded'})
+                return newImageUrl;
+            };
+            return generate();
+        };
+
+        const user_id = req.user._id;
+        const custom_dir = path.resolve(`src/public/upload/${user_id}`);
+        if (!fs.existsSync(custom_dir)) {
+            fs.mkdirSync(custom_dir);
+        }
+        try {
+            const filenames = [];
+            for (const file of req.files) {
+                const imageTempPath = file.path;
+                const ext = path.extname(file.originalname).toLowerCase();
+                const imageUrl = generateUniqueImageUrl(filenames);
+                const targetPath = path.resolve(`src/public/upload/${user_id}/${imageUrl}${ext}`);
+
+                if (['.png', '.jpg', '.jpeg', '.gif', '.mp4'].includes(ext)) {
+                    await fs.promises.rename(imageTempPath, targetPath);
+                    filenames.push(imageUrl + ext);
+                } else {
+                    await fs.promises.unlink(imageTempPath);
+                    return res.status(500).json({ error: 'Only images and videos are allowed' });
                 }
             }
-            catch {
-                const newPost = new Post({
-                    where: req.body.where,
-                    about: req.body.about,
-                    title: req.body.title,
-                    description: req.body.description,
-                });
-                newPost.user = req.user.id;
-                await newPost.save();
-                res.redirect('/posts/'+ newPost._id);
-            }
+            console.log(`filenames is: ${filenames}`)
+            const newPost = new Post({
+                where: req.body.where,
+                about: req.body.about,
+                title: req.body.title,
+                description: req.body.description,
+                filenames: filenames,
+            });
+            newPost.user = req.user.id;
+            await newPost.save();
+            await fs.rename(custom_dir, `src/public/upload/${newPost._id}`);
+            res.redirect('/posts/' + newPost._id);
+        }
+        catch (error) {
+            // Error handling, e.g., logging
+            console.error('Error uploading post', error);
+            res.render('error404', { layout: 'pages.hbs' });
         }
     };
-    savePost();
-};
+
 
 ctrl.like = async (req, res) => {
     const post = await Post.findById({_id: req.params.post_id});
@@ -146,10 +156,10 @@ ctrl.like = async (req, res) => {
 ctrl.remove = async (req, res) => {
     try{
         const post = await Post.findOneAndRemove({_id: req.params.post_id}).lean();
-        await fs.unlink(path.resolve('./src/public/upload/' + post.filename)); //remove the image from upload folder
+        await fs.unlink(path.resolve(`./src/public/upload/${post._id}` + post.filename)); //remove the image from upload folder
         res.redirect("/user/profile");
     } catch (error) {
-        res.render('error404', { layout: 'post_main.hbs'});
+        res.render('error404', { layout: 'pages.hbs'});
     }
 };
 
@@ -161,7 +171,7 @@ ctrl.modify = async (req, res) => {
         req.flash('success_msg', 'Post Updated Correctly!');
         res.redirect('/posts/'+post._id);
     } catch (error) {
-        res.render('error404', { layout: 'post_main.hbs'});
+        res.render('error404', { layout: 'pages.hbs'});
     }
 };
 

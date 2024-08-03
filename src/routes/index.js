@@ -14,7 +14,7 @@ const crypto = require('crypto');
 
 module.exports = app => {
     router.get('/', (req, res) => {
-        res.render('index', { layout: 'landing_page.hbs'});
+        res.render('index', { layout: 'landing.hbs'});
     });
     router.get('/select/:city', landing.find_count);
     router.get('/posts', posts_list.index);
@@ -41,24 +41,24 @@ module.exports = app => {
         res.render('form', viewModel);
     });
     router.get('/about', (req, res) => {
-        res.render('about', { layout: 'post_main.hbs'});
+        res.render('about', { layout: 'pages.hbs'});
     });
 
     router.get('/user/signup', (req,res) => {
-        res.render('user/signup', { layout: 'post_main.hbs'});
+        res.render('user/signup', { layout: 'pages.hbs'});
     });
     router.post('/user/signup', user.signup);
     
     router.get('/user/verify/:token', user.verify);
 
     router.get('/user/login', (req,res) => {
-        res.render('user/login', { layout: 'post_main.hbs'});
+        res.render('user/login', { layout: 'pages.hbs'});
     });
     router.post('/user/login', user.login);
     
     router.post('/user/forgotPassword', user.forgotPassword);
     router.get('/user/forgot_password', (req, res) => {
-        res.render('user/forgot_password', { layout: 'post_main.hbs'});
+        res.render('user/forgot_password', { layout: 'pages.hbs'});
     });
 
     router.patch('/user/resetPassword/:token', user.resetPassword);
@@ -66,7 +66,7 @@ module.exports = app => {
         const resetToken = crypto.createHash('sha256').update(req.params.token).digest('hex')
         const user = await User.findOne({passwordResetToken: resetToken}).lean();
         user.originalSecretToken = req.params.token
-        res.render('user/reset_password', {user, layout: 'post_main.hbs'});
+        res.render('user/reset_password', {user, layout: 'pages.hbs'});
     })
     
     router.get('/user/settings', user.settings);
