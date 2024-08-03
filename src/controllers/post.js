@@ -64,10 +64,10 @@ ctrl.index = async (req, res) => {
             viewModel.author = author;
             viewModel.is_user = is_user;
             viewModel = await sidebar(viewModel);
-            res.render('post', viewModel);
+            res.render('edit-form', viewModel);
             }
         catch (error) {
-            res.render('error404', { layout: 'pages.hbs'});
+            res.render('error404', { layout: 'pages.hbs' });
         }
     }
 };
