@@ -35,4 +35,17 @@ helpers.toJson = function(object) {
     return JSON.stringify(object);
   };
 
+helpers.ifExtensionEquals = function(filename, expectedExtension, options) {
+    // Extract the file extension
+    const fileExtension = filename.split('.').pop();
+
+    // Check if the file extension matches the expected value
+    if (fileExtension === expectedExtension) {
+        return options.fn(this);
+    }
+    return options.inverse(this);
+};
+
+
+
 module.exports = helpers;

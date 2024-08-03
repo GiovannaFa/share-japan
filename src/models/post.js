@@ -7,7 +7,11 @@ const postSchema = new Schema({
     about: {type: String },
     title: { type: String },
     description: { type: String },
-    filename: { type: String },
+    filenames: [
+        {
+            type: String
+        }
+    ],
     likes: [{type: mongoose.Schema.ObjectId, ref:"User"}],
     views: { type: Number, default: 0 },
     timestamp: { type: Date, default: Date.now },

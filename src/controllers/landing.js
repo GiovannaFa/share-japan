@@ -31,7 +31,7 @@ ctrl.find_count = async (req, res) => {
             }
         }
         console.log("about_posts:", about_posts);
-        res.render('index', { about_posts, show_counting, layout: 'landing_page.hbs' });
+        res.render('index', { about_posts, show_counting, layout: 'landing.hbs' });
     } catch (err) {
         console.error("Error fetching posts:", err);
         // Handle error

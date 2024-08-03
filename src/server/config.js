@@ -32,7 +32,7 @@ module.exports = app => {
     //middlewares
     app.use(morgan('dev'))
     //cuando se suba una imagen, colócala en una carpeta temp, dentro de upload, dentro de public
-    app.use(multer({dest: path.join(__dirname, '../public/upload/temp')}).single('image'));
+    app.use(multer({dest: path.join(__dirname, '../public/upload/temp')}).array('images'));
     //para recibir datos que vienen de formularios HTML:
     app.use(express.urlencoded({extended: false}))
     app.use(methodOvveride('_method')); //para enviar PUT DELETE...

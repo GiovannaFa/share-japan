@@ -1,4 +1,3 @@
-
 {{#ifLengthDictGreaterThan about_posts 0}}
     {{#each about_posts}}
         {{#each this}}
@@ -8,25 +7,13 @@
         {{/each}}
     {{/each}}
 {{else}}
+    {{#if is_user}}
     <p>
-        No posts have been published yet for this city.
+        No posts have been published yet for this city. <br> Be the first, click <a href="/form">here</a>
     </p>
+    {{else}}
+    <p>
+        No posts have been published yet for this city. <br> Be the first, click <a href="/user/login">here</a>
+    </p>
+    {{/if}}
 {{/ifLengthDictGreaterThan}}
-
-
-{{!-- <div class="card">
-
-            <button class="btn btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
-                aria-haspopup="true" aria-expanded="false">
-                {{this.length}} about {{@key}}
-            </button>
-
-
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                {{#each this}}
-                <a class="dropdown-item" href="/posts/{{ _id }}">{{title}}</a>
-                {{/each}}
-            </div>
-
-
-    </div> --}}
