@@ -7,21 +7,24 @@
 <body>
     {{>navigation}}
     {{#if popular}}
-    <div class="container p-4">
+    <div class="container-fluid p-4">
         <div class="row">
-            <div class="col-md-8">
+            <div class="col-md-10">
                 {{> messages}}
                 {{> errors}}
 
                 {{{ body }}}
+                {{#if pages}}
+                    {{> pagination}}
+                {{/if}}
             </div>
-            <div class="col-md-4">
+            <div class="col-md-2">
                 {{> popular }}
             </div>
         </div>
     </div>
     {{else}}
-    <main class="container p-4">
+    <main class="container-fluid p-4">
         <div class="row">
             <div class="col-md-12">
                 {{> messages}}

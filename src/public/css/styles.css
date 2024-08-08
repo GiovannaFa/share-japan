@@ -60,3 +60,8 @@ i{
     width: 85%;
     /* height: auto; */
 }
+.pagination .page-item.active .page-link {
+    color: black; /* Set text color to black */
+    background-color: lightgray; /* Optional: Adjust background color */
+    border-color: black; /* Optional: Adjust border color if needed */
+}

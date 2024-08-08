@@ -7,7 +7,7 @@
         <div class="card-body">
             {{#each posts}}
             <div class="row">
-                <div class="col-md-10">
+                <div class="col-md-10" style="float:none;margin:auto;">
                     <div class="card-header text-left">
                         <i class="black"><i class="fa fa-clock-o" aria-hidden="true"></i> {{timeago timestamp}}</i><br>
                         @<a href="/city/{{where}}"><i> {{where}}</i></a>
@@ -36,7 +36,7 @@
                                                         <source src="/public/upload/{{ ../_id }}/{{this}}" type="video/mp4">
                                                     </video>
                                                 {{else}}
-                                                    <img src="/public/upload/{{ ../_id }}/{{this}}" alt="{{../title}}" class="d-block w-100">
+                                                    <img src="/public/upload/{{ ../_id }}/{{this}}" alt="{{../title}}" class="id-block w-100">
                                                 {{/ifExtensionEquals}}
                                             </div>
                                         {{/each}}
