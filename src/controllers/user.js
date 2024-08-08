@@ -1,12 +1,11 @@
-const { User }  = require('../models');
-const { Post }  = require('../models');
+const { User, Post }  = require('../models');
 const passport = require('passport');
 const sidebar = require('../helpers/sidebar');
-const {randomString} = require("../helpers/libs");
+const {randomString, getPageRange} = require("../helpers/libs");
 var ObjectId = require('mongoose').Types.ObjectId;
 // const { write } = require('fs-extra');
-const { verifyEmail } = require('../helpers/auth');
-const { sendEmail } = require('../helpers/auth');
+const { verifyEmail, sendEmail } = require('../helpers/auth');
+
 // const helpers = require('../helpers/libs');
 const crypto = require('crypto');
 require('../server/passport');
@@ -192,12 +191,11 @@ ctrl.index = async (req, res) => {
     .sort({timestamp: -1}).lean() ;
     let viewModel = { posts: [] };
     viewModel.posts = user_posts
-    const totalPosts = await Post.find()
+    const totalPosts  = await Post.find({user: req.user._id})
     const pages = Math.ceil(totalPosts.length/pagination)
-    var count = []
-    for (var i = 1; i <= pages; i++) {
-        count.push(i);
-    }
+    
+    count = getPageRange(pages, currentPage)
+
     const hasPreviousSet = startPage > 1;
     const hasNextSet = endPage < totalPages;
     const previousSetStart = Math.max(1, startPage - pagesPerSet);
@@ -240,16 +238,15 @@ ctrl.find_user = async (req, res) => {
     //return posts from this author
     const writer = await User.findById({_id: req.params.user_id});
     const author = writer.name;
-    const posts = await Post.find({user: req.params.user_id})
+    const posts = await Post.find({user: writer})
     .skip((currentPage - 1) * pagination)
     .limit(pagination)
     .sort({timestamp: -1}).lean();
-    const totalPosts = await Post.find()
+    const totalPosts = await Post.find({user: writer})
     const pages = Math.ceil(totalPosts.length/pagination)
-    var count = []
-        for (var i = 1; i <= pages; i++) {
-            count.push(i);
-        }
+    
+    count = getPageRange(pages, currentPage)
+
     const hasPreviousSet = startPage > 1;
     const hasNextSet = endPage < totalPages;
     const previousSetStart = Math.max(1, startPage - pagesPerSet);

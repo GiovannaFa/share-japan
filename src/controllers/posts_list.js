@@ -4,8 +4,7 @@ const ctrl = {};
 const { Post } = require('../models');
 const sidebar = require('../helpers/sidebar');
 var ObjectId = require('mongoose').Types.ObjectId;
-const {escapeRegex} = require("../helpers/libs");
-
+const {escapeRegex, getPageRange} = require("../helpers/libs");
 
 const totalPages = 100;
 const pagesPerSet = 10;
@@ -25,16 +24,11 @@ ctrl.index = async (req, res) => {
             }
         }).sort({timestamp: -1}).lean()
     } else {
-        const pagination = req.query.pagination ? parseInt(req.query.pagination): 4;
+        const pagination = req.query.pagination ? parseInt(req.query.pagination): 1;
         const currentPage = req.query.page ? parseInt(req.query.page): 1;
         const startPage = Math.floor((currentPage - 1) / pagesPerSet) * pagesPerSet + 1;
         const endPage = Math.min(startPage + pagesPerSet - 1, totalPages);
-        const totalPosts = await Post.find()
-        const pages = Math.ceil(totalPosts.length/pagination)
-        var count = []
-        for (var i = 1; i <= pages; i++) {
-            count.push(i);
-        }
+        
         const hasPreviousSet = startPage > 1;
         const hasNextSet = endPage < totalPages;
         const previousSetStart = Math.max(1, startPage - pagesPerSet);
@@ -43,6 +37,10 @@ ctrl.index = async (req, res) => {
         .skip((currentPage - 1) * pagination)
         .limit(pagination)
         .sort({timestamp: -1}).lean()
+        totalPosts = await Post.find()
+        const pages = Math.ceil(totalPosts.length/pagination)
+
+        count = getPageRange(pages, currentPage)
 
         var posts_and_more = [];
         for (let i in posts){
@@ -87,11 +85,11 @@ ctrl.find_about = async (req, res) => {
     .skip((currentPage - 1) * pagination)
     .limit(pagination)
     .sort({timestamp: -1}).lean();
-    const pages = Math.ceil(posts.length/pagination)
-    var count = []
-        for (var i = 1; i <= pages; i++) {
-            count.push(i);
-        }
+    const totalPosts = await Post.find({about: concerning})
+    const pages = Math.ceil(totalPosts.length/pagination)
+
+    count = getPageRange(pages, currentPage)
+    
     const hasPreviousSet = startPage > 1;
     const hasNextSet = endPage < totalPages;
     const previousSetStart = Math.max(1, startPage - pagesPerSet);
@@ -138,11 +136,11 @@ ctrl.find_where = async (req, res) => {
     .skip((currentPage - 1) * pagination)
     .limit(pagination)
     .sort({timestamp: -1}).lean();
-    const pages = Math.ceil(posts.length/pagination)
-    var count = []
-        for (var i = 1; i <= pages; i++) {
-            count.push(i);
-        }
+    const totalPosts = await Post.find({where: concerning})
+    const pages = Math.ceil(totalPosts.length/pagination)
+
+    count = getPageRange(pages, currentPage)
+
     const hasPreviousSet = startPage > 1;
     const hasNextSet = endPage < totalPages;
     const previousSetStart = Math.max(1, startPage - pagesPerSet);
@@ -190,11 +188,11 @@ ctrl.find_where_about = async (req, res) => {
     .skip((currentPage - 1) * pagination)
     .limit(pagination)
     .sort({timestamp: -1}).lean();
-    const pages = Math.ceil(posts.length/pagination)
-    var count = []
-        for (var i = 1; i <= pages; i++) {
-            count.push(i);
-        }
+    const totalPosts = await Post.find({where: city, about: topic})
+    const pages = Math.ceil(totalPosts.length/pagination)
+    
+    count = getPageRange(pages, currentPage)
+
     const hasPreviousSet = startPage > 1;
     const hasNextSet = endPage < totalPages;
     const previousSetStart = Math.max(1, startPage - pagesPerSet);
