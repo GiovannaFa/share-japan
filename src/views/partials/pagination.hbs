@@ -1,0 +1,23 @@
+<nav aria-label="Page navigation example">
+    <ul class="pagination justify-content-center">
+        {{#gt currentPage 1}}
+            <li class="page-item">
+                <a class="page-link" href="{{url}}?page={{substract currentPage 1}}">« Previous</a>
+            </li>
+        {{/gt}}
+
+        {{#each pages}}
+            <li class="page-item {{#isCurrent this ../currentPage}}active{{/isCurrent}}">
+                <a class="page-link" href="{{../url}}?page={{this}}">{{this}}</a>
+            </li>
+        {{/each}}
+
+        {{#if hasNextSet}}
+            {{#lt currentPage currentTotalPages}}
+                <li class="page-item">
+                    <a class="page-link" href="{{url}}?page={{add currentPage 1}}">Next »</a>
+                </li>
+            {{/lt}}
+        {{/if}}
+    </ul>
+</nav>

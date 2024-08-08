@@ -17,6 +17,20 @@ helpers.gt = function(value, num, options) {
     return options.inverse(this);
 };
 
+helpers.ge = function(value, num, options) {
+    if (value >= num) {
+        return options.fn(this);
+    }
+    return options.inverse(this);
+};
+
+helpers.lt = function(value, num, options) {
+    if (value < num) {
+        return options.fn(this);
+    }
+    return options.inverse(this);
+};
+
 helpers.ifLengthGreaterThan = function(value, length, options) {
     if (value.length > length) {
         return options.fn(this);
@@ -46,6 +60,21 @@ helpers.ifExtensionEquals = function(filename, expectedExtension, options) {
     return options.inverse(this);
 };
 
+
+helpers.isCurrent = function(page, currentPage, options) {
+    if (page === currentPage) {
+        return options.fn(this); // Render the content in the {{#if}} block
+    }
+    return options.inverse(this); // Render the content in the {{else}} block
+};
+
+helpers.add = function(a, b) {
+    return a + b;
+};
+
+helpers.substract = function(a, b) {
+    return a - b;
+};
 
 
 module.exports = helpers;

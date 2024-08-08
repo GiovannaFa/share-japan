@@ -1,16 +1,20 @@
-const { User }  = require('../models');
-const { Post }  = require('../models');
+const { User, Post }  = require('../models');
 const passport = require('passport');
 const sidebar = require('../helpers/sidebar');
-const {randomString} = require("../helpers/libs");
+const {randomString, getPageRange} = require("../helpers/libs");
 var ObjectId = require('mongoose').Types.ObjectId;
 // const { write } = require('fs-extra');
-const { verifyEmail } = require('../helpers/auth');
-const { sendEmail } = require('../helpers/auth');
+const { verifyEmail, sendEmail } = require('../helpers/auth');
+
 // const helpers = require('../helpers/libs');
 const crypto = require('crypto');
 require('../server/passport');
 const ctrl = {};
+
+const totalPages = 100;
+const pagesPerSet = 10;
+
+
 ctrl.signup = async (req, res) => {
     const { name, email, password, confirmPassword }  = req.body;
     const errors = [];
@@ -177,9 +181,34 @@ ctrl.login = function(req, res, next) {
 
 
 ctrl.index = async (req, res) => {
-    const user_posts  = await Post.find({user: req.user._id}).sort({timestamp: -1}).lean() ;
+    const pagination = req.query.pagination ? parseInt(req.query.pagination): 4;
+    const currentPage = req.query.page ? parseInt(req.query.page): 1;
+    const startPage = Math.floor((currentPage - 1) / pagesPerSet) * pagesPerSet + 1;
+    const endPage = Math.min(startPage + pagesPerSet - 1, totalPages);
+    const user_posts  = await Post.find({user: req.user._id})
+    .skip((currentPage - 1) * pagination)
+    .limit(pagination)
+    .sort({timestamp: -1}).lean() ;
     let viewModel = { posts: [] };
     viewModel.posts = user_posts
+    const totalPosts  = await Post.find({user: req.user._id})
+    const pages = Math.ceil(totalPosts.length/pagination)
+    
+    count = getPageRange(pages, currentPage)
+
+    const hasPreviousSet = startPage > 1;
+    const hasNextSet = endPage < totalPages;
+    const previousSetStart = Math.max(1, startPage - pagesPerSet);
+    const nextSetStart = Math.min(totalPages, endPage + 1);
+    
+    viewModel.currentPage = currentPage;
+    viewModel.pages = count;
+    viewModel.currentTotalPages = pages;
+    viewModel.hasPreviousSet = hasPreviousSet
+    viewModel.previousSetStart = previousSetStart
+    viewModel.hasNextSet = hasNextSet
+    viewModel.nextSetStart = nextSetStart
+    viewModel.is_user = true;
     viewModel = await sidebar(viewModel);
     res.render('user/my_profile', viewModel);
     };
@@ -202,13 +231,39 @@ ctrl.modify = async (req, res) => {
 };
 
 ctrl.find_user = async (req, res) => {
+    const pagination = req.query.pagination ? parseInt(req.query.pagination): 4;
+    const currentPage = req.query.page ? parseInt(req.query.page): 1;
+    const startPage = Math.floor((currentPage - 1) / pagesPerSet) * pagesPerSet + 1;
+    const endPage = Math.min(startPage + pagesPerSet - 1, totalPages);
     //return posts from this author
     const writer = await User.findById({_id: req.params.user_id});
     const author = writer.name;
-    const posts = await Post.find({user: req.params.user_id}).sort({timestamp: -1}).lean();
+    const posts = await Post.find({user: writer})
+    .skip((currentPage - 1) * pagination)
+    .limit(pagination)
+    .sort({timestamp: -1}).lean();
+    const totalPosts = await Post.find({user: writer})
+    const pages = Math.ceil(totalPosts.length/pagination)
+    
+    count = getPageRange(pages, currentPage)
+
+    const hasPreviousSet = startPage > 1;
+    const hasNextSet = endPage < totalPages;
+    const previousSetStart = Math.max(1, startPage - pagesPerSet);
+    const nextSetStart = Math.min(totalPages, endPage + 1);
+    
     let viewModel = { posts: [] };
+    
     viewModel.posts = posts;
+    viewModel.currentPage = currentPage;
+    viewModel.pages = count;
+    viewModel.currentTotalPages = pages;
+    viewModel.hasPreviousSet = hasPreviousSet;
+    viewModel.previousSetStart = previousSetStart;
+    viewModel.hasNextSet = hasNextSet;
+    viewModel.nextSetStart = nextSetStart;
     viewModel.author = author;
+    viewModel.is_user = false;
     viewModel = await sidebar(viewModel);
 
     if(author == "Unknown"){
@@ -216,6 +271,7 @@ ctrl.find_user = async (req, res) => {
     }
     else if (req.user != null){
         if (req.user.id == writer._id){
+            viewModel.is_user = true;
             res.render('user/my_profile', viewModel);
         }
         else{

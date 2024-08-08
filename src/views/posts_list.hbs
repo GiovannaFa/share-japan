@@ -14,7 +14,7 @@
         {{#if posts}}
             {{#each posts}}
                 <div class="row">
-                    <div class="col-md-10">
+                    <div class="col-md-10" style="float:none;margin:auto;">
                         <div class="card-header text-left">
                             <i class="black"><i class="fa fa-clock-o" aria-hidden="true"></i> {{timeago timestamp}}</i><br>
                             @<a href="/city/{{where}}"><i> {{where}}</i></a>
@@ -39,11 +39,13 @@
                                             {{#each filenames}}
                                                 <div class="carousel-item {{#if @first}}active{{/if}}">
                                                     {{#ifExtensionEquals this "mp4"}}
-                                                        <video width="100%" controls>
-                                                            <source src="/public/upload/{{ ../_id }}/{{this}}" type="video/mp4">
-                                                        </video>
+                                                        <div>
+                                                            <video width="100%" controls>
+                                                                <source src="/public/upload/{{ ../_id }}/{{this}}" type="video/mp4">
+                                                            </video>
+                                                        </div>
                                                     {{else}}
-                                                        <img src="/public/upload/{{ ../_id }}/{{this}}" alt="{{../title}}" class="d-block w-100">
+                                                        <img src="/public/upload/{{ ../_id }}/{{this}}" alt="{{../title}}" class="id-block w-100">
                                                     {{/ifExtensionEquals}}
                                                 </div>
                                             {{/each}}
@@ -80,19 +82,3 @@
         {{/if}}
     </div>
 </div>
-<div class="pagination">
-    <ul>
-        <!--pages or li are comes from javascript -->
-    </ul>
-</div>
-<br>
-<script src="/public/js/pagination.js"></script>
-<link rel="stylesheet" href="/public/css/pagination.css">
-
-{{!-- <nav aria-label="Page navigation example">
-    <ul class="pagination justify-content-center">
-        {{#each pages}}
-        <li class="page-item active"><a class="page-link" href="/posts?page={{this}}">{{this}}</a></li>
-        {{/each}}
-    </ul>
-</nav> --}}
