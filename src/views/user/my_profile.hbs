@@ -8,23 +8,32 @@
             {{#each posts}}
                 <div class="row">
                     <div class="col-md-10" style="float:none;margin:auto;">
-                        <div class="card-header text-left">
-                            <div class="text-right">
-                                <form action="/posts/{{ _id }}?_method=DELETE" method="POST">
-                                    <input type="hidden" name="_method" value="DELETE">
-                                    <button type="submit">
-                                        <i class="fa fa-trash-o" aria-hidden="true"></i>
-                                    </button>
-                                </form>
-                                <button>
-                                <a href="/posts/edit/{{ _id }}"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
-                                </button>
+                        <div class="card-header">
+                            <div class="header-content" style="padding-bottom: 50px;">
+                                <div class="text-content">
+                                    <i class="black">
+                                        <i class="fa fa-clock-o" aria-hidden="true"></i> {{timeago timestamp}}
+                                    </i>
+                                    <br>
+                                    @<i> {{where}}</i>
+                                    about<i> {{about}}</i>
+                                </div>
+                                <div class="button-group">
+                                    <form action="/posts/{{ _id }}?_method=DELETE" method="POST">
+                                        <input type="hidden" name="_method" value="DELETE">
+                                        <button type="submit" class="btn-delete">
+                                            <i class="fa fa-trash-o" aria-hidden="true"></i>
+                                        </button>
+                                    </form>
+                                    <a href="/posts/edit/{{ _id }}" class="btn-edit">
+                                        <button>
+                                            <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                                        </button>
+                                    </a>
+                                </div>
                             </div>
-                            <i class="black"><i class="fa fa-clock-o" aria-hidden="true"></i> {{timeago
-                                timestamp}}</i><br>
-                            @<i> {{where}}</i>
-                            about<i> {{about}}</i>
                         </div>
+
                         <a id="link" href="/posts/{{ _id  }}">
                             <div class="card-body col-md-10 text-center">
                                 <h1>{{title}}</h1>
