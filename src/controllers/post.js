@@ -10,65 +10,26 @@ var ObjectId = require('mongoose').Types.ObjectId;
 const ctrl = {};
 
 ctrl.index = async (req, res) => {
-    if (req.user == undefined){
-        try{
-            const writer = await Post.aggregate([{
-                $match:{_id: new ObjectId(req.params.post_id)}},
-                {
-                $lookup: {
-                    from: "users",
-                    localField: "user",
-                    foreignField: "_id",
-                    as: "usuario"}
-                }
-                ]);
-            const author = writer[0].usuario[0];
-
-            const post = await Post.findOneAndUpdate({_id: req.params.post_id}, { $inc: { views: 1 }}).lean();
-            let viewModel = { post: [] };
-            viewModel.post = post;
-            viewModel.author = author;
-            viewModel = await sidebar(viewModel);
-            res.render('post', viewModel);
-        } catch (error) {
-            res.render('error404', { layout: 'pages.hbs'});
+    const writer = await Post.aggregate([{
+        $match:{_id: new ObjectId(req.params.post_id)}},
+        {
+        $lookup: {
+            from: "users",
+            localField: "user",
+            foreignField: "_id",
+            as: "usuario"}
         }
-    }
-    else{
-        try{
-            const writer = await Post.aggregate([{
-                $match:{_id: new ObjectId(req.params.post_id)}},
-                {
-                $lookup: {
-                    from: "users",
-                    localField: "user",
-                    foreignField: "_id",
-                    as: "usuario"}
-                }
-                ]);
-            const author = writer[0].usuario[0];
-
-            const post = await Post.findOneAndUpdate({_id: req.params.post_id}, { $inc: { views: 1 }}).lean();
-            is_user = false;
-            if (post.likes.length >= 1) {
-                for (let x in post.likes){
-                    if (post.likes[x] == req.user.id)
-                        is_user = true;
-                    else{
-                        is_user = false;
-                    }
-                }
-            }
-            let viewModel = { post: [] };
-            viewModel.post = post;
-            viewModel.author = author;
-            viewModel.is_user = is_user;
-            viewModel = await sidebar(viewModel);
-            res.render('edit-form', viewModel);
-            }
-        catch (error) {
-            res.render('error404', { layout: 'pages.hbs' });
-        }
+        ]);
+    const author = writer[0].usuario[0];
+    const post = await Post.findOneAndUpdate({_id: req.params.post_id}, { $inc: { views: 1 }}).lean();
+    try{
+        let viewModel = { post: [] };
+        viewModel.post = post;
+        viewModel.author = author;
+        viewModel = await sidebar(viewModel);
+        res.render('post', viewModel);
+    } catch (error) {
+        res.render('error404', { layout: 'pages.hbs'});
     }
 };
 
