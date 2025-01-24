@@ -1,9 +1,26 @@
-/* @media (max-width: 1500px) {
-    .container{
-        min-width: 1000px;
+html, body {
+    height: 100%;
+    margin: 0;
+  }
+  
+body {
+display: flex;
+flex-direction: column;
+}
+
+footer.page-footer {
+width: 100%;
+box-sizing: border-box;
+margin-top: auto; /* Push footer to the bottom */
+}
+
+@media (max-width: 768px) {
+    footer.page-footer .footer-copyright {
+        font-size: 14px;
+        padding: 10px;
     }
 }
- */
+
 .navbar-brand img{
     width: 10%;
     padding-left: 10px;
