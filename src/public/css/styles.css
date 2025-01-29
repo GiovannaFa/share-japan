@@ -1,9 +1,28 @@
-/* @media (max-width: 1500px) {
-    .container{
-        min-width: 1000px;
+html, body {
+    height: 100%;
+    margin: 0;
+  }
+  
+body {
+display: flex;
+flex-direction: column;
+}
+
+/* Assuming footer height is fixed, e.g., 50px */
+footer.page-footer {
+    height: 50px; /* Fixed height for footer */
+    width: 100%;
+    box-sizing: border-box;
+    margin-top: auto;
+}
+
+@media (max-width: 768px) {
+    footer.page-footer .footer-copyright {
+        font-size: 14px;
+        padding: 10px;
     }
 }
- */
+
 .navbar-brand img{
     width: 10%;
     padding-left: 10px;
@@ -24,12 +43,12 @@ i{
 
 #main{
     top:15px;
-    height: 460px;
+    height: calc(100vh - 15px - 190px - 50px);
     overflow: scroll;
   }
 #post{
     top:15px;
-    height: 350px;
+    height: calc(100vh - 15px - 210px - 50px);
     overflow: scroll;
   }
 

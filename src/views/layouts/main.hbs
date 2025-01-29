@@ -7,35 +7,34 @@
 <body>
     {{>navigation}}
     {{#if popular}}
-    <div class="container-fluid p-4">
-        <div class="row">
-            <div class="col-md-10">
-                {{> messages}}
-                {{> errors}}
+        <div class="container-fluid p-4">
+            <div class="row">
+                <div class="col-md-10">
+                    {{> messages}}
+                    {{> errors}}
 
-                {{{ body }}}
-                {{#if pages}}
-                    {{> pagination}}
-                {{/if}}
-            </div>
-            <div class="col-md-2">
-                {{> popular }}
+                    {{{ body }}}
+                </div>
+                <div class="col-md-2">
+                    {{> popular }}
+                </div>
             </div>
         </div>
-    </div>
     {{else}}
-    <main class="container-fluid p-4">
-        <div class="row">
-            <div class="col-md-12">
-                {{> messages}}
-                {{> errors}}
+        <main class="container-fluid p-4">
+            <div class="row">
+                <div class="col-md-12">
+                    {{> messages}}
+                    {{> errors}}
 
-                {{{ body }}}
+                    {{{ body }}}
+                </div>
             </div>
-        </div>
-    </main>
+        </main>
     {{/if}}
-
+    {{#if pages}}
+        {{> pagination}}
+    {{/if}}
     {{>footer}}
     <!--SCRIPT-->
     <script
