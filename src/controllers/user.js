@@ -3,7 +3,6 @@ const passport = require('passport');
 const sidebar = require('../helpers/sidebar');
 const {randomString, getPageRange} = require("../helpers/libs");
 var ObjectId = require('mongoose').Types.ObjectId;
-// const { write } = require('fs-extra');
 const { verifyEmail, sendEmail } = require('../helpers/auth');
 
 // const helpers = require('../helpers/libs');

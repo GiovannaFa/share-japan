@@ -43,14 +43,123 @@
             <div class="form-group">
                 <div class="input-group">
                     <div class="custom-file">
-                        <input type="file" name="images" class="custom-file-input" id="inputGroup" aria-describedby="inputGroupFileAddon" multiple value={{filenames}}>
-                        <label class="custom-file-label" for="inputGroupFile">Choose your file</label>
+                        <input type="file" name="images" class="custom-file-input" id="inputGroup" aria-describedby="inputGroupFileAddon" multiple>
+                        <label class="custom-file-label" for="inputGroupFile">Choose your files</label>
                     </div>
                 </div>
             </div>
-            <div class="form-group">
-                <button class="btn btn-success">Upload</button>
+
+            <div id="image-preview" class="form-group">
+                <p>No images selected.</p>
             </div>
+
+            <div class="form-group">
+                <button class="btn btn-upload">Upload</button>
+            </div>
+
+            <script>
+                let selectedFiles = []; // Track selected files
+
+                // Listen for file selection
+                document.getElementById('inputGroup').addEventListener('change', function(event) {
+                    const files = event.target.files;
+                    const previewContainer = document.getElementById('image-preview');
+
+                    // If no files are selected, keep the existing message
+                    if (files.length === 0) {
+                        if (!previewContainer.innerHTML) {
+                            previewContainer.innerHTML = '<p>No images selected.</p>';
+                        }
+                        return;
+                    }
+
+                    // Check if there are already previews
+                    const existingImages = previewContainer.getElementsByTagName('img');
+                    
+                    // Loop through all selected files and create image previews
+                    Array.from(files).forEach(file => {
+                        if (file.type.startsWith('image/')) {  // Only process image files
+                            const reader = new FileReader();
+
+                            reader.onload = function(e) {
+                                // Create a new image element for each file
+                                const imgWrapper = document.createElement('div');
+                                imgWrapper.classList.add('img-wrapper');
+                                
+                                const img = document.createElement('img');
+                                img.src = e.target.result;
+                                img.classList.add('img-thumbnail');
+                                img.style.maxWidth = '100px';
+                                img.style.marginRight = '10px';
+                                img.style.marginBottom = '10px'; // Add spacing between images
+                                imgWrapper.appendChild(img);
+
+                                // Create the delete button
+                                const deleteBtn = document.createElement('button');
+                                deleteBtn.classList.add('delete-btn');
+                                deleteBtn.innerHTML = '&times;'; // "X" symbol
+                                deleteBtn.style.position = 'absolute';
+                                deleteBtn.style.top = '5px';
+                                deleteBtn.style.right = '5px';
+                                deleteBtn.style.background = 'rgba(0, 0, 0, 0.5)';
+                                deleteBtn.style.color = 'white';
+                                deleteBtn.style.border = 'none';
+                                deleteBtn.style.borderRadius = '50%';
+                                deleteBtn.style.cursor = 'pointer';
+                                deleteBtn.style.padding = '5px';
+                                deleteBtn.style.fontSize = '16px';
+                                imgWrapper.style.position = 'relative'; // So the delete button is positioned relative to the image wrapper
+                                imgWrapper.appendChild(deleteBtn);
+
+                                // Append the image wrapper to the preview container
+                                previewContainer.appendChild(imgWrapper);
+
+                                // Store the file in the selectedFiles array
+                                selectedFiles.push(file);
+
+                                // Attach the delete functionality to the delete button
+                                deleteBtn.addEventListener('click', function() {
+                                    // Remove the file from the selectedFiles array
+                                    const index = selectedFiles.indexOf(file);
+                                    if (index > -1) {
+                                        selectedFiles.splice(index, 1); // Remove the file from the array
+                                    }
+
+                                    // Remove the image wrapper from the DOM
+                                    previewContainer.removeChild(imgWrapper);
+
+                                    // Update the file input's file list (create a new one without the deleted file)
+                                    updateFileInput();
+                                });
+                            };
+
+                            // Read the file as a data URL to generate a preview
+                            reader.readAsDataURL(file);
+                        }
+                    });
+
+                    // If there are images already, don't reset the message
+                    if (existingImages.length === 0) {
+                        previewContainer.innerHTML = ''; // Clear the "No images selected" message
+                    }
+                });
+
+                // Function to update the file input's list of files
+                function updateFileInput() {
+                    const input = document.getElementById('inputGroup');
+
+                    // Create a new DataTransfer object to manage the file list
+                    const dataTransfer = new DataTransfer();
+
+                    // Add all the remaining files in the selectedFiles array to the new file list
+                    selectedFiles.forEach(file => {
+                        dataTransfer.items.add(file);
+                    });
+
+                    // Set the new file list to the file input's files property
+                    input.files = dataTransfer.files;
+                }
+            </script>
         </form>
     </div>
 </div>

@@ -37,7 +37,7 @@
                                                 <source src="/public/upload/{{ ../post._id }}/{{this}}" type="video/mp4" />
                                             </video>
                                         {{else}}
-                                            <img src="/public/upload/{{ ../post._id }}/{{this}}" class="d-block mx-auto" style="width: 80%;">
+                                            <img src="/public/upload/{{ ../post._id }}/{{this}}" class="d-block mx-auto" style="width: 60%;">
                                         {{/ifExtensionEquals}}
                                     </div>
                                 {{/each}}
@@ -52,9 +52,7 @@
                             </a>
                         </div>
                     {{else}}
-                        <div class="text-center">
-                            <img src="/public/img/share-japan_logo.png" width="80" height="80" class="img-fluid">
-                        </div>
+                         <img src="/public/img/share-japan_logo.png" class="d-block mx-auto" style="width: 10%;">
                     {{/if}}
                 </div>
             </div>

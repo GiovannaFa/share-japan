@@ -43,12 +43,12 @@ i{
 
 #main{
     top:15px;
-    height: calc(100vh - 15px - 190px - 50px);
+    height: calc(100vh - 15px - 35px - 50px);
     overflow: scroll;
   }
 #post{
     top:15px;
-    height: calc(100vh - 15px - 210px - 50px);
+    height: calc(100vh - 15px - 355px - 50px);
     overflow: scroll;
   }
 
@@ -99,11 +99,27 @@ i{
 }
 
 .button-group button {
-    background: none;
-    border: none;
-    padding: 0;
-    margin: 0;
-    cursor: pointer;
+    background-color: #fff; /* white background */
+    color: #000; /* black text */
+    border: 2px solid #000; /* black border */
+    padding: 10px 20px; /* space inside the button */
+    cursor: pointer; /* pointer cursor on hover */
+    font-size: 16px; /* font size */
+    font-weight: bold; /* bold text */
+    text-transform: uppercase; /* uppercase text */
+    border-radius: 5px; /* rounded corners */
+    transition: all 0.3s ease; /* smooth transition for hover effect */
+}
+.btn-delete:hover {
+    background-color: #000; /* black background on hover */
+    color: #fff; /* white text on hover */
+    border-color: #fff; /* white border on hover */
+}
+
+.btn-edit:hover {
+    background-color: #000; /* black background on hover */
+    color: #fff; /* white text on hover */
+    border-color: #fff; /* white border on hover */
 }
 
 .btn-success {
@@ -111,4 +127,52 @@ i{
     border: none; 
     padding: 0; 
     cursor: pointer;
+}
+
+.btn-upload {
+    background-color: #fff; /* white background */
+    color: #000; /* black text */
+    border: 2px solid #000; /* black border */
+    padding: 10px 20px; /* space inside the button */
+    cursor: pointer; /* pointer cursor on hover */
+    font-size: 16px; /* font size */
+    font-weight: bold; /* bold text */
+    text-transform: uppercase; /* uppercase text */
+    border-radius: 5px; /* rounded corners */
+    transition: all 0.3s ease; /* smooth transition for hover effect */
+}
+
+.btn-upload:hover {
+    background-color: #000; /* black background on hover */
+    color: #fff; /* white text on hover */
+    border-color: #fff; /* white border on hover */
+}
+
+/* Write post style */
+.img-wrapper {
+    display: inline-block;
+    position: relative;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+.delete-btn {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background-color: rgba(255, 0, 0, 0.7);
+    border: none;
+    border-radius: 50%;
+    color: white;
+    font-size: 16px;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.delete-btn:hover {
+    background-color: red;
 }

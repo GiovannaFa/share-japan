@@ -40,12 +40,12 @@
                                                 <div class="carousel-item {{#if @first}}active{{/if}}">
                                                     {{#ifExtensionEquals this "mp4"}}
                                                         <div>
-                                                            <video width="50%" controls>
-                                                                <source src="/public/upload/{{ ../_id }}/{{this}}" type="video/mp4">
+                                                            <video controls>
+                                                                <source src="/public/upload/{{ ../_id }}/{{this}}" type="video/mp4" class="img-fluid" width="300" height="300">
                                                             </video>
                                                         </div>
                                                     {{else}}
-                                                        <img src="/public/upload/{{ ../_id }}/{{this}}" alt="{{../title}}" style="width: 50%;">
+                                                        <img src="/public/upload/{{ ../_id }}/{{this}}" alt="{{../title}}" class="img-fluid" width="300" height="300">
                                                     {{/ifExtensionEquals}}
                                                 </div>
                                             {{/each}}
