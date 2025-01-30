@@ -3,10 +3,7 @@ const {randomString} = require("../helpers/libs");
 const fs = require('fs-extra')
 const { Post } = require('../models');
 const sidebar = require('../helpers/sidebar');
-const { exec } = require('child_process');
-//const { runInNewContext } = require('vm');
 var ObjectId = require('mongoose').Types.ObjectId;
-//controlador: objeto con funciones
 const ctrl = {};
 
 ctrl.index = async (req, res) => {
@@ -110,18 +107,27 @@ ctrl.like = async (req, res) => {
     }
   };
 
-/* ctrl.comment = (req, res) => {
-
-}; */
 
 ctrl.remove = async (req, res) => {
-    try{
-        const post = await Post.findOneAndRemove({_id: req.params.post_id}).lean();
-        await fs.unlink(path.resolve(`./src/public/upload/${post._id}` + post.filename)); //remove the image from upload folder
+    try {
+        const post = await Post.findOneAndRemove({ _id: req.params.post_id }).lean();
+        console.log(post);
+        
+        const folderPath = path.resolve(`./src/public/upload/${post._id}`);
+        if (fs.existsSync(folderPath)) {
+            fs.remove(folderPath, { recursive: true });
+            console.log(`Folder ${folderPath} deleted successfully.`);
+            req.flash('success_msg', 'Post deleted Correctly!');
+        } else {
+            console.log(`Folder ${folderPath} does not exist.`);
+        }
+    
         res.redirect("/user/profile");
     } catch (error) {
-        res.render('error404', { layout: 'pages.hbs'});
+        console.error('Error during folder deletion:', error);
+        res.render('error404', { layout: 'pages.hbs' });
     }
+    
 };
 
 ctrl.modify = async (req, res) => {
