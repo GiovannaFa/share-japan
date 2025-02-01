@@ -43,113 +43,139 @@
             <div class="form-group">
                 <div class="input-group">
                     <div class="custom-file">
+                        <!-- File input that is triggered by the Upload button -->
                         <input type="file" name="images" class="custom-file-input" id="inputGroup" aria-describedby="inputGroupFileAddon" multiple>
-                        <label class="custom-file-label" for="inputGroupFile">Choose your files</label>
+                        <label class="custom-file-label" for="inputGroup" id="uploadButton">Choose your files</label>
                     </div>
                 </div>
             </div>
 
-            <div id="image-preview" class="form-group">
-                <p>No images selected.</p>
+            <!-- Preview container for images and videos -->
+            <div id="image-preview" class="form-group"></div>
+
+            <!-- Error message displayed when file type is invalid -->
+            <div id="error-message" class="text-danger" style="display: none;"></div>
+
+            <!-- Upload button that triggers the file input -->
+            <div class="form-group">
+                <button class="btn btn-upload" >Upload</button>
             </div>
 
-            <div class="form-group">
-                <button class="btn btn-upload">Upload</button>
-            </div>
 
             <script>
                 let selectedFiles = []; // Track selected files
 
-                // Listen for file selection
+                // Handle the "Upload" button click to trigger the file input
+                document.getElementById('uploadButton').addEventListener('click', function(event) {
+                    event.preventDefault(); // Prevent the button from submitting the form
+                    document.getElementById('inputGroup').click(); // Trigger the hidden file input to open
+                });
+
+                // Listen for file selection and process the files
                 document.getElementById('inputGroup').addEventListener('change', function(event) {
-                    const files = event.target.files;
+                    const fileInput = event.target;
+                    const errorMessage = document.getElementById('error-message');
+                    const allowedExtensions = ['.png', '.jpg', '.jpeg', '.gif', '.mp4'];
+                    const files = fileInput.files;
                     const previewContainer = document.getElementById('image-preview');
 
-                    // If no files are selected, keep the existing message
-                    if (files.length === 0) {
-                        if (!previewContainer.innerHTML) {
-                            previewContainer.innerHTML = '<p>No images selected.</p>';
+                    // Clear previous error message
+                    errorMessage.style.display = 'none';
+
+                    // Keep track of valid files
+                    let hasInvalidFile = false;
+                    let validFiles = [];
+
+                    // Loop through all selected files and validate their extensions
+                    for (let i = 0; i < files.length; i++) {
+                        const file = files[i];
+                        const fileName = file.name.toLowerCase();
+                        const fileExtension = fileName.substring(fileName.lastIndexOf('.'));
+
+                        if (!allowedExtensions.includes(fileExtension)) {
+                            hasInvalidFile = true;
+                        } else {
+                            validFiles.push(file);
                         }
-                        return;
                     }
 
-                    // Check if there are already previews
-                    const existingImages = previewContainer.getElementsByTagName('img');
-                    
-                    // Loop through all selected files and create image previews
-                    Array.from(files).forEach(file => {
-                        if (file.type.startsWith('image/')) {  // Only process image files
+                    // If any file is invalid, show error message and stop processing
+                    if (hasInvalidFile) {
+                        // Update the error message and show it
+                        errorMessage.style.display = 'block';
+                        errorMessage.textContent = 'Invalid file type. Please upload a .png, .jpg, .jpeg, .gif, or .mp4 file.';
+                    }
+
+                    // Hide the error message after 3 seconds
+                    setTimeout(function() {
+                        errorMessage.style.display = 'none';
+                    }, 3000); // 3000 milliseconds = 3 seconds
+
+                    // If there are valid files, process and show their previews
+                    validFiles.forEach(file => {
+                        // Only create a preview if the file is not already added
+                        if (!selectedFiles.includes(file)) {
                             const reader = new FileReader();
 
+                            // Create a new wrapper for each file
+                            const imgWrapper = document.createElement('div');
+                            imgWrapper.classList.add('file-wrapper');
+
+                            // Create the delete button
+                            const deleteBtn = document.createElement('button');
+                            deleteBtn.classList.add('delete-btn');
+                            deleteBtn.innerHTML = '&times;'; // "X" symbol
+                            imgWrapper.appendChild(deleteBtn); // Add the delete button to the wrapper
+
                             reader.onload = function(e) {
-                                // Create a new image element for each file
-                                const imgWrapper = document.createElement('div');
-                                imgWrapper.classList.add('img-wrapper');
-                                
-                                const img = document.createElement('img');
-                                img.src = e.target.result;
-                                img.classList.add('img-thumbnail');
-                                img.style.maxWidth = '200px';
-                                img.style.marginRight = '10px';
-                                img.style.marginBottom = '10px'; // Add spacing between images
-                                imgWrapper.appendChild(img);
-
-                                // Create the delete button
-                                const deleteBtn = document.createElement('button');
-                                deleteBtn.classList.add('delete-btn');
-                                deleteBtn.innerHTML = '&times;'; // "X" symbol
-                                deleteBtn.style.position = 'absolute';
-                                deleteBtn.style.top = '5px';
-                                deleteBtn.style.right = '5px';
-                                deleteBtn.style.background = 'rgba(0, 0, 0, 0.5)';
-                                deleteBtn.style.color = 'white';
-                                deleteBtn.style.border = 'none';
-                                deleteBtn.style.borderRadius = '50%';
-                                deleteBtn.style.cursor = 'pointer';
-                                deleteBtn.style.padding = '5px';
-                                deleteBtn.style.fontSize = '16px';
-                                imgWrapper.style.position = 'relative'; // So the delete button is positioned relative to the image wrapper
-                                imgWrapper.appendChild(deleteBtn);
-
-                                // Append the image wrapper to the preview container
-                                previewContainer.appendChild(imgWrapper);
-
-                                // Store the file in the selectedFiles array
-                                selectedFiles.push(file);
-
-                                // Attach the delete functionality to the delete button
-                                deleteBtn.addEventListener('click', function() {
-                                    // Remove the file from the selectedFiles array
-                                    const index = selectedFiles.indexOf(file);
-                                    if (index > -1) {
-                                        selectedFiles.splice(index, 1); // Remove the file from the array
-                                    }
-
-                                    // Remove the image wrapper from the DOM
-                                    previewContainer.removeChild(imgWrapper);
-
-                                    // Update the file input's file list (create a new one without the deleted file)
-                                    updateFileInput();
-                                });
+                                if (file.type.startsWith('image/') || file.name.endsWith('.gif')) {
+                                    const img = document.createElement('img');
+                                    img.src = e.target.result;
+                                    img.classList.add('img-thumbnail');
+                                    imgWrapper.appendChild(img);
+                                } else if (file.type === 'video/mp4') {
+                                    const video = document.createElement('video');
+                                    video.src = e.target.result;
+                                    video.classList.add('video-thumbnail'); // Video styling
+                                    video.controls = true; // Add controls for play/pause
+                                    imgWrapper.appendChild(video);
+                                }
                             };
+
+                            // Append the wrapper (with preview) to the preview container
+                            previewContainer.appendChild(imgWrapper);
+
+                            // Store the valid file in the selectedFiles array
+                            selectedFiles.push(file);
+
+                            // Delete button functionality
+                            deleteBtn.addEventListener('click', function() {
+                                // Remove the file from the selectedFiles array
+                                const index = selectedFiles.indexOf(file);
+                                if (index > -1) {
+                                    selectedFiles.splice(index, 1); // Remove the file from the array
+                                }
+
+                                // Remove the preview from the DOM
+                                previewContainer.removeChild(imgWrapper);
+
+                                // Update the file input's file list after deletion
+                                updateFileInput();
+                            });
 
                             // Read the file as a data URL to generate a preview
                             reader.readAsDataURL(file);
                         }
                     });
 
-                    // If there are images already, don't reset the message
-                    if (existingImages.length === 0) {
-                        previewContainer.innerHTML = ''; // Clear the "No images selected" message
-                    }
+                    // Update the file input list after processing valid files
+                    updateFileInput();
                 });
 
-                // Function to update the file input's list of files
+                // Function to update the file input's list of files after deletion
                 function updateFileInput() {
                     const input = document.getElementById('inputGroup');
-
-                    // Create a new DataTransfer object to manage the file list
-                    const dataTransfer = new DataTransfer();
+                    const dataTransfer = new DataTransfer(); // Create a new DataTransfer object
 
                     // Add all the remaining files in the selectedFiles array to the new file list
                     selectedFiles.forEach(file => {
