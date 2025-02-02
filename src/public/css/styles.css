@@ -149,10 +149,33 @@ i{
 }
 
 /* Write post style */
-.img-wrapper {
-    display: inline-block;
+.file-wrapper {
+    display: inline-flex;       /* Use flexbox for alignment */
+    flex-direction: column;     /* Align content vertically */
+    align-items: center;        /* Center content horizontally */
+    justify-content: center;    /* Align items in the center */
     position: relative;
     margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+/* For images */
+.img-thumbnail {
+    max-width: 200px;  /* Adjust max-width */
+    max-height: 200px; /* Ensure height is also restricted */
+    width: 100%;       /* Ensure image fills container width */
+    height: auto;      /* Maintain aspect ratio */
+    object-fit: contain; /* Ensure image fits within the container */
+    margin-bottom: 10px;
+}
+
+/* For videos */
+.video-thumbnail {
+    max-width: 200px;  /* Adjust max-width */
+    max-height: 200px; /* Ensure height is restricted as well */
+    width: 100%;       /* Ensure video fills container width */
+    height: auto;      /* Maintain aspect ratio */
+    object-fit: contain; /* Ensure video fits within the container */
     margin-bottom: 10px;
 }
 
@@ -160,7 +183,7 @@ i{
     position: absolute;
     top: 5px;
     right: 5px;
-    background-color: rgba(255, 0, 0, 0.7);
+    background-color: rgba(0, 0, 0, 0.5);
     border: none;
     border-radius: 50%;
     color: white;
@@ -171,6 +194,7 @@ i{
     justify-content: center;
     align-items: center;
     cursor: pointer;
+    z-index: 10;
 }
 
 .delete-btn:hover {
