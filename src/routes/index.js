@@ -8,8 +8,6 @@ const landing = require('../controllers/landing');
 const { Post } = require('../models');
 const { User } = require('../models');
 const sidebar = require('../helpers/sidebar');
-//var ObjectId = require('mongoose').Types.ObjectId;
-//const { isAuthenticated } = require('../helpers/auth');
 const crypto = require('crypto');
 
 module.exports = app => {

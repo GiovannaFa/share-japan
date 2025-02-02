@@ -1,12 +1,9 @@
 const path = require('path');
-const {randomString} = require("../helpers/libs");
+const {generateUniqueImageUrl} = require("../helpers/libs");
 const fs = require('fs-extra')
 const { Post } = require('../models');
 const sidebar = require('../helpers/sidebar');
-const { exec } = require('child_process');
-//const { runInNewContext } = require('vm');
 var ObjectId = require('mongoose').Types.ObjectId;
-//controlador: objeto con funciones
 const ctrl = {};
 
 ctrl.index = async (req, res) => {
@@ -35,59 +32,46 @@ ctrl.index = async (req, res) => {
 
 
 ctrl.create = async (req, res) => {
+    const user_id = req.user._id;
+    const custom_dir = path.resolve(`src/public/upload/${user_id}`);
+    if (!fs.existsSync(custom_dir)) {
+        fs.mkdirSync(custom_dir);
+    }
+    try {
+        const filenames = [];
+        for (const file of req.files) {
+            const imageTempPath = file.path;
+            const ext = path.extname(file.originalname).toLowerCase();
+            const imageUrl = generateUniqueImageUrl(filenames);
+            const targetPath = path.resolve(`src/public/upload/${user_id}/${imageUrl}${ext}`);
 
-        const generateUniqueImageUrl = (existingFilenames) => {
-            let newImageUrl;
-            const generate = () => {
-                newImageUrl = randomString(6);
-                if (existingFilenames.includes(newImageUrl)) {
-                    return generate(); // Recursively generate a new string if there’s a duplicate
-                }
-                return newImageUrl;
-            };
-            return generate();
-        };
-
-        const user_id = req.user._id;
-        const custom_dir = path.resolve(`src/public/upload/${user_id}`);
-        if (!fs.existsSync(custom_dir)) {
-            fs.mkdirSync(custom_dir);
-        }
-        try {
-            const filenames = [];
-            for (const file of req.files) {
-                const imageTempPath = file.path;
-                const ext = path.extname(file.originalname).toLowerCase();
-                const imageUrl = generateUniqueImageUrl(filenames);
-                const targetPath = path.resolve(`src/public/upload/${user_id}/${imageUrl}${ext}`);
-
-                if (['.png', '.jpg', '.jpeg', '.gif', '.mp4'].includes(ext)) {
-                    await fs.promises.rename(imageTempPath, targetPath);
-                    filenames.push(imageUrl + ext);
-                } else {
-                    await fs.promises.unlink(imageTempPath);
-                    return res.status(500).json({ error: 'Only images and videos are allowed' });
-                }
+            if (['.png', '.jpg', '.jpeg', '.gif', '.mp4'].includes(ext)) {
+                await fs.promises.rename(imageTempPath, targetPath);
+                filenames.push(imageUrl + ext);
+            } else {
+                await fs.promises.unlink(imageTempPath);
+                return res.status(500).json({ error: 'Only images and videos are allowed' });
             }
-            console.log(`filenames is: ${filenames}`)
-            const newPost = new Post({
-                where: req.body.where,
-                about: req.body.about,
-                title: req.body.title,
-                description: req.body.description,
-                filenames: filenames,
-            });
-            newPost.user = req.user.id;
-            await newPost.save();
-            await fs.rename(custom_dir, `src/public/upload/${newPost._id}`);
-            res.redirect('/posts/' + newPost._id);
         }
-        catch (error) {
-            // Error handling, e.g., logging
-            console.error('Error uploading post', error);
-            res.render('error404', { layout: 'pages.hbs' });
-        }
-    };
+        console.log(`filenames is: ${filenames}`)
+        const newPost = new Post({
+            where: req.body.where,
+            about: req.body.about,
+            title: req.body.title,
+            description: req.body.description,
+            filenames: filenames,
+        });
+        newPost.user = req.user.id;
+        await newPost.save();
+        await fs.rename(custom_dir, `src/public/upload/${newPost._id}`);
+        res.redirect('/posts/' + newPost._id);
+    }
+    catch (error) {
+        // Error handling, e.g., logging
+        console.error('Error uploading post', error);
+        res.render('error404', { layout: 'pages.hbs' });
+    }
+};
 
 
 ctrl.like = async (req, res) => {
@@ -110,29 +94,84 @@ ctrl.like = async (req, res) => {
     }
   };
 
-/* ctrl.comment = (req, res) => {
-
-}; */
 
 ctrl.remove = async (req, res) => {
-    try{
-        const post = await Post.findOneAndRemove({_id: req.params.post_id}).lean();
-        await fs.unlink(path.resolve(`./src/public/upload/${post._id}` + post.filename)); //remove the image from upload folder
+    try {
+        const post = await Post.findOneAndRemove({ _id: req.params.post_id }).lean();
+        console.log(post);
+        
+        const folderPath = path.resolve(`./src/public/upload/${post._id}`);
+        if (fs.existsSync(folderPath)) {
+            fs.remove(folderPath, { recursive: true });
+            console.log(`Folder ${folderPath} deleted successfully.`);
+            req.flash('success_msg', 'Post deleted Correctly!');
+        } else {
+            console.log(`Folder ${folderPath} does not exist.`);
+        }
+    
         res.redirect("/user/profile");
     } catch (error) {
-        res.render('error404', { layout: 'pages.hbs'});
+        console.error('Error during folder deletion:', error);
+        res.render('error404', { layout: 'pages.hbs' });
     }
+    
 };
 
 ctrl.modify = async (req, res) => {
-    try{
-        const {where, about, title, description} =  req.body;
+    try {
+        const { where, about, title, description } = req.body;
+        const postId = req.params.post_id;
 
-        const post = await Post.findByIdAndUpdate(req.params.post_id, {where, about, title, description});
+        // Get the current post
+        const post = await Post.findById(postId);
+
+        if (!post) {
+            return res.status(404).render('error404', { layout: 'pages.hbs' });
+        }
+        
+        let existingFiles = post.filenames || [];
+        if (req.files){
+            // Handle new files (uploaded via form)
+            for (const file of req.files) {
+                const imageTempPath = file.path;
+                const ext = path.extname(file.originalname).toLowerCase();
+                const imageUrl = generateUniqueImageUrl(existingFiles);
+                const targetPath = path.resolve(`src/public/upload/${postId}/${imageUrl}${ext}`);
+                await fs.promises.rename(imageTempPath, targetPath);
+                existingFiles.push(imageUrl + ext);
+            }
+        }
+        
+        // Handle deletions (get filenames to delete)
+        if (req.body.deleteFiles && req.body.deleteFiles.length > 0) {
+            const filesToDelete = req.body.deleteFiles.split(',');
+            existingFiles = existingFiles.filter(file => !filesToDelete.includes(file));
+
+            // Remove files from filesystem
+            filesToDelete.forEach(file => {
+                const filePath = path.join(__dirname, '../public/upload/', postId, file);
+                if (fs.existsSync(filePath)) {
+                    fs.unlinkSync(filePath); // Remove file from filesystem
+                }
+            });
+        }
+
+        // Update the post
+        post.where = where;
+        post.about = about;
+        post.title = title;
+        post.description = description;
+        post.filenames = existingFiles; // Updated filenames list
+
+        console.log(post)
+        // Save the post
+        await post.save();
+
         req.flash('success_msg', 'Post Updated Correctly!');
-        res.redirect('/posts/'+post._id);
+        res.redirect('/posts/' + post._id);
     } catch (error) {
-        res.render('error404', { layout: 'pages.hbs'});
+        console.error(error);
+        res.render('error404', { layout: 'pages.hbs' });
     }
 };
 
