@@ -1,5 +1,3 @@
-const { reset } = require("nodemon");
-
 const helpers = {};
 
 helpers.randomString = (n) => {
@@ -9,6 +7,18 @@ helpers.randomString = (n) => {
         randomString += possible.charAt(Math.floor(Math.random() * possible.length))
     }
     return randomString;
+};
+
+helpers.generateUniqueImageUrl = (existingFilenames) => {
+    let newImageUrl;
+    const generate = () => {
+        newImageUrl = helpers.randomString(6);
+        if (existingFilenames.includes(newImageUrl)) {
+            return generate(); // Recursively generate a new string if there’s a duplicate
+        }
+        return newImageUrl;
+    };
+    return generate();
 };
 
 helpers.escapeRegex = (text) => {
