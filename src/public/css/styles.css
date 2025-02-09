@@ -76,8 +76,8 @@ i{
     width: 10%;
 }
 .jpmap {
-    width: 85%;
-    /* height: auto; */
+    width: 120%;  /* Makes it 20% larger than its container */
+    max-width: 100%; /* Ensures it doesn't overflow its container */
 }
 .pagination .page-item.active .page-link {
     color: black; /* Set text color to black */
@@ -200,3 +200,87 @@ i{
 .delete-btn:hover {
     background-color: red;
 }
+
+/*Segmentation*/
+/* Basic region styling */
+.region {
+    background-color: #ffffff;  /* White background */
+    border: 1px solid #ccc;  /* Light grey border */
+    margin: 20px 0;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);  /* Subtle shadow for a modern feel */
+}
+
+.region h3 {
+    margin: 0;
+    font-size: 20px;
+    color: #333;  /* Dark grey for text */
+}
+
+/* City section inside the region */
+.city-list {
+    margin-top: 20px;
+    padding-left: 20px;
+}
+
+/* Each city block */
+.city {
+    background-color: #f7f7f7;  /* Light grey background */
+    border: 1px solid #ddd;  /* Light grey border */
+    margin: 10px 0;
+    padding: 15px;
+    border-radius: 6px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);  /* Subtle shadow for depth */
+}
+
+.city h4 {
+    margin: 0;
+    font-size: 18px;
+    color: #333;  /* Dark grey for text */
+}
+
+/* Topics list styling inside each city */
+.topics {
+    margin-top: 15px;
+    padding-left: 20px;
+}
+
+/* Links for each post */
+.topics p {
+    margin: 8px 0;
+}
+
+.topics a {
+    text-decoration: none;
+    color: #0073e6;  /* Bright blue for clickable links */
+    font-weight: bold;
+}
+
+.topics a:hover {
+    text-decoration: underline;
+    color: #0056b3;  /* Darker blue on hover */
+}
+
+/* Styling for the "No posts" message box */
+.no-posts {
+    background-color: #f8d7da;  /* Light red background to signify warning */
+    border: 1px solid #f5c6cb;  /* Light red border */
+    color: #721c24;  /* Dark red text */
+    padding: 15px;
+    margin-top: 20px;
+    border-radius: 6px;
+    font-size: 14px;
+}
+
+.no-posts a {
+    color: #0056b3;  /* Blue link color */
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.no-posts a:hover {
+    text-decoration: underline;
+    color: #003366;  /* Darker blue on hover */
+}
+

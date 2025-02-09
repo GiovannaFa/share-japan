@@ -1,6 +1,6 @@
 <div>
     <div class="card-header bg-light text-black">
-        <i class="fa fa-newspaper-o" aria-hidden="true"></i> Posts in {{ city }} about {{ topic }}
+        <i class="fa fa-newspaper-o" aria-hidden="true"></i> Posts in {{ location }}, about {{ about }}
         {{!-- <p><a href="/form">Leave a post!</a></p> --}}
     </div>
     <div id="main">
@@ -10,7 +10,7 @@
                 <div class="col-md-10">
                     <div class="card-header text-left">
                         <i class="black"><i class="fa fa-clock-o" aria-hidden="true"></i> {{timeago timestamp}}</i><br>
-                        @<a href="/city/{{where}}"><i> {{where}}</i></a>
+                        @ <a href="/city/{{where.prefecture}}/{{where.city}}"><i>{{where.city}}</i></a>, <a href="/prefecture/{{where.prefecture}}"><i>{{where.prefecture}}</i></a></i>,
                         about <a href="/topic/{{about}}"><i>{{about}}</i></a>
                         published by <a href="/user/profile/{{ user }}"><i> {{ author }}</i></a>
                     </div>

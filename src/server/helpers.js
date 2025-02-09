@@ -10,6 +10,10 @@ helpers.UpperCase = value => {
     return value.toUpperCase();
 };
 
+helpers.Capitalize = value => {
+    return String(value).charAt(0).toUpperCase() + String(value).slice(1);
+};
+
 helpers.gt = function(value, num, options) {
     if (value > num) {
         return options.fn(this);

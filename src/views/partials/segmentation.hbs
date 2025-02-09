@@ -1,19 +1,39 @@
 {{#ifLengthDictGreaterThan about_posts 0}}
     {{#each about_posts}}
-        {{#each this}}
-        <p>
-            <a href="/select/{{ @../key }}/{{ @key }}">{{ this }} post{{#gt this 1}}s{{/gt}} about {{ @key }}</a>
-        </p>
-        {{/each}}
+        <div class="region">
+            <h3><a href="/prefecture/{{ @key }}">{{ @key }}</a></h3>
+            <div class="city-list">
+                {{#each this}}
+                    <div class="city">
+                        <h4><a href="/city/{{ @../key }}/{{ @key }}">{{ @key }}</a></h4>
+                        <div class="topics">
+                            {{#each this}}
+                                <p>
+                                    <a href="/select/{{ @../../key }}/{{ @../key }}/{{ @key }}">
+                                        {{this}} posts about {{ @key }}
+                                    </a>
+                                </p>
+                            {{/each}}
+                        </div>
+                    </div>
+                {{/each}}
+            </div>
+        </div>
     {{/each}}
 {{else}}
-    {{#if is_user}}
-    <p>
-        No posts have been published yet for this city. <br> Be the first, click <a href="/form">here</a>
-    </p>
+    {{#if loggedUser}}
+   <div class="no-posts">
+        <p>
+            No posts have been published yet for this city. <br>
+            Be the first, click <a href="/form">here</a>.
+        </p>
+    </div>
     {{else}}
-    <p>
-        No posts have been published yet for this city. <br> Be the first, click <a href="/user/login">here</a>
-    </p>
+    <div class="no-posts">
+        <p>
+            No posts have been published yet for this city. <br>
+            Be the first, click <a href="/user/login">here</a>.
+        </p>
+    </div>
     {{/if}}
 {{/ifLengthDictGreaterThan}}

@@ -5,75 +5,91 @@
         </h3>
     </div>
     <div class="card-body">
-        <div style="height: 70vh;">
-            <form action="/edit-form/{{ post._id }}?_method=PUT" method="POST" enctype="multipart/form-data">
-                <input type="hidden" name="_method" value="PUT">
-                <div class="form-group">
-                    <select name="where">
-                        <option selected value="{{post.where}}">{{UpperCase post.where}}</option>
-                        <option value="tokyo">TOKYO</option>
-                        <option value="kyoto">KYOTO</option>
-                        <option value="osaka">OSAKA</option>
-                        <option value="sapporo">SAPPORO</option>
-                    </select>
-                </div>
+        <form action="/edit-form/{{ post._id }}?_method=PUT" method="POST" enctype="multipart/form-data">
+            <input type="hidden" name="_method" value="PUT">
+            <div class="form-group">
+                <select name="city" id="city-select">
+                    <option selected value="{{post.where.city}}">{{post.where.city}}</option>
+                    <!-- Cities will be inserted here by JavaScript -->
+                </select>
+            </div>
+            <div class="form-group">
+                <select name="prefecture" id="prefecture-select">
+                    <option selected value={{post.where.prefecture}}>{{post.where.prefecture}}</option>
+                    <!-- Cities will be inserted here by JavaScript -->
+                </select>
+            </div>
 
-                <div class="form-group">
-                    <select name="about">
-                        <option selected value="{{post.about}}">{{UpperCase post.about}}</option>
-                        <option value="food">FOOD</option>
-                        <option value="night_life">NIGHT LIFE</option>
-                        <option value="anecdote">ANECDOTE</option>
-                        <option value="for_free">FOR FREE</option>
-                        <option value="itinerary">ITINERARY</option>
-                    </select>
-                </div>
+            <div class="form-group">
+                <select name="about">
+                    <option selected value="{{post.about}}">{{Capitalize post.about}}</option>
+                    <option value="food">FOOD</option>
+                    <option value="night_life">NIGHT LIFE</option>
+                    <option value="anecdote">ANECDOTE</option>
+                    <option value="for_free">FOR FREE</option>
+                    <option value="itinerary">ITINERARY</option>
+                </select>
+            </div>
 
-                <div class="form-group">
-                    <input type="text" name="title" class="form-control" value="{{post.title}}">
-                </div>
+            <div class="form-group">
+                <input type="text" name="title" class="form-control" value="{{post.title}}">
+            </div>
 
-                <div class="form-group">
-                    <textarea name="description" class="form-control" style="height: 35vh;">{{post.description}}</textarea>
-                </div>
-                
-                <div class="form-group">
-                    <div class="input-group">
-                        <div class="custom-file">
-                            <!-- File input that is triggered by the Upload button -->
-                            <input type="file" name="images" class="custom-file-input" id="inputGroup" multiple>
-                            <label class="custom-file-label" for="inputGroup" id="uploadButton">Choose your files</label>
-                        </div>
+            <div class="form-group">
+                <textarea name="description" class="form-control" style="height: 35vh;">{{post.description}}</textarea>
+            </div>
+            
+            <div class="form-group">
+                <div class="input-group">
+                    <div class="custom-file">
+                        <!-- File input that is triggered by the Upload button -->
+                        <input type="file" name="images" class="custom-file-input" id="inputGroup" multiple>
+                        <label class="custom-file-label" for="inputGroup" id="uploadButton">Choose your files</label>
                     </div>
                 </div>
+            </div>
 
-                <!-- Existing Files (images, videos, gifs) -->
-                <div id="image-preview" class="form-group">
-                    {{#each post.filenames}}
-                        <div class="file-wrapper" style="position: relative; display: inline-block; margin-right: 10px; margin-bottom: 10px;">
-                            <img src="/public/upload/{{../post._id}}/{{this}}" alt="{{../post._id}}" class="img-thumbnail" style="max-width: 200px;">
-                            <button class="delete-btn" 
-                                    style="position: absolute; top: 5px; right: 5px; background: rgba(0, 0, 0, 0.5); color: white; border: none; border-radius: 50%; cursor: pointer; padding: 5px; font-size: 16px;" 
-                                    data-filename="{{this}}">&times;</button>
-                        </div>
-                    {{/each}}
-                </div>
+            <!-- Existing Files (images, videos, gifs) -->
+            <div id="image-preview" class="form-group">
+                {{#each post.filenames}}
+                    <div class="file-wrapper" style="position: relative; display: inline-block; margin-right: 10px; margin-bottom: 10px;">
+                        <img src="/public/upload/{{../post._id}}/{{this}}" alt="{{../post._id}}" class="img-thumbnail" style="max-width: 200px;">
+                        <button class="delete-btn" 
+                                style="position: absolute; top: 5px; right: 5px; background: rgba(0, 0, 0, 0.5); color: white; border: none; border-radius: 50%; cursor: pointer; padding: 5px; font-size: 16px;" 
+                                data-filename="{{this}}">&times;</button>
+                    </div>
+                {{/each}}
+            </div>
 
 
-                <!-- Error message displayed when file type is invalid -->
-                <div id="error-message" class="text-danger" style="display: none;"></div>
+            <!-- Error message displayed when file type is invalid -->
+            <div id="error-message" class="text-danger" style="display: none;"></div>
 
-                <!-- Upload button -->
-                <div class="form-group">
-                    <button type="submit" class="btn btn-upload">Save</button>
-                </div>
+            <!-- Upload button -->
+            <div class="form-group">
+                <button type="submit" class="btn btn-upload">Save</button>
+            </div>
 
-                <!-- Container for Hidden Inputs (for deleted files) -->
-                <div id="deleted-files-container">
-                    <input type="hidden" name="deleteFiles" value="">
-                </div>
+            <!-- Container for Hidden Inputs (for deleted files) -->
+            <div id="deleted-files-container">
+                <input type="hidden" name="deleteFiles" value="">
+            </div>
 
-                <script>
+            <script>
+                // Function to update the file input's list of files after deletion
+                function updateFileInput() {
+                    const input = document.getElementById('inputGroup');
+                    const dataTransfer = new DataTransfer(); // Create a new DataTransfer object
+
+                    // Add all the remaining files in the selectedFiles array to the new file list
+                    selectedFiles.forEach(file => {
+                        dataTransfer.items.add(file);
+                    });
+
+                    // Set the new file list to the file input's files property
+                    input.files = dataTransfer.files;
+                }
+
                 let deleteFiles = []; // Track the files that are marked for deletion
                 let selectedFiles = []; // Track selected files for upload
 
@@ -86,6 +102,9 @@
                         if (!deleteFiles.includes(filename)) {
                             deleteFiles.push(filename);
                         }
+
+                        // Remove the file from the selectedFiles array
+                        selectedFiles = selectedFiles.filter(file => file.name !== filename);
 
                         // Update the hidden input field with the updated deleteFiles array
                         const deleteInput = document.querySelector('input[name="deleteFiles"]');
@@ -186,21 +205,100 @@
                     updateFileInput();
                 });
 
-                // Function to update the file input's list of files after deletion
-                function updateFileInput() {
-                    const input = document.getElementById('inputGroup');
-                    const dataTransfer = new DataTransfer(); // Create a new DataTransfer object
+                function fetchCitiesData() {
+                fetch('http://localhost:3005/public/data/cities.json') // Use the full URL
+                    .then(response => response.json())
+                    .then(data => {
+                        console.log('Fetched data:', data);
+                        loadCitiesAndPrefectures(data);
+                    })
+                    .catch(error => console.error('Error fetching cities data:', error));
+                }
 
-                    // Add all the remaining files in the selectedFiles array to the new file list
-                    selectedFiles.forEach(file => {
-                        dataTransfer.items.add(file);
+                function loadCitiesAndPrefectures(data) {
+                    console.log('Data received in loadCitiesAndPrefectures:', data); // Log the received data
+
+                    const citiesByPrefecture = {};
+                    const cityToPrefectures = {};
+
+                    data.forEach(item => {
+                        if (!citiesByPrefecture[item.prefecture]) {
+                            citiesByPrefecture[item.prefecture] = [];
+                        }
+                        citiesByPrefecture[item.prefecture].push(item.city);
+
+                        if (!cityToPrefectures[item.city]) {
+                            cityToPrefectures[item.city] = [];
+                        }
+                        cityToPrefectures[item.city].push(item.prefecture);
                     });
 
-                    // Set the new file list to the file input's files property
-                    input.files = dataTransfer.files;
+                    console.log('Cities by prefecture:', citiesByPrefecture); // Log the mapping
+                    console.log('City to prefectures:', cityToPrefectures); // Log the mapping
+
+                    const citySelect = document.getElementById('city-select');
+                    const prefectureSelect = document.getElementById('prefecture-select');
+
+                    console.log('City select element:', citySelect); // Log the city select element
+                    console.log('Prefecture select element:', prefectureSelect); // Log the prefecture select element
+
+                    // Populate the city dropdown
+                    const uniqueCities = Object.keys(cityToPrefectures).sort((a, b) => a.localeCompare(b));
+                    console.log('Unique cities:', uniqueCities); // Log unique cities
+                    uniqueCities.forEach(city => {
+                        const option = document.createElement('option');
+                        option.value = city;
+                        option.textContent = city;
+                        citySelect.appendChild(option);
+                    });
+
+                    // Populate the prefecture dropdown
+                    const uniquePrefectures = Object.keys(citiesByPrefecture).sort((a, b) => a.localeCompare(b));
+                    console.log('Unique prefectures:', uniquePrefectures); // Log unique prefectures
+                    uniquePrefectures.forEach(prefecture => {
+                        const option = document.createElement('option');
+                        option.value = prefecture;
+                        option.textContent = prefecture;
+                        prefectureSelect.appendChild(option);
+                    });
+
+                    // Ensure the prefecture dropdown is visible
+                    prefectureSelect.style.display = 'block';
+
+                    // Handle city selection change
+                    citySelect.addEventListener('change', function() {
+                        const selectedCity = this.value;
+                        console.log('Selected city:', selectedCity); // Log the selected city
+
+                        prefectureSelect.innerHTML = '<option selected value="">Select the Prefecture</option>';
+
+                        if (selectedCity) {
+                            const prefectures = cityToPrefectures[selectedCity];
+                            console.log('Prefectures for selected city:', prefectures); // Log the prefectures
+
+                            if (prefectures && prefectures.length > 0) {
+                                prefectures.forEach(prefecture => {
+                                    const option = document.createElement('option');
+                                    option.value = prefecture;
+                                    option.textContent = prefecture;
+                                    prefectureSelect.appendChild(option);
+                                });
+
+                                if (prefectures.length === 1) {
+                                    prefectureSelect.value = prefectures[0];
+                                }
+                            } else {
+                                console.error("No prefecture found for city: " + selectedCity);
+                            }
+                        }
+                    });
                 }
-                </script>
-            </form>
-        </div>
+
+                // Call the fetchCitiesData function when the document is ready
+                document.addEventListener('DOMContentLoaded', function() {
+                    fetchCitiesData(); // Fetch and load the data
+                });
+            </script>
+        </form>
     </div>
 </div>

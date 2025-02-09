@@ -32,6 +32,7 @@ ctrl.index = async (req, res) => {
 
 
 ctrl.create = async (req, res) => {
+    console.log(`This is the req: ${req}`)
     const user_id = req.user._id;
     const custom_dir = path.resolve(`src/public/upload/${user_id}`);
     if (!fs.existsSync(custom_dir)) {
@@ -55,7 +56,10 @@ ctrl.create = async (req, res) => {
         }
         console.log(`filenames is: ${filenames}`)
         const newPost = new Post({
-            where: req.body.where,
+            where: {
+                city: req.body.city,
+                prefecture: req.body.prefecture
+            },
             about: req.body.about,
             title: req.body.title,
             description: req.body.description,
@@ -119,7 +123,7 @@ ctrl.remove = async (req, res) => {
 
 ctrl.modify = async (req, res) => {
     try {
-        const { where, about, title, description } = req.body;
+        const { city, prefecture, about, title, description } = req.body;
         const postId = req.params.post_id;
 
         // Get the current post
@@ -157,7 +161,8 @@ ctrl.modify = async (req, res) => {
         }
 
         // Update the post
-        post.where = where;
+        post.where.city = city,
+        post.where.prefecture = prefecture,
         post.about = about;
         post.title = title;
         post.description = description;
