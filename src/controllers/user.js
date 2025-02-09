@@ -17,6 +17,10 @@ const pagesPerSet = 10;
 ctrl.signup = async (req, res) => {
     const { name, email, password, confirmPassword }  = req.body;
     const errors = [];
+    const emailUser = await User.findOne({email:email});
+    if (emailUser){
+        errors.push({text: 'e-mail already in use!'});
+    }
     if(name.length <= 0 || email.length <= 0 || password.length <= 0 || confirmPassword.length <= 0){
         errors.push({text: 'One or more fields are empty'})
     }
@@ -30,26 +34,19 @@ ctrl.signup = async (req, res) => {
         res.render('user/signup', {errors, name, email, password, confirmPassword, layout: 'pages.hbs'});
     }
     else{
-        const emailUser = await User.findOne({email:email});
-        if (emailUser){
-            req.flash('error_msg', 'Email already in use');
-            return res.redirect('/user/signup');
-        }
-        else{
-            const newUser = new User({
-                name: req.body.name,
-                email: req.body.email,
-                password: req.body.password
-            });
-            newUser.password = await newUser.encryptPassword(password);
-            const token = randomString(n=10);
-            newUser.secretToken = token
-            const link = `http://localhost:3005/user/verify/${token}`;
-            await newUser.save();
-            await verifyEmail(email, link);
-            req.flash('success_msg', 'An e-mail has been sent to ' + newUser.email + '. Verify your address before login!');
-            res.redirect('/user/login');
-        };
+        const newUser = new User({
+            name: req.body.name,
+            email: req.body.email,
+            password: req.body.password
+        });
+        newUser.password = await newUser.encryptPassword(password);
+        const token = randomString(n=10);
+        newUser.secretToken = token
+        const link = `http://localhost:3005/user/verify/${token}`;
+        await newUser.save();
+        await verifyEmail(email, link);
+        req.flash('success_msg', 'An e-mail has been sent to ' + newUser.email + '. Verify your address before login!');
+        res.redirect('/user/login');
     }
 };
 
