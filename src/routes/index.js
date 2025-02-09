@@ -4,6 +4,7 @@ const router = express.Router(); //definir URLs o rutas del servidor
 const posts_list = require('../controllers/posts_list');
 const post = require('../controllers/post');
 const user = require('../controllers/user');
+const comment = require('../controllers/comment');
 const landing = require('../controllers/landing');
 const { Post } = require('../models');
 const { User } = require('../models');
@@ -19,7 +20,7 @@ module.exports = app => {
 
     // about related endpoint
     router.get('/about', (req, res) => {
-        res.render('about', { layout: 'pages.hbs'});
+        res.render('about', { layout: 'empty_page.hbs'});
     });
     
     // list of posts related endpoints
@@ -34,7 +35,7 @@ module.exports = app => {
     router.get('/posts/:post_id', post.index);
     router.post('/posts', post.create);
     router.post('/posts/:post_id/like', post.like);
-    //router.post('/posts/:post_id/comment', post.comment);
+    router.post('/posts/:post_id', comment.create);
     router.delete('/posts/:post_id', post.remove);
     router.get('/posts/edit/:post_id', async (req, res) => {
         const post = await Post.findById({_id: req.params.post_id}).lean();
@@ -51,24 +52,24 @@ module.exports = app => {
 
     // user related endpoints
     router.get('/user/signup', (req,res) => {
-        res.render('user/signup', { layout: 'pages.hbs'});
+        res.render('user/signup', { layout: 'empty_page.hbs'});
     });
     router.post('/user/signup', user.signup);
     router.get('/user/verify/:token', user.verify);
     router.get('/user/login', (req,res) => {
-        res.render('user/login', { layout: 'pages.hbs'});
+        res.render('user/login', { layout: 'empty_page.hbs'});
     });
     router.post('/user/login', user.login);
     router.post('/user/forgotPassword', user.forgotPassword);
     router.get('/user/forgot_password', (req, res) => {
-        res.render('user/forgot_password', { layout: 'pages.hbs'});
+        res.render('user/forgot_password', { layout: 'empty_page.hbs'});
     });
     router.patch('/user/resetPassword/:token', user.resetPassword);
     router.get('/user/resetPassword/:token', async (req, res) => {
         const resetToken = crypto.createHash('sha256').update(req.params.token).digest('hex')
         const user = await User.findOne({passwordResetToken: resetToken}).lean();
         user.originalSecretToken = req.params.token
-        res.render('user/reset_password', {user, layout: 'pages.hbs'});
+        res.render('user/reset_password', {user, layout: 'empty_page.hbs'});
     })
     router.get('/user/settings', user.settings);
     router.put('/user/settings/:user_id', user.modify);
