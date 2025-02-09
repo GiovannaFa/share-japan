@@ -3,8 +3,11 @@ const { Schema } = mongoose;
 const path = require('path');
 
 const postSchema = new Schema({
-    where: {type: String },
-    about: {type: String },
+    where: {
+        prefecture: { type: String },
+        city: { type: String }
+    },
+    about: { type: String },
     title: { type: String },
     description: { type: String },
     filenames: [
@@ -12,11 +15,12 @@ const postSchema = new Schema({
             type: String
         }
     ],
-    likes: [{type: mongoose.Schema.ObjectId, ref:"User"}],
+    likes: [{ type: mongoose.Schema.ObjectId, ref: "User" }],
     views: { type: Number, default: 0 },
     timestamp: { type: Date, default: Date.now },
-    user: {type: mongoose.Schema.ObjectId}
+    user: { type: mongoose.Schema.ObjectId }
 });
+
 
 postSchema.virtual('uniqueId')
     .get(function(){

@@ -5,7 +5,7 @@
     <div class="card-body">
         <div id="post">
             <p>
-                @ <a href="/city/{{post.where}}"><i>{{post.where}}</i></a>,
+                @ <a href="/city/{{post.where.prefecture}}/{{post.where.city}}"><i>{{post.where.city}}</i></a>, <a href="/prefecture/{{post.where.prefecture}}"><i>{{post.where.prefecture}}</i></a></i>,
                 about <a href="/topic/{{post.about}}"><i>{{post.about}}</i></a>
                 by <a id="link" href="/user/profile/{{ author._id }}"><i>{{author.name}}</i></a>
             </p>

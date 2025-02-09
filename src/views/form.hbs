@@ -7,19 +7,18 @@
     </div>
     <div class="card-body">
         <form action="/posts" method="POST" enctype="multipart/form-data">
-            <div class="form-group">
-                <select name="where">
-                    <option selected value={{where}}> Select a city </option>
-                    <option value="tokyo">TOKYO</option>
-                    <option value="kyoto">KYOTO</option>
-                    <option value="osaka">OSAKA</option>
-                    <option value="sapporo">SAPPORO</option>
-                    <option value="okinawa">OKINAWA</option>
-                    <option value="sendai">SENDAI</option>
-                    <option value="fukuoka">FUKUOKA</option>
-                </select>
-            </div>
-
+        <div class="form-group">
+            <select name="city" id="city-select">
+                <option selected value={{where.city}}>Select a city</option>
+                <!-- Cities will be inserted here by JavaScript -->
+            </select>
+        </div>
+        <div class="form-group">
+            <select name="prefecture" id="prefecture-select">
+                <option selected value={{where.prefecture}}/>
+                <!-- Prefectures will be inserted here by JavaScript -->
+            </select>
+        </div>
             <div class="form-group">
                 {{!-- <input type="text" name="about" class="form-control" placeholder="What is it about" required> --}}
                 <select name="about">
@@ -60,8 +59,6 @@
             <div class="form-group">
                 <button class="btn btn-upload" >Upload</button>
             </div>
-
-
             <script>
                 let selectedFiles = []; // Track selected files
 
@@ -185,6 +182,99 @@
                     // Set the new file list to the file input's files property
                     input.files = dataTransfer.files;
                 }
+
+                // Function to fetch the cities JSON data
+                function fetchCitiesData() {
+                    return fetch('http://localhost:3005/public/data/cities.json')
+                        .then(response => response.json())
+                        .catch(error => {
+                            console.error('Error fetching cities data:', error);
+                            throw error; // Rethrow error so it can be handled by the caller
+                        });
+                }
+
+                // Function to load the cities and prefectures and populate the select dropdowns
+                function loadCitiesAndPrefectures() {
+                    // Fetch the data from the external JSON file
+                    fetchCitiesData()
+                        .then(data => {
+                            const citiesByPrefecture = {};
+                            const cityToPrefectures = {};
+
+                            // Organize data into a map for cities and prefectures
+                            data.forEach(item => {
+                                if (!citiesByPrefecture[item.prefecture]) {
+                                    citiesByPrefecture[item.prefecture] = [];
+                                }
+                                citiesByPrefecture[item.prefecture].push(item.city);
+
+                                // Also map city to its prefecture(s)
+                                if (!cityToPrefectures[item.city]) {
+                                    cityToPrefectures[item.city] = [];
+                                }
+                                cityToPrefectures[item.city].push(item.prefecture);
+                            });
+
+                            // Get the city select dropdown and prefecture select dropdown
+                            const citySelect = document.getElementById('city-select');
+                            const prefectureSelect = document.getElementById('prefecture-select');
+
+                            // Populate the city dropdown with unique cities
+                            const uniqueCities = Object.keys(cityToPrefectures).sort((a, b) => a.localeCompare(b));
+                            uniqueCities.forEach(city => {
+                                const option = document.createElement('option');
+                                option.value = city;
+                                option.textContent = city;
+                                citySelect.appendChild(option);
+                            });
+
+                            // Handle change in city selection
+                            citySelect.addEventListener('change', function() {
+                                const selectedCity = this.value;
+
+                                // Clear previous prefecture options
+                                prefectureSelect.innerHTML = '<option selected value="">Select the Prefecture</option>';
+
+                                if (selectedCity) {
+                                    // Get the prefectures related to the selected city
+                                    const prefectures = cityToPrefectures[selectedCity];
+
+                                    if (prefectures && prefectures.length > 0) {
+                                        // Prefectures found for this city
+                                        prefectures.forEach(prefecture => {
+                                            const option = document.createElement('option');
+                                            option.value = prefecture;
+                                            option.textContent = prefecture;
+                                            prefectureSelect.appendChild(option);
+                                        });
+
+                                        // If the city belongs to only one prefecture, select it automatically
+                                        if (prefectures.length === 1) {
+                                            prefectureSelect.value = prefectures[0];  // Auto-select the only prefecture
+                                        }
+                                    } else {
+                                        // No prefecture found (edge case, should not normally happen)
+                                        console.error("No prefecture found for city: " + selectedCity);
+                                    }
+
+                                    // Ensure the prefecture select dropdown is shown
+                                    prefectureSelect.style.display = 'block';
+                                } else {
+                                    // Hide the prefecture select dropdown if no city is selected
+                                    prefectureSelect.style.display = 'none';
+                                }
+                            });
+
+                            // Ensure the prefecture dropdown is hidden initially if no city is selected
+                            prefectureSelect.style.display = 'none';
+                        })
+                        .catch(error => {
+                            console.error('Error loading cities and prefectures:', error);
+                        });
+                }
+
+                // Call the function when the document is ready
+                document.addEventListener('DOMContentLoaded', loadCitiesAndPrefectures);
             </script>
         </form>
     </div>

@@ -7,7 +7,7 @@
         {{#each popular}}
         <a href="/posts/{{_id}}" id="link">
             <div class="row mb-2">
-                <p><b>{{title}} @ <i>{{where}}</i></b> with {{likes.length}} <i class="fa fa-thumbs-o-up" aria-hidden="true"></i>
+                <p><b>{{title}} @ <a href="/city/{{where.prefecture}}/{{where.city}}"><i>{{where.city}}</i></a>, <a href="/prefecture/{{where.prefecture}}"><i>{{where.prefecture}}</i></a></i></b> with {{likes.length}} <i class="fa fa-thumbs-o-up" aria-hidden="true"></i>
             </div>
         </a>
         {{/each}}

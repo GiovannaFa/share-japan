@@ -11,26 +11,36 @@ const sidebar = require('../helpers/sidebar');
 const crypto = require('crypto');
 
 module.exports = app => {
+    // landing page related endpoints
     router.get('/', (req, res) => {
         res.render('index', { layout: 'landing.hbs'});
     });
-    router.get('/select/:city', landing.find_count);
+    router.get('/select/:prefecture', landing.find_count);
+
+    // about related endpoint
+    router.get('/about', (req, res) => {
+        res.render('about', { layout: 'pages.hbs'});
+    });
+    
+    // list of posts related endpoints
     router.get('/posts', posts_list.index);
-    router.get('/city/:city', posts_list.find_where);
     router.get('/topic/:about', posts_list.find_about);
-    router.get('/select/:city/:topic', posts_list.find_where_about);
+    router.get('/city/:prefecture/:city', posts_list.find_city);
+    router.get('/prefecture/:prefecture', posts_list.find_prefecture);
+    router.get('/select/:prefecture/:about', posts_list.find_prefecture_and_about);
+    router.get('/select/:prefecture/:city/:about', posts_list.find_city_and_about);
+    
+    // post related endppoints
     router.get('/posts/:post_id', post.index);
     router.post('/posts', post.create);
     router.post('/posts/:post_id/like', post.like);
     //router.post('/posts/:post_id/comment', post.comment);
     router.delete('/posts/:post_id', post.remove);
-
     router.get('/posts/edit/:post_id', async (req, res) => {
         const post = await Post.findById({_id: req.params.post_id}).lean();
         res.render('edit-form', {post});
     })
     router.put('/edit-form/:post_id', post.modify);
-
     router.get('/form', async (req, res) => {
         const posts  = await Post.find().lean() ;
         let viewModel = { posts: [] };
@@ -38,27 +48,21 @@ module.exports = app => {
         viewModel = await sidebar(viewModel);
         res.render('form', viewModel);
     });
-    router.get('/about', (req, res) => {
-        res.render('about', { layout: 'pages.hbs'});
-    });
 
+    // user related endpoints
     router.get('/user/signup', (req,res) => {
         res.render('user/signup', { layout: 'pages.hbs'});
     });
     router.post('/user/signup', user.signup);
-    
     router.get('/user/verify/:token', user.verify);
-
     router.get('/user/login', (req,res) => {
         res.render('user/login', { layout: 'pages.hbs'});
     });
     router.post('/user/login', user.login);
-    
     router.post('/user/forgotPassword', user.forgotPassword);
     router.get('/user/forgot_password', (req, res) => {
         res.render('user/forgot_password', { layout: 'pages.hbs'});
     });
-
     router.patch('/user/resetPassword/:token', user.resetPassword);
     router.get('/user/resetPassword/:token', async (req, res) => {
         const resetToken = crypto.createHash('sha256').update(req.params.token).digest('hex')
@@ -66,7 +70,6 @@ module.exports = app => {
         user.originalSecretToken = req.params.token
         res.render('user/reset_password', {user, layout: 'pages.hbs'});
     })
-    
     router.get('/user/settings', user.settings);
     router.put('/user/settings/:user_id', user.modify);
     router.get('/user/logout', (req, res) => {
@@ -74,9 +77,7 @@ module.exports = app => {
         req.flash('success_msg', 'Logged out!');
         res.redirect('/');
     });
-
     router.delete('/user/:user_id', user.remove);
-
     router.get('/user/profile', user.index);
     router.get('/user/profile/:user_id', user.find_user);
 
