@@ -31,11 +31,10 @@ module.exports = app => {
     router.get('/select/:prefecture/:about', posts_list.find_prefecture_and_about);
     router.get('/select/:prefecture/:city/:about', posts_list.find_city_and_about);
     
-    // post related endppoints
+    // post related endpoints
     router.get('/posts/:post_id', post.index);
     router.post('/posts', post.create);
     router.post('/posts/:post_id/like', post.like);
-    router.post('/posts/:post_id', comment.create);
     router.delete('/posts/:post_id', post.remove);
     router.get('/posts/edit/:post_id', async (req, res) => {
         const post = await Post.findById({_id: req.params.post_id}).lean();
@@ -49,6 +48,27 @@ module.exports = app => {
         viewModel = await sidebar(viewModel);
         res.render('form', viewModel);
     });
+
+    // comments related endpoints
+    router.post('/comment/:post_id', comment.create);
+    router.delete('/comment/:post_id/:comment_id', comment.remove);
+    // router.put('/comment/edit/:post_id/:comment_id', comment.modify);
+    // router.get('/comment/edit/:post_id/:comment_id', async (req, res) => {
+    //     try {
+    //         const post = await Post.findById(req.params.post_id).lean();
+    //         const comment = await Comment.findById(req.params.comment_id).lean();  // Fetch the comment by ID
+    
+    //         res.render('post', {
+    //             ...post,
+    //             layout: 'post.hbs',
+    //             comment,  // Pass the comment to the view
+    //         });
+    //     } catch (error) {
+    //         console.error(error);
+    //         res.status(500).send('An error occurred while retrieving the post or comment.');
+    //     }
+    // });
+    
 
     // user related endpoints
     router.get('/user/signup', (req,res) => {

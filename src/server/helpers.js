@@ -1,4 +1,5 @@
 const moment = require('moment');
+const mongoose = require('mongoose');
 
 const helpers= {};
 
@@ -80,5 +81,16 @@ helpers.substract = function(a, b) {
     return a - b;
 };
 
+helpers.compareObjectId = function(value, stringId, options) {
+    // Convert stringId to ObjectId (if it's a valid ObjectId string)
+    const objectId = mongoose.Types.ObjectId(stringId);
+
+    // Compare the ObjectId and return HTML or content depending on the result
+    if (value.equals(objectId)) {
+        return options.fn(this);  // Render the block inside {{#compareObjectId}} if true
+    } else {
+        return options.inverse(this);  // Render the block inside {{else}} if false
+    }
+};
 
 module.exports = helpers;

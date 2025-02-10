@@ -59,7 +59,6 @@ ctrl.index = async (req, res) => {
 
 
 ctrl.create = async (req, res) => {
-    console.log(`This is the req: ${req}`)
     const user_id = req.user._id;
     const custom_dir = path.resolve(`src/public/upload/${user_id}`);
     if (!fs.existsSync(custom_dir)) {
@@ -129,8 +128,7 @@ ctrl.like = async (req, res) => {
 ctrl.remove = async (req, res) => {
     try {
         const post = await Post.findOneAndRemove({ _id: req.params.post_id }).lean();
-        console.log(post);
-        
+
         const folderPath = path.resolve(`./src/public/upload/${post._id}`);
         if (fs.existsSync(folderPath)) {
             fs.remove(folderPath, { recursive: true });
