@@ -1,0 +1,57 @@
+{{#if comments}}
+<div class="card">
+    <!-- Card Header -->
+    <div class="card-header bg-light text-black">
+        <h5><i class="fa fa-paper-plane" aria-hidden="true"></i> Comments</h5>
+    </div>
+
+    <!-- Card Body (Scrollable Comments) -->
+    <div class="card-body" style="max-height: 500px; overflow-y: auto;">
+        {{#each comments}}
+            <div class="card mb-2 p-3"> <!-- Add a card for each comment -->
+                <div class="d-flex justify-content-between align-items-center mb-2">
+                    <p class="mb-0 font-weight-bold">{{user_name}}</p>
+                    {{#if ../loggedUser}}
+                        {{#compareObjectId user_id ../loggedUser._id}}
+                            <!-- Delete button moved to the same height as the user name -->
+                            <form action="/comment/{{post_id}}/{{ _id }}?_method=DELETE" method="POST">
+                                <input type="hidden" name="_method" value="DELETE">
+                                <button type="submit" class="btn-delete">
+                                    <i class="fa fa-trash-o" aria-hidden="true"></i>
+                                </button>
+                            </form>
+                        {{/compareObjectId}}
+                    {{/if}}
+                </div>
+                
+                <!-- Timeago is placed on a new line below the comment text -->
+                <div class="d-flex justify-content-between align-items-center mb-2">
+                    <p class="mb-0">{{comment}}</p>
+                    <small class="text-muted">{{timeago timestamp}}</small>
+                </div>
+            </div>
+        {{/each}}
+    </div>
+{{/if}}
+    <!-- Comment Form -->
+    <div class="card-footer">
+        <form id="commentForm" method="POST">
+            <div class="form-group">
+                <textarea name="comment" class="form-control" rows="3" placeholder="Write a comment..." required></textarea>
+            </div>
+            <button type="submit" class="btn btn-upload">Post</button>
+        </form>
+    </div>
+</div>
+
+<script>
+  // Get the current URL path
+  const urlPath = window.location.pathname;
+  
+  // Extract post_id using a regular expression
+  const postId = urlPath.split('/')[2]; // Assuming URL is /posts/:post_id
+  
+  // Set the action dynamically
+  const form = document.getElementById('commentForm');
+  form.action = `/comment/${postId}`;
+</script>

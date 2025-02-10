@@ -18,21 +18,47 @@ ctrl.index = async (req, res) => {
         }
         ]);
     const author = writer[0].usuario[0];
+    const comments = await Post.aggregate([
+        {
+          $match: { _id: new ObjectId(req.params.post_id) }
+        },
+        {
+          $lookup: {
+            from: "comments",
+            localField: "_id",
+            foreignField: "post_id",
+            as: "users_comments"
+          }
+        },
+        {
+          $unwind: "$users_comments" // Flatten the array of comments
+        },
+        {
+          $sort: { "users_comments.timestamp": -1 } // Sort by timestamp (most recent first)
+        },
+        {
+          $group: {
+            _id: "$_id",
+            users_comments: { $push: "$users_comments" } // Rebuild the comments array
+          }
+        }
+      ]);
+    const users_comments = comments.length > 0 ? comments[0].users_comments : [];
     const post = await Post.findOneAndUpdate({_id: req.params.post_id}, { $inc: { views: 1 }}).lean();
     try{
         let viewModel = { post: [] };
         viewModel.post = post;
         viewModel.author = author;
+        viewModel.comments = users_comments;
         viewModel = await sidebar(viewModel);
-        res.render('post', viewModel);
+        res.render('post', { ...viewModel, layout: 'post.hbs' });
     } catch (error) {
-        res.render('error404', { layout: 'pages.hbs'});
+        res.render('error404', {layout: 'empty_page.hbs'});
     }
 };
 
 
 ctrl.create = async (req, res) => {
-    console.log(`This is the req: ${req}`)
     const user_id = req.user._id;
     const custom_dir = path.resolve(`src/public/upload/${user_id}`);
     if (!fs.existsSync(custom_dir)) {
@@ -73,7 +99,7 @@ ctrl.create = async (req, res) => {
     catch (error) {
         // Error handling, e.g., logging
         console.error('Error uploading post', error);
-        res.render('error404', { layout: 'pages.hbs' });
+        res.render('error404', { layout: 'empty_page.hbs' });
     }
 };
 
@@ -102,8 +128,7 @@ ctrl.like = async (req, res) => {
 ctrl.remove = async (req, res) => {
     try {
         const post = await Post.findOneAndRemove({ _id: req.params.post_id }).lean();
-        console.log(post);
-        
+
         const folderPath = path.resolve(`./src/public/upload/${post._id}`);
         if (fs.existsSync(folderPath)) {
             fs.remove(folderPath, { recursive: true });
@@ -116,7 +141,7 @@ ctrl.remove = async (req, res) => {
         res.redirect("/user/profile");
     } catch (error) {
         console.error('Error during folder deletion:', error);
-        res.render('error404', { layout: 'pages.hbs' });
+        res.render('error404', { layout: 'empty_page.hbs' });
     }
     
 };
@@ -130,7 +155,7 @@ ctrl.modify = async (req, res) => {
         const post = await Post.findById(postId);
 
         if (!post) {
-            return res.status(404).render('error404', { layout: 'pages.hbs' });
+            return res.status(404).render('error404', { layout: 'empty_page.hbs' });
         }
         
         let existingFiles = post.filenames || [];
@@ -176,7 +201,7 @@ ctrl.modify = async (req, res) => {
         res.redirect('/posts/' + post._id);
     } catch (error) {
         console.error(error);
-        res.render('error404', { layout: 'pages.hbs' });
+        res.render('error404', { layout: 'empty_page.hbs' });
     }
 };
 
