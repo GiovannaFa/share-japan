@@ -18,7 +18,8 @@ ctrl.find_count = async (req, res) => {
     
         // Process each post to populate about_posts
         for (let i in posts) {
-            const about = posts[i].about;
+            const category = posts[i].about.category;
+            const subcategory = posts[i].about.subcategory;
             const city = posts[i].where.city;
             const region = posts[i].where.prefecture;
     
@@ -32,11 +33,16 @@ ctrl.find_count = async (req, res) => {
                 about_posts[region][city] = {};
             }
     
-            // Increment the count for the specific topic in the city entry
-            if (about_posts[region][city].hasOwnProperty(about)) {
-                about_posts[region][city][about] += 1;
+            // Initialize the category entry under the city if it doesn't exist
+            if (!about_posts[region][city].hasOwnProperty(category)) {
+                about_posts[region][city][category] = {};
+            }
+    
+            // Increment the count for the specific subcategory under the category in the city entry
+            if (about_posts[region][city][category].hasOwnProperty(subcategory)) {
+                about_posts[region][city][category][subcategory] += 1;
             } else {
-                about_posts[region][city][about] = 1;
+                about_posts[region][city][category][subcategory] = 1;
             }
         }
     
@@ -47,7 +53,7 @@ ctrl.find_count = async (req, res) => {
         // Handle error
         res.status(500).send("Error fetching posts");
     }
-    
+
 }
 
 module.exports = ctrl;

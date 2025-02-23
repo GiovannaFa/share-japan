@@ -68,17 +68,17 @@ ctrl.index = async (req, res) => {
 };
 
 
-ctrl.find_about = async (req, res) => {
+ctrl.find_category = async (req, res) => {
     const pagination = req.query.pagination ? parseInt(req.query.pagination): 4;
     const currentPage = req.query.page ? parseInt(req.query.page): 1;
     const startPage = Math.floor((currentPage - 1) / pagesPerSet) * pagesPerSet + 1;
     const endPage = Math.min(startPage + pagesPerSet - 1, totalPages);
-    const about = req.params.about;
-    const posts = await Post.find({about: about})
+    const category = req.params.category;
+    const posts = await Post.find({ "about.category": category})
     .skip((currentPage - 1) * pagination)
     .limit(pagination)
     .sort({timestamp: -1}).lean();
-    const totalPosts = await Post.find({about: about})
+    const totalPosts = await Post.find({ "about.category": category})
     const pages = Math.ceil(totalPosts.length/pagination)
 
     count = getPageRange(pages, currentPage)
@@ -114,7 +114,58 @@ ctrl.find_about = async (req, res) => {
         viewModel.previousSetStart = previousSetStart;
         viewModel.hasNextSet = hasNextSet;
         viewModel.nextSetStart = nextSetStart;
-        viewModel.concerning = about;
+        viewModel.concerning = category;
+        viewModel = await sidebar(viewModel);
+        res.render('topic', viewModel);
+}
+
+ctrl.find_subcategory = async (req, res) => {
+    const pagination = req.query.pagination ? parseInt(req.query.pagination): 4;
+    const currentPage = req.query.page ? parseInt(req.query.page): 1;
+    const startPage = Math.floor((currentPage - 1) / pagesPerSet) * pagesPerSet + 1;
+    const endPage = Math.min(startPage + pagesPerSet - 1, totalPages);
+    const category = req.params.category;
+    const posts = await Post.find({ "about.subcategory": subcategory})
+    .skip((currentPage - 1) * pagination)
+    .limit(pagination)
+    .sort({timestamp: -1}).lean();
+    const totalPosts = await Post.find({ "about.subcategory": subcategory})
+    const pages = Math.ceil(totalPosts.length/pagination)
+
+    count = getPageRange(pages, currentPage)
+    
+    const hasPreviousSet = startPage > 1;
+    const hasNextSet = endPage < totalPages;
+    const previousSetStart = Math.max(1, startPage - pagesPerSet);
+    const nextSetStart = Math.min(totalPages, endPage + 1);
+
+    var viewModel = {};
+    var posts_and_more = [];
+        for (let i in posts){
+            const writer = await Post.aggregate([{
+                $match:{_id: posts[i]._id}},
+                {
+                $lookup: {
+                    from: "users",
+                    localField: "user",
+                    foreignField: "_id",
+                    as: "usuario"}
+                }
+                ]);
+            const author = writer[0].usuario[0];
+            posts[i].author = author.name;
+            posts_and_more.push(posts[i])
+            };
+        
+        viewModel.posts = posts_and_more;
+        viewModel.currentPage = currentPage;
+        viewModel.pages = count;
+        viewModel.currentTotalPages = pages;
+        viewModel.hasPreviousSet = hasPreviousSet;
+        viewModel.previousSetStart = previousSetStart;
+        viewModel.hasNextSet = hasNextSet;
+        viewModel.nextSetStart = nextSetStart;
+        viewModel.concerning = subcategory;
         viewModel = await sidebar(viewModel);
         res.render('topic', viewModel);
 }
@@ -222,19 +273,26 @@ ctrl.find_prefecture = async (req, res) => {
         res.render('topic', viewModel);
 }
 
-ctrl.find_city_and_about = async (req, res) => {
+ctrl.find_city_and_category = async (req, res) => {
     const pagination = req.query.pagination ? parseInt(req.query.pagination): 4;
     const currentPage = req.query.page ? parseInt(req.query.page): 1;
     const startPage = Math.floor((currentPage - 1) / pagesPerSet) * pagesPerSet + 1;
     const endPage = Math.min(startPage + pagesPerSet - 1, totalPages);
     const prefecture = req.params.prefecture;
     const city = req.params.city;
-    const about = req.params.about;
-    const posts = await Post.find({ "where.prefecture": prefecture, "where.city": city , about: about })
+    const category = req.params.category;
+    console.log(req.params)
+    console.log("Hereeeee")
+    console.log(prefecture)
+    console.log(city)
+    console.log(category)
+    const posts = await Post.find({ "where.prefecture": prefecture, "where.city": city , "about.category": category })
     .skip((currentPage - 1) * pagination)
     .limit(pagination)
     .sort({timestamp: -1}).lean();
-    const totalPosts = await Post.find({ "where.city": city , about: about})
+    console.log("The posts are:")
+    console.log(posts)
+    const totalPosts = await Post.find({ "where.prefecture": prefecture, "where.city": city , "about.category": category })
     const pages = Math.ceil(totalPosts.length/pagination)
     
     count = getPageRange(pages, currentPage)
@@ -271,23 +329,85 @@ ctrl.find_city_and_about = async (req, res) => {
         viewModel.hasNextSet = hasNextSet;
         viewModel.nextSetStart = nextSetStart;
         viewModel.location = city;
-        viewModel.about = about;
+        viewModel.about = category;
         viewModel = await sidebar(viewModel);
         res.render('location_topic', viewModel);
 }
 
-ctrl.find_prefecture_and_about = async (req, res) => {
+ctrl.find_city_and_subcategory = async (req, res) => {
     const pagination = req.query.pagination ? parseInt(req.query.pagination): 4;
     const currentPage = req.query.page ? parseInt(req.query.page): 1;
     const startPage = Math.floor((currentPage - 1) / pagesPerSet) * pagesPerSet + 1;
     const endPage = Math.min(startPage + pagesPerSet - 1, totalPages);
     const prefecture = req.params.prefecture;
-    const about = req.params.about;
-    const posts = await Post.find({ "where.prefecture": prefecture, about: about })
+    const city = req.params.city;
+    const category = req.params.category;
+    const subcategory = req.params.subcategory;
+    console.log(req.params)
+    console.log("Here")
+    console.log(prefecture)
+    console.log(city)
+    console.log(subcategory)
+    const posts = await Post.find({ "where.prefecture": prefecture, "where.city": city, "about.category": category, "about.subcategory": subcategory })
     .skip((currentPage - 1) * pagination)
     .limit(pagination)
     .sort({timestamp: -1}).lean();
-    const totalPosts = await Post.find({ "where.prefecture": prefecture, about: about})
+    console.log("The postssss are:")
+    console.log(posts)
+    const totalPosts = await Post.find({ "where.prefecture": prefecture, "where.city": city, "about.category": category , "about.subcategory": subcategory })
+    const pages = Math.ceil(totalPosts.length/pagination)
+    
+    count = getPageRange(pages, currentPage)
+
+    const hasPreviousSet = startPage > 1;
+    const hasNextSet = endPage < totalPages;
+    const previousSetStart = Math.max(1, startPage - pagesPerSet);
+    const nextSetStart = Math.min(totalPages, endPage + 1);
+
+    var viewModel = {};
+    var posts_and_more = [];
+        for (let i in posts){
+            const writer = await Post.aggregate([{
+                $match:{_id: posts[i]._id}},
+                {
+                $lookup: {
+                    from: "users",
+                    localField: "user",
+                    foreignField: "_id",
+                    as: "usuario"}
+                }
+                ]);
+            const author = writer[0].usuario[0];
+            posts[i].author = author.name;
+            posts_and_more.push(posts[i])
+            };
+        
+        viewModel.posts = posts_and_more;
+        viewModel.currentPage = currentPage;
+        viewModel.pages = count;
+        viewModel.currentTotalPages = pages;
+        viewModel.hasPreviousSet = hasPreviousSet;
+        viewModel.previousSetStart = previousSetStart;
+        viewModel.hasNextSet = hasNextSet;
+        viewModel.nextSetStart = nextSetStart;
+        viewModel.location = city;
+        viewModel.about = subcategory;
+        viewModel = await sidebar(viewModel);
+        res.render('location_topic', viewModel);
+}
+
+ctrl.find_prefecture_and_category = async (req, res) => {
+    const pagination = req.query.pagination ? parseInt(req.query.pagination): 4;
+    const currentPage = req.query.page ? parseInt(req.query.page): 1;
+    const startPage = Math.floor((currentPage - 1) / pagesPerSet) * pagesPerSet + 1;
+    const endPage = Math.min(startPage + pagesPerSet - 1, totalPages);
+    const prefecture = req.params.prefecture;
+    const category = req.params.category;
+    const posts = await Post.find({ "where.prefecture": prefecture, "about.category": category })
+    .skip((currentPage - 1) * pagination)
+    .limit(pagination)
+    .sort({timestamp: -1}).lean();
+    const totalPosts = await Post.find({ "where.prefecture": prefecture, "about.category": category })
     const pages = Math.ceil(totalPosts.length/pagination)
     
     count = getPageRange(pages, currentPage)
@@ -324,7 +444,60 @@ ctrl.find_prefecture_and_about = async (req, res) => {
         viewModel.hasNextSet = hasNextSet;
         viewModel.nextSetStart = nextSetStart;
         viewModel.location = prefecture;
-        viewModel.about = about;
+        viewModel.about = category;
+        viewModel = await sidebar(viewModel);
+        res.render('location_topic', viewModel);
+}
+
+ctrl.find_prefecture_and_subcategory = async (req, res) => {
+    const pagination = req.query.pagination ? parseInt(req.query.pagination): 4;
+    const currentPage = req.query.page ? parseInt(req.query.page): 1;
+    const startPage = Math.floor((currentPage - 1) / pagesPerSet) * pagesPerSet + 1;
+    const endPage = Math.min(startPage + pagesPerSet - 1, totalPages);
+    const prefecture = req.params.prefecture;
+    const subcategory = req.params.subcategory;
+    const posts = await Post.find({ "where.prefecture": prefecture, "about.subcategory": subcategory })
+    .skip((currentPage - 1) * pagination)
+    .limit(pagination)
+    .sort({timestamp: -1}).lean();
+    const totalPosts = await Post.find({ "where.prefecture": prefecture, "about.subcategory": subcategory })
+    const pages = Math.ceil(totalPosts.length/pagination)
+    
+    count = getPageRange(pages, currentPage)
+
+    const hasPreviousSet = startPage > 1;
+    const hasNextSet = endPage < totalPages;
+    const previousSetStart = Math.max(1, startPage - pagesPerSet);
+    const nextSetStart = Math.min(totalPages, endPage + 1);
+
+    var viewModel = {};
+    var posts_and_more = [];
+        for (let i in posts){
+            const writer = await Post.aggregate([{
+                $match:{_id: posts[i]._id}},
+                {
+                $lookup: {
+                    from: "users",
+                    localField: "user",
+                    foreignField: "_id",
+                    as: "usuario"}
+                }
+                ]);
+            const author = writer[0].usuario[0];
+            posts[i].author = author.name;
+            posts_and_more.push(posts[i])
+            };
+        
+        viewModel.posts = posts_and_more;
+        viewModel.currentPage = currentPage;
+        viewModel.pages = count;
+        viewModel.currentTotalPages = pages;
+        viewModel.hasPreviousSet = hasPreviousSet;
+        viewModel.previousSetStart = previousSetStart;
+        viewModel.hasNextSet = hasNextSet;
+        viewModel.nextSetStart = nextSetStart;
+        viewModel.location = prefecture;
+        viewModel.about = subcategory;
         viewModel = await sidebar(viewModel);
         res.render('location_topic', viewModel);
 }

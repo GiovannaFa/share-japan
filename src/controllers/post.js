@@ -86,7 +86,10 @@ ctrl.create = async (req, res) => {
                 city: req.body.city,
                 prefecture: req.body.prefecture
             },
-            about: req.body.about,
+            about: {
+                category: req.body.category,
+                subcategory: req.body.subcategory
+            },
             title: req.body.title,
             description: req.body.description,
             filenames: filenames,
@@ -148,7 +151,7 @@ ctrl.remove = async (req, res) => {
 
 ctrl.modify = async (req, res) => {
     try {
-        const { city, prefecture, about, title, description } = req.body;
+        const { city, prefecture, category, subcategory, title, description } = req.body;
         const postId = req.params.post_id;
 
         // Get the current post
@@ -188,7 +191,8 @@ ctrl.modify = async (req, res) => {
         // Update the post
         post.where.city = city,
         post.where.prefecture = prefecture,
-        post.about = about;
+        post.about.category = category;
+        post.about.subcategory = subcategory;
         post.title = title;
         post.description = description;
         post.filenames = existingFiles; // Updated filenames list

@@ -7,30 +7,30 @@
     </div>
     <div class="card-body">
         <form action="/posts" method="POST" enctype="multipart/form-data">
-        <div class="form-group">
-            <select name="city" id="city-select">
-                <option selected value={{where.city}}>Select a city</option>
-                <!-- Cities will be inserted here by JavaScript -->
-            </select>
-        </div>
-        <div class="form-group">
-            <select name="prefecture" id="prefecture-select">
-                <option selected value={{where.prefecture}}/>
-                <!-- Prefectures will be inserted here by JavaScript -->
-            </select>
-        </div>
             <div class="form-group">
-                {{!-- <input type="text" name="about" class="form-control" placeholder="What is it about" required> --}}
-                <select name="about">
-                    <option selected value={{about}}> What is it about? </option>
-                    <option value="food">FOOD</option>
-                    <option value="night_life">NIGHT LIFE</option>
-                    <option value="anecdote">ANECDOTE</option>
-                    <option value="for_free">FOR FREE</option>
-                    <option value="itinerary">ITINERARY</option>
+                <select name="city" id="city-select">
+                    <option selected value={{where.city}}>Select a city</option>
+                    <!-- Cities will be inserted here by JavaScript -->
                 </select>
             </div>
-
+            <div class="form-group">
+                <select name="prefecture" id="prefecture-select">
+                    <option selected value={{where.prefecture}}/>
+                    <!-- Prefectures will be inserted here by JavaScript -->
+                </select>
+            </div>
+            <div class="form-group">
+                <select name="category" id="category-select">
+                    <option selected value={{about.category}}>Select a category</option>
+                    <!-- Categories will be inserted here by JavaScript -->
+                </select>
+            </div>
+            <div class="form-group">
+                <select name="subcategory" id="subcategory-select">
+                    <option selected value={{about.subcategory}}/>
+                    <!-- Subcategories will be inserted here by JavaScript -->
+                </select>
+            </div>
             <div class="form-group">
                 <input type="text" name="title" class="form-control" placeholder="Title for your post" required value={{title}}>
             </div>
@@ -57,7 +57,7 @@
 
             <!-- Upload button that triggers the file input -->
             <div class="form-group">
-                <button class="btn btn-upload" >Upload</button>
+                <button class="btn-upload" >Upload</button>
             </div>
             <script>
                 let selectedFiles = []; // Track selected files
@@ -275,6 +275,89 @@
 
                 // Call the function when the document is ready
                 document.addEventListener('DOMContentLoaded', loadCitiesAndPrefectures);
+
+                // Function to fetch the categories JSON data
+                function fetchCategoriesData() {
+                    return fetch('http://localhost:3005/public/data/categories.json')
+                        .then(response => response.json())
+                        .catch(error => {
+                            console.error('Error fetching categories data:', error);
+                            throw error; // Rethrow error so it can be handled by the caller
+                        });
+                }
+
+                // Function to load categories and subcategories and populate the select dropdowns
+                function loadCategoriesAndSubcategories() {
+                    // Fetch the data from the external JSON file
+                    fetchCategoriesData()
+                        .then(data => {
+                            const categoriesBySubcategory = {};
+
+                            // Organize data into a map for categories and subcategories
+                            data.forEach(item => {
+                                categoriesBySubcategory[item.category] = item.subcategory;
+                            });
+
+                            // Get the category select dropdown and subcategory select dropdown
+                            const categorySelect = document.getElementById('category-select');
+                            const subcategorySelect = document.getElementById('subcategory-select');
+
+                            // Populate the category dropdown
+                            Object.keys(categoriesBySubcategory).forEach(category => {
+                                const option = document.createElement('option');
+                                option.value = category;
+                                option.textContent = category;
+                                categorySelect.appendChild(option);
+                            });
+
+                            // Handle change in category selection
+                            categorySelect.addEventListener('change', function () {
+                                const selectedCategory = this.value;
+
+                                // Clear previous subcategory options
+                                subcategorySelect.innerHTML = '<option selected value="">Select the Subcategory</option>';
+
+                                if (selectedCategory) {
+                                    // Get the subcategories related to the selected category
+                                    const subcategories = categoriesBySubcategory[selectedCategory];
+
+                                    if (subcategories && subcategories.length > 0) {
+                                        // Subcategories found for this category
+                                        subcategories.forEach(subcategory => {
+                                            const option = document.createElement('option');
+                                            option.value = subcategory;
+                                            option.textContent = subcategory;
+                                            subcategorySelect.appendChild(option);
+                                        });
+
+                                        // If the category has only one subcategory, select it automatically
+                                        if (subcategories.length === 1) {
+                                            subcategorySelect.value = subcategories[0];  // Auto-select the only subcategory
+                                        }
+                                    } else {
+                                        // No subcategory found (edge case, should not normally happen)
+                                        console.error("No subcategory found for category: " + selectedCategory);
+                                    }
+
+                                    // Ensure the subcategory select dropdown is shown
+                                    subcategorySelect.style.display = 'block';
+                                } else {
+                                    // Hide the subcategory select dropdown if no category is selected
+                                    subcategorySelect.style.display = 'none';
+                                }
+                            });
+
+                            // Ensure the subcategory dropdown is hidden initially if no category is selected
+                            subcategorySelect.style.display = 'none';
+                        })
+                        .catch(error => {
+                            console.error('Error loading categories and subcategories:', error);
+                        });
+                }
+
+                // Call the function when the document is ready
+                document.addEventListener('DOMContentLoaded', loadCategoriesAndSubcategories);
+
             </script>
         </form>
     </div>
