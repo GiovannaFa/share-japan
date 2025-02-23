@@ -7,7 +7,10 @@ const postSchema = new Schema({
         prefecture: { type: String },
         city: { type: String }
     },
-    about: { type: String },
+    about: {
+        category: { type: String },
+        subcategory: { type: String }
+    },
     title: { type: String },
     description: { type: String },
     filenames: [

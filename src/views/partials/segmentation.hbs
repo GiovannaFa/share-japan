@@ -1,18 +1,29 @@
 {{#ifLengthDictGreaterThan about_posts 0}}
     {{#each about_posts}}
         <div class="region">
-            <h3><a href="/prefecture/{{ @key }}">{{ @key }}</a></h3>
+            <!-- Prefecture link -->
+            <h3>Prefecture: <a href="/prefecture/{{ @key }}">{{ @key }}</a></h3>
             <div class="city-list">
                 {{#each this}}
                     <div class="city">
-                        <h4><a href="/city/{{ @../key }}/{{ @key }}">{{ @key }}</a></h4>
+                        <!-- City link (Prefecture and City) -->
+                        <h4>City: <a href="/city/{{ @../key }}/{{ @key }}">{{ @key }}</a></h4>
                         <div class="topics">
                             {{#each this}}
-                                <p>
-                                    <a href="/select/{{ @../../key }}/{{ @../key }}/{{ @key }}">
-                                        {{this}} posts about {{ @key }}
-                                    </a>
-                                </p>
+                                <div class="category-box">
+                                    <p>Category: <a href="/select/{{ @../../key }}/{{ @../key }}/{{ @key }}">{{ @key }}</a></p>
+                                    <div class="topics-list">
+                                        {{#each this}}
+                                            <p>
+                                                Subcategory: 
+                                                <!-- Subcategory link (Prefecture, City, Category, Subcategory) -->
+                                                <a href="/select/{{ @../../../key }}/{{ @../../key }}/{{ @../key }}/{{ @key }}">
+                                                    {{this}} posts about {{ @key }}
+                                                </a>
+                                            </p>
+                                        {{/each}}
+                                    </div>
+                                </div>
                             {{/each}}
                         </div>
                     </div>
@@ -22,18 +33,18 @@
     {{/each}}
 {{else}}
     {{#if loggedUser}}
-   <div class="no-posts">
-        <p>
-            No posts have been published yet for this city. <br>
-            Be the first, click <a href="/form">here</a>.
-        </p>
-    </div>
+        <div class="no-posts">
+            <p>
+                No posts have been published yet for this city. <br>
+                Be the first, click <a href="/form">here</a>.
+            </p>
+        </div>
     {{else}}
-    <div class="no-posts">
-        <p>
-            No posts have been published yet for this city. <br>
-            Be the first, click <a href="/user/login">here</a>.
-        </p>
-    </div>
+        <div class="no-posts">
+            <p>
+                No posts have been published yet for this city. <br>
+                Be the first, click <a href="/user/login">here</a>.
+            </p>
+        </div>
     {{/if}}
 {{/ifLengthDictGreaterThan}}

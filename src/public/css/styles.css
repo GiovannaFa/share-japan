@@ -28,12 +28,12 @@ footer.page-footer {
     padding-left: 10px;
 }
 
-.fa{
+.fa {
     color: black;
 }
 
 i{
-    color: green;
+    color: rgb(223, 125, 125);
 }
 .black{
     color: black;
@@ -44,11 +44,6 @@ i{
 #main{
     top:15px;
     height: calc(100vh - 15px - 35px - 50px);
-    overflow: scroll;
-  }
-#post{
-    top:15px;
-    height: calc(100vh - 15px - 355px - 50px);
     overflow: scroll;
   }
 
@@ -85,7 +80,6 @@ i{
     border-color: black; /* Optional: Adjust border color if needed */
 }
 .card-header {
-
     border: none;
 }
 .text-content{
@@ -284,3 +278,38 @@ i{
     color: #003366;  /* Darker blue on hover */
 }
 
+/* Ensure the carousel container is positioned relatively */
+.carousel {
+    position: relative;
+}
+
+/* Position the arrows absolutely within the carousel */
+.carousel-control-prev,
+.carousel-control-next {
+    position: absolute;
+    top: 50%; /* Center vertically */
+    transform: translateY(-50%); /* Adjust for exact centering */
+    width: auto; /* Adjust width as needed */
+    background: none; /* Remove background */
+    border: none; /* Remove border */
+    padding: 0; /* Remove padding */
+}
+
+/* Position the previous arrow to the left */
+.carousel-control-prev {
+    left: 10px; /* Adjust distance from the left edge */
+}
+
+/* Position the next arrow to the right */
+.carousel-control-next {
+    right: 10px; /* Adjust distance from the right edge */
+}
+
+/* Style the arrow icons */
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    filter: invert(1); /* Make the arrows white */
+    width: 24px; /* Adjust size of the arrows */
+    height: 24px; /* Adjust size of the arrows */
+}
+  

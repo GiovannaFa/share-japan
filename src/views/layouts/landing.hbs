@@ -8,14 +8,14 @@
     {{>navigation}}
     <div class="container p-4">
         <div class="row">
-            <div class="col-md-8">
+            <div class="col-md-6">
                 {{> messages}}
                 {{> errors}}
-
                 {{{ body }}}
             </div>
+            <div class="col-md-1"></div>
             {{#if show_counting}}
-                <div class="col-md-4">
+                <div class="col-md-5">
                     {{> segmentation }}
                 </div>
             {{/if}}
@@ -23,13 +23,15 @@
     </div>
 
     {{>footer}}
-    <!--SCRIPT-->
-    <script
-    src="https://code.jquery.com/jquery-3.5.1.js"
-    integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
-    crossorigin="anonymous"></script>
+    <!-- Bootstrap CSS -->
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+        <!-- Bootstrap JS and dependencies -->
+        <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
   <!--CUSTOM CODE-->
-  <script src="/public/js/scripts.js"></script>
   <script type="text/javascript" src="/public/js/imageMapResizer.min.js"></script>
   <script type="text/javascript">$('map').imageMapResize();</script>
 </body>

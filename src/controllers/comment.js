@@ -1,6 +1,5 @@
 const ctrl = {};
 const { Comment } = require('../models');
-const { ObjectId } = require('mongodb');
 
 ctrl.create = async (req, res) => {
     console.log('Request Body:', req.body);

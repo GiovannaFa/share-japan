@@ -3,10 +3,16 @@
         <h4><b>{{post.title}}</b></h4>
     </div>
     <div class="card-body">
-        <div id="post">
+        <div id="main">
             <p>
                 @ <a href="/city/{{post.where.prefecture}}/{{post.where.city}}"><i>{{post.where.city}}</i></a>, <a href="/prefecture/{{post.where.prefecture}}"><i>{{post.where.prefecture}}</i></a></i>,
-                about <a href="/topic/{{post.about}}"><i>{{post.about}}</i></a>
+                about
+                <a href="/topic/{{post.about.category}}/{{post.about.subcategory}}">
+                    <i>{{post.about.subcategory}}</i>
+                </a>,
+                <a href="/topic/{{post.about.category}}">
+                    <i>{{post.about.category}}</i>
+                </a>
                 by <a id="link" href="/user/profile/{{ author._id }}"><i>{{author.name}}</i></a>
             </p>
             <div class="d-flex">
