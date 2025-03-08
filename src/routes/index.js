@@ -26,7 +26,7 @@ module.exports = app => {
     // list of posts related endpoints
     router.get('/posts', posts_list.index);
     router.get('/topic/:category', posts_list.find_category);
-    router.get('/topic/:subcategory', posts_list.find_subcategory);
+    router.get('/topic/:category/:subcategory', posts_list.find_subcategory);
     router.get('/city/:prefecture/:city', posts_list.find_city);
     router.get('/prefecture/:prefecture', posts_list.find_prefecture);
     router.get('/select/:prefecture/:category', posts_list.find_prefecture_and_category); // never achived

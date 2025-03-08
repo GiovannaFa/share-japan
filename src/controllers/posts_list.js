@@ -125,11 +125,12 @@ ctrl.find_subcategory = async (req, res) => {
     const startPage = Math.floor((currentPage - 1) / pagesPerSet) * pagesPerSet + 1;
     const endPage = Math.min(startPage + pagesPerSet - 1, totalPages);
     const category = req.params.category;
-    const posts = await Post.find({ "about.subcategory": subcategory})
+    const subcategory = req.params.subcategory;
+    const posts = await Post.find({ "about.category": category, "about.subcategory": subcategory})
     .skip((currentPage - 1) * pagination)
     .limit(pagination)
     .sort({timestamp: -1}).lean();
-    const totalPosts = await Post.find({ "about.subcategory": subcategory})
+    const totalPosts = await Post.find({ "about.category": category, "about.subcategory": subcategory})
     const pages = Math.ceil(totalPosts.length/pagination)
 
     count = getPageRange(pages, currentPage)
@@ -281,17 +282,10 @@ ctrl.find_city_and_category = async (req, res) => {
     const prefecture = req.params.prefecture;
     const city = req.params.city;
     const category = req.params.category;
-    console.log(req.params)
-    console.log("Hereeeee")
-    console.log(prefecture)
-    console.log(city)
-    console.log(category)
     const posts = await Post.find({ "where.prefecture": prefecture, "where.city": city , "about.category": category })
     .skip((currentPage - 1) * pagination)
     .limit(pagination)
     .sort({timestamp: -1}).lean();
-    console.log("The posts are:")
-    console.log(posts)
     const totalPosts = await Post.find({ "where.prefecture": prefecture, "where.city": city , "about.category": category })
     const pages = Math.ceil(totalPosts.length/pagination)
     
@@ -343,17 +337,10 @@ ctrl.find_city_and_subcategory = async (req, res) => {
     const city = req.params.city;
     const category = req.params.category;
     const subcategory = req.params.subcategory;
-    console.log(req.params)
-    console.log("Here")
-    console.log(prefecture)
-    console.log(city)
-    console.log(subcategory)
     const posts = await Post.find({ "where.prefecture": prefecture, "where.city": city, "about.category": category, "about.subcategory": subcategory })
     .skip((currentPage - 1) * pagination)
     .limit(pagination)
     .sort({timestamp: -1}).lean();
-    console.log("The postssss are:")
-    console.log(posts)
     const totalPosts = await Post.find({ "where.prefecture": prefecture, "where.city": city, "about.category": category , "about.subcategory": subcategory })
     const pages = Math.ceil(totalPosts.length/pagination)
     
