@@ -91,88 +91,89 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            const dropdownMenu = document.querySelector('#reviewsDropdown .dropdown-menu');
+    const dropdownMenu = document.querySelector('#reviewsDropdown .dropdown-menu');
 
-            // Fetch JSON data
-            fetch('http://localhost:3005/public/data/categories.json')
-                .then(response => response.json())
-                .then(data => {
-                    // Generate dropdown items
-                    data.forEach(category => {
-                        if (category.subcategory && category.subcategory.length > 0) {
-                            // Create a dropdown submenu for categories with subcategories
-                            const dropdownItem = document.createElement('div');
-                            dropdownItem.className = 'dropdown';
+    // Fetch JSON data
+    fetch('http://localhost:3005/public/data/categories.json')
+        .then(response => response.json())
+        .then(data => {
+            // Generate dropdown items
+            data.forEach(category => {
+                if (category.subcategory && category.subcategory.length > 0) {
+                    // Create a dropdown submenu for categories with subcategories
+                    const dropdownItem = document.createElement('div');
+                    dropdownItem.className = 'dropdown';
 
-                            const dropdownToggle = document.createElement('a');
-                            dropdownToggle.className = 'dropdown-item dropdown-toggle';
-                            dropdownToggle.href = '#';
-                            dropdownToggle.setAttribute('role', 'button');
-                            dropdownToggle.setAttribute('data-bs-toggle', 'dropdown');
-                            dropdownToggle.setAttribute('aria-expanded', 'false');
-                            dropdownToggle.textContent = category.category;
+                    const dropdownToggle = document.createElement('a');
+                    dropdownToggle.className = 'dropdown-item dropdown-toggle';
+                    dropdownToggle.href = '#';
+                    dropdownToggle.setAttribute('role', 'button');
+                    dropdownToggle.setAttribute('data-bs-toggle', 'dropdown');
+                    dropdownToggle.setAttribute('aria-expanded', 'false');
+                    dropdownToggle.textContent = category.category;
 
-                            const submenu = document.createElement('div');
-                            submenu.className = 'dropdown-menu';
+                    const submenu = document.createElement('div');
+                    submenu.className = 'dropdown-menu';
 
-                            category.subcategory.forEach(sub => {
-                                const subItem = document.createElement('a');
-                                subItem.className = 'dropdown-item';
-                                subItem.href = '#';
-                                subItem.textContent = sub;
-                                submenu.appendChild(subItem);
-                            });
+                    // Generate subcategory links with dynamic href
+                    category.subcategory.forEach(sub => {
+                        const subItem = document.createElement('a');
+                        subItem.className = 'dropdown-item';
+                        subItem.href = `/topic/${category.category}/${sub}`;
+                        subItem.textContent = sub;
+                        submenu.appendChild(subItem);
+                    });
 
-                            dropdownItem.appendChild(dropdownToggle);
-                            dropdownItem.appendChild(submenu);
-                            dropdownMenu.appendChild(dropdownItem);
-                        } else {
-                            // Create a regular dropdown item for categories without subcategories
-                            const dropdownItem = document.createElement('a');
-                            dropdownItem.className = 'dropdown-item';
-                            dropdownItem.href = '#';
-                            dropdownItem.textContent = category.category;
-                            dropdownMenu.appendChild(dropdownItem);
+                    dropdownItem.appendChild(dropdownToggle);
+                    dropdownItem.appendChild(submenu);
+                    dropdownMenu.appendChild(dropdownItem);
+                } else {
+                    // Create a regular dropdown item for categories without subcategories
+                    const dropdownItem = document.createElement('a');
+                    dropdownItem.className = 'dropdown-item';
+                    dropdownItem.href = '#';
+                    dropdownItem.textContent = category.category;
+                    dropdownMenu.appendChild(dropdownItem);
+                }
+            });
+
+            // Initialize Bootstrap dropdowns
+            const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
+            dropdownToggles.forEach(toggle => {
+                toggle.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+
+                    // Close all other dropdowns
+                    dropdownToggles.forEach(otherToggle => {
+                        if (otherToggle !== toggle) {
+                            const otherDropdown = bootstrap.Dropdown.getInstance(otherToggle);
+                            if (otherDropdown) {
+                                otherDropdown.hide();
+                            }
                         }
                     });
 
-                    // Initialize Bootstrap dropdowns
-                    const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
+                    // Toggle the current dropdown
+                    const dropdown = new bootstrap.Dropdown(toggle);
+                    dropdown.toggle();
+                });
+            });
+
+            // Close dropdowns when clicking outside
+            document.addEventListener('click', (e) => {
+                if (!e.target.closest('.dropdown-toggle')) {
                     dropdownToggles.forEach(toggle => {
-                        toggle.addEventListener('click', (e) => {
-                            e.preventDefault();
-                            e.stopPropagation();
-
-                            // Close all other dropdowns
-                            dropdownToggles.forEach(otherToggle => {
-                                if (otherToggle !== toggle) {
-                                    const otherDropdown = bootstrap.Dropdown.getInstance(otherToggle);
-                                    if (otherDropdown) {
-                                        otherDropdown.hide();
-                                    }
-                                }
-                            });
-
-                            // Toggle the current dropdown
-                            const dropdown = new bootstrap.Dropdown(toggle);
-                            dropdown.toggle();
-                        });
-                    });
-
-                    // Close dropdowns when clicking outside
-                    document.addEventListener('click', (e) => {
-                        if (!e.target.closest('.dropdown-toggle')) {
-                            dropdownToggles.forEach(toggle => {
-                                const dropdown = bootstrap.Dropdown.getInstance(toggle);
-                                if (dropdown) {
-                                    dropdown.hide();
-                                }
-                            });
+                        const dropdown = bootstrap.Dropdown.getInstance(toggle);
+                        if (dropdown) {
+                            dropdown.hide();
                         }
                     });
-                })
-                .catch(error => console.error('Error fetching JSON:', error));
-        });
+                }
+            });
+        })
+        .catch(error => console.error('Error fetching JSON:', error));
+});
     </script>
 </body>
 </html>
