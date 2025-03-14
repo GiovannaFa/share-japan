@@ -69,12 +69,16 @@
                                     <img src="/public/img/share-japan_logo.png" alt="{{title}}" class="img-fluid" width="40" height="40">
                                 {{/if}}
                                 <p>
-                                    {{#if is_user}}
+                                    {{#if user_liked}}
                                         {{likes.length}} <i class="fa fa-heart" aria-hidden="true"></i>
-                                    {{else}}
+                                        {{else}}
                                         {{likes.length}} <i class="fa fa-heart-o" aria-hidden="true"></i>
                                     {{/if}}
-
+                                    {{#if user_saved}}
+                                        {{saved_by.length}} <i class="fa fa-flag" aria-hidden="true"></i>
+                                        {{else}}
+                                        {{saved_by.length}} <i class="fa fa-flag-o" aria-hidden="true"></i>
+                                    {{/if}}
                                     {{views}} <i class="fa fa-eye" aria-hidden="true"></i>
                                 </p>
                             </div>
@@ -84,7 +88,21 @@
                 </div>
             {{/each}}
         {{else}}
-            <p>No posts found :(</p>
+           {{#if loggedUser}}
+                <div class="no-posts">
+                    <p>
+                        No posts have been published yet for this region. <br>
+                        Be the first, click <a href="/form">here</a>.
+                    </p>
+                </div>
+            {{else}}
+                <div class="no-posts">
+                    <p>
+                        No posts have been published yet for this region. <br>
+                        Be the first, click <a href="/user/login">here</a>.
+                    </p>
+                </div>
+            {{/if}}
         {{/if}}
     </div>
 </div>

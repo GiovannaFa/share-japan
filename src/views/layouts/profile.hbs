@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        {{>head}}
+    </head>
+    <body>
+        {{>navigation}}
+        {{#if saved_posts}}
+            <div class="container-fluid p-4">
+                <div class="row">
+                    <div class="col-md-8">
+                        {{> messages}}
+                        {{> errors}}
+
+                        {{{ body }}}
+                    </div>
+                    <div class="col-md-4">
+                        {{> saved_posts }}
+                    </div>
+                </div>
+            </div>
+        {{else}}
+            <main class="container-fluid p-4">
+                <div class="row">
+                    <div class="col-md-12">
+                        {{> messages}}
+                        {{> errors}}
+
+                        {{{ body }}}
+                    </div>
+                </div>
+            </main>
+        {{/if}}
+        {{#if pages}}
+            {{> pagination}}
+        {{/if}}
+        {{>footer}}
+        <!-- Bootstrap CSS -->
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+        <!-- Bootstrap JS and dependencies -->
+        <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    </body>
+</html>

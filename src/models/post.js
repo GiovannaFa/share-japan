@@ -18,7 +18,8 @@ const postSchema = new Schema({
             type: String
         }
     ],
-    likes: [{ type: mongoose.Schema.ObjectId, ref: "User" }],
+    likes: [{ type: mongoose.Schema.ObjectId, ref: "User", default: [] }],
+    saved_by: [{ type: mongoose.Schema.ObjectId, ref: "User", default: [] }],
     views: { type: Number, default: 0 },
     timestamp: { type: Date, default: Date.now },
     user: { type: mongoose.Schema.ObjectId }

@@ -5,70 +5,97 @@
     </div>
     <div id="main">
         <div class="card-body">
-            {{#each posts}}
-            <div class="row">
-                <div class="col-md-10">
-                    <div class="card-header text-left">
-                        <i class="black"><i class="fa fa-clock-o" aria-hidden="true"></i> {{timeago timestamp}}</i><br>
-                        @ <a href="/city/{{where.prefecture}}/{{where.city}}"><i>{{where.city}}</i></a>, <a href="/prefecture/{{where.prefecture}}"><i>{{where.prefecture}}</i></a></i>,
-                        about
-                        <a href="/topic/{{about.category}}/{{about.subcategory}}">
-                            <i>{{about.subcategory}}</i>,
-                        </a>
-                        <a href="/topic/{{about.category}}">
-                            <i>{{about.category}}</i>
-                        </a>
-                        published by <a href="/user/profile/{{ user }}"><i> {{ author }}</i></a>
-                    </div>
-                    <a id="link" href="/posts/{{ _id  }}">
-                        <div class="card-body col-md-10 text-center">
-                            <h1>{{title}}</h1>
-                            {{#if filenames}}
-                                <div id="carousel-{{@index}}" class="carousel slide">
-                                    <ol class="carousel-indicators">
-                                        {{#each filenames}}
-                                            {{#if @first}}
-                                                <li data-target="#carousel-{{@../index}}" data-slide-to="{{@index}}" class="active"></li>
-                                            {{else}}
-                                                <li data-target="#carousel-{{@../index}}" data-slide-to="{{@index}}"></li>
-                                            {{/if}}
-                                        {{/each}}
-                                    </ol>
-                                    <div class="carousel-inner">
-                                        {{#each filenames}}
-                                            <div class="carousel-item {{#if @first}}active{{/if}}">
-                                                {{#ifExtensionEquals this "mp4"}}
-                                                    <video controls>
-                                                        <source src="/public/upload/{{ ../_id }}/{{this}}" type="video/mp4" class="img-fluid" width="300" height="300">
-                                                    </video>
-                                                {{else}}
-                                                    <img src="/public/upload/{{ ../_id }}/{{this}}" alt="{{../title}}" class="img-fluid" width="300" height="300">
-                                                {{/ifExtensionEquals}}
-                                            </div>
-                                        {{/each}}
-                                    </div>
-                                    <a class="carousel-control-prev" href="#carousel-{{@index}}" role="button" data-slide="prev">
-                                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                        <span class="sr-only">Previous</span>
-                                    </a>
-                                    <a class="carousel-control-next" href="#carousel-{{@index}}" role="button" data-slide="next">
-                                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                        <span class="sr-only">Next</span>
-                                    </a>
-                                </div>
-                            {{else}}
-                                <img src="/public/img/share-japan_logo.png" alt="{{title}}" class="img-fluid" width="40" height="40">
-                            {{/if}}
-                            <p>
-                                {{likes.length}} <i class="fa fa-heart-o" aria-hidden="true"></i>
-                                {{views}} <i class="fa fa-eye" aria-hidden="true"></i>
-                            </p>
+            {{#if posts}}
+                {{#each posts}}
+                <div class="row">
+                    <div class="col-md-10">
+                        <div class="card-header text-left">
+                            <i class="black"><i class="fa fa-clock-o" aria-hidden="true"></i> {{timeago timestamp}}</i><br>
+                            @ <a href="/city/{{where.prefecture}}/{{where.city}}"><i>{{where.city}}</i></a>, <a href="/prefecture/{{where.prefecture}}"><i>{{where.prefecture}}</i></a></i>,
+                            about
+                            <a href="/topic/{{about.category}}/{{about.subcategory}}">
+                                <i>{{about.subcategory}}</i>,
+                            </a>
+                            <a href="/topic/{{about.category}}">
+                                <i>{{about.category}}</i>
+                            </a>
+                            published by <a href="/user/profile/{{ user }}"><i> {{ author }}</i></a>
                         </div>
-                        <br>
-                    </a>
+                        <a id="link" href="/posts/{{ _id  }}">
+                            <div class="card-body col-md-10 text-center">
+                                <h1>{{title}}</h1>
+                                {{#if filenames}}
+                                    <div id="carousel-{{@index}}" class="carousel slide">
+                                        <ol class="carousel-indicators">
+                                            {{#each filenames}}
+                                                {{#if @first}}
+                                                    <li data-target="#carousel-{{@../index}}" data-slide-to="{{@index}}" class="active"></li>
+                                                {{else}}
+                                                    <li data-target="#carousel-{{@../index}}" data-slide-to="{{@index}}"></li>
+                                                {{/if}}
+                                            {{/each}}
+                                        </ol>
+                                        <div class="carousel-inner">
+                                            {{#each filenames}}
+                                                <div class="carousel-item {{#if @first}}active{{/if}}">
+                                                    {{#ifExtensionEquals this "mp4"}}
+                                                        <video controls>
+                                                            <source src="/public/upload/{{ ../_id }}/{{this}}" type="video/mp4" class="img-fluid" width="300" height="300">
+                                                        </video>
+                                                    {{else}}
+                                                        <img src="/public/upload/{{ ../_id }}/{{this}}" alt="{{../title}}" class="img-fluid" width="300" height="300">
+                                                    {{/ifExtensionEquals}}
+                                                </div>
+                                            {{/each}}
+                                        </div>
+                                        <a class="carousel-control-prev" href="#carousel-{{@index}}" role="button" data-slide="prev">
+                                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                            <span class="sr-only">Previous</span>
+                                        </a>
+                                        <a class="carousel-control-next" href="#carousel-{{@index}}" role="button" data-slide="next">
+                                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                            <span class="sr-only">Next</span>
+                                        </a>
+                                    </div>
+                                {{else}}
+                                    <img src="/public/img/share-japan_logo.png" alt="{{title}}" class="img-fluid" width="40" height="40">
+                                {{/if}}
+                                <p>
+                                    {{#if user_liked}}
+                                        {{likes.length}} <i class="fa fa-heart" aria-hidden="true"></i>
+                                        {{else}}
+                                        {{likes.length}} <i class="fa fa-heart-o" aria-hidden="true"></i>
+                                    {{/if}}
+                                    {{#if user_saved}}
+                                        {{saved_by.length}} <i class="fa fa-flag" aria-hidden="true"></i>
+                                        {{else}}
+                                        {{saved_by.length}} <i class="fa fa-flag-o" aria-hidden="true"></i>
+                                    {{/if}}
+                                    {{views}} <i class="fa fa-eye" aria-hidden="true"></i>
+                                </p>
+                            </div>
+                            <br>
+                        </a>
+                    </div>
                 </div>
-            </div>
-            {{/each}}
+                {{/each}}
+            {{else}}
+                {{#if loggedUser}}
+                    <div class="no-posts">
+                        <p>
+                            No posts have been published yet for {{concerning}}. <br>
+                            Be the first, click <a href="/form">here</a>.
+                        </p>
+                    </div>
+                {{else}}
+                    <div class="no-posts">
+                        <p>
+                            No posts have been published yet for {{concerning}}. <br>
+                            Be the first, click <a href="/user/login">here</a>.
+                        </p>
+                    </div>
+                {{/if}}
+            {{/if}}
         </div>
     </div>
 </div>
