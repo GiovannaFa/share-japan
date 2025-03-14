@@ -68,22 +68,41 @@
                 <button class="btn btn-success" id="btn-like" data-id="{{post._id}}">
                     <i class="fa fa-thumbs-o-up" aria-hidden="true"></i>
                 </button>
+                <button class="btn btn-success" id="btn-save" data-id="{{post._id}}">
+                    <i class="fa fa-flag" aria-hidden="true"> Save post in your profile</i>
+                </button>
             {{else}}
                 <button class="btn btn-success">
                     <a href="/user/login">
                         <i class="fa fa-thumbs-o-up" aria-hidden="true"></i>
                     </a>
                 </button>
+                <button class="btn btn-success">
+                    <a href="/user/login">
+                        <i class="fa fa-flag" aria-hidden="true"></i>
+                    </a>
+                </button>
             {{/if}}
-            {{#if is_user}}
+            {{#if user_liked}}
                 <div id="likes">
                     <span class="likes-count">{{post.likes.length}}</span>
                     <i class="fa fa-heart" aria-hidden="true"></i>
                 </div>
-            {{else}}
+                {{else}}
                 <div id="likes">
                     <span class="likes-count">{{post.likes.length}}</span>
                     <i class="fa fa-heart-o" aria-hidden="true"></i>
+                </div>
+            {{/if}}
+            {{#if user_saved}}
+                <div id="saves">
+                    <span class="saves-count">{{post.saved_by.length}}</span>
+                    <i class="fa fa-flag" aria-hidden="true"></i>
+                </div>
+                {{else}}
+                <div id="saves">
+                    <span class="saves-count">{{post.saved_by.length}}</span>
+                    <i class="fa fa-flag-o" aria-hidden="true"></i>
                 </div>
             {{/if}}
             <div>

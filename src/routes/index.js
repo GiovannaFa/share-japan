@@ -38,6 +38,7 @@ module.exports = app => {
     router.get('/posts/:post_id', post.index);
     router.post('/posts', post.create);
     router.post('/posts/:post_id/like', post.like);
+    router.post('/posts/:post_id/save', post.save);
     router.delete('/posts/:post_id', post.remove);
     router.get('/posts/edit/:post_id', async (req, res) => {
         const post = await Post.findById({_id: req.params.post_id}).lean();

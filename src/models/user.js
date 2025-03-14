@@ -17,6 +17,7 @@ const userSchema = new Schema({
     timestamp: { type: Date, default: Date.now },
     deletedAt: { type: Date},
     active: { type: Boolean, default: false },
+    posts_saved: [{ type: mongoose.Schema.ObjectId, ref: "Post" }],
 });
 
 userSchema.methods.encryptPassword = async (password) => {

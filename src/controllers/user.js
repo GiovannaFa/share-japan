@@ -177,37 +177,84 @@ ctrl.login = function(req, res, next) {
 
 
 ctrl.index = async (req, res) => {
-    const pagination = req.query.pagination ? parseInt(req.query.pagination): 4;
-    const currentPage = req.query.page ? parseInt(req.query.page): 1;
+    const pagination = req.query.pagination ? parseInt(req.query.pagination) : 4;
+    const currentPage = req.query.page ? parseInt(req.query.page) : 1;
+    
+    const pagesPerSet = 5;  // Number of pages in one set
+    const totalPosts = await Post.countDocuments({ user: req.user._id });
+    const totalPages = Math.ceil(totalPosts / pagination);
+  
     const startPage = Math.floor((currentPage - 1) / pagesPerSet) * pagesPerSet + 1;
     const endPage = Math.min(startPage + pagesPerSet - 1, totalPages);
-    const user_posts  = await Post.find({user: req.user._id})
-    .skip((currentPage - 1) * pagination)
-    .limit(pagination)
-    .sort({timestamp: -1}).lean() ;
-    let viewModel = { posts: [] };
-    viewModel.posts = user_posts
-    const totalPosts  = await Post.find({user: req.user._id})
-    const pages = Math.ceil(totalPosts.length/pagination)
-    
-    count = getPageRange(pages, currentPage)
+  
+    const user = await User.findOne({ _id: req.user._id });
+    const savedPosts = user.posts_saved;
 
-    const hasPreviousSet = startPage > 1;
-    const hasNextSet = endPage < totalPages;
-    const previousSetStart = Math.max(1, startPage - pagesPerSet);
-    const nextSetStart = Math.min(totalPages, endPage + 1);
-    
-    viewModel.currentPage = currentPage;
-    viewModel.pages = count;
-    viewModel.currentTotalPages = pages;
-    viewModel.hasPreviousSet = hasPreviousSet
-    viewModel.previousSetStart = previousSetStart
-    viewModel.hasNextSet = hasNextSet
-    viewModel.nextSetStart = nextSetStart
-    viewModel.is_user = true;
+    let viewModel = {};
+
+    if (savedPosts && savedPosts.length > 0) {
+      // Get saved posts based on saved post IDs
+      const saved_posts = await Post.find({
+        _id: { $in: savedPosts }
+      }).lean();
+
+      // Get the user's posts with pagination
+      const user_posts = await Post.find({ user: req.user._id })
+        .skip((currentPage - 1) * pagination)
+        .limit(pagination)
+        .sort({ timestamp: -1 })
+        .lean();
+
+      // Loop through user posts to add user_saved and user_liked flags
+      for (let i in user_posts) {
+        // Check if the post is in the saved posts array
+        user_posts[i].user_saved = savedPosts.includes(user_posts[i]._id.toString());
+
+        // Check if the current user liked this post
+        // Ensure correct type comparison between user._id and post likes
+        user_posts[i].user_liked = user_posts[i].likes.some(like => like.toString() === req.user.id);
+      }
+
+      // Prepare the view model
+      viewModel = {
+        posts: user_posts,
+        saved_posts: saved_posts,
+        currentPage: currentPage,
+        pages: getPageRange(totalPages, currentPage),  // Assuming you have this helper function
+        currentTotalPages: totalPages,
+        hasPreviousSet: startPage > 1,
+        previousSetStart: Math.max(1, startPage - pagesPerSet),
+        hasNextSet: endPage < totalPages,
+        nextSetStart: Math.min(totalPages, endPage + 1),
+        is_user: true,
+      };
+    } else {
+      console.log("No saved posts for this user.");
+      viewModel = {
+        posts: [],  // No posts found if no saved posts
+        saved_posts: [],
+        currentPage: currentPage,
+        pages: getPageRange(totalPages, currentPage),  // Assuming you have this helper function
+        currentTotalPages: totalPages,
+        hasPreviousSet: startPage > 1,
+        previousSetStart: Math.max(1, startPage - pagesPerSet),
+        hasNextSet: endPage < totalPages,
+        nextSetStart: Math.min(totalPages, endPage + 1),
+        is_user: true,
+      };
+    }
+
+    // Add the sidebar data
     viewModel = await sidebar(viewModel);
-    res.render('user/my_profile', viewModel);
-    };
+
+    // Render the view with the view model data
+    res.render('user/my_profile', {
+      ...viewModel,  // Spread the viewModel so its properties are available in the template
+      layout: 'profile' // Specify the custom layout name here
+    });
+};
+
+
 
 ctrl.settings = async (req, res) => {
     const user  = await User.find({user: req.user._id}).lean() ;
@@ -227,21 +274,25 @@ ctrl.modify = async (req, res) => {
 };
 
 ctrl.find_user = async (req, res) => {
-    const pagination = req.query.pagination ? parseInt(req.query.pagination): 4;
-    const currentPage = req.query.page ? parseInt(req.query.page): 1;
+    const pagination = req.query.pagination ? parseInt(req.query.pagination) : 4;
+    const currentPage = req.query.page ? parseInt(req.query.page) : 1;
     const startPage = Math.floor((currentPage - 1) / pagesPerSet) * pagesPerSet + 1;
     const endPage = Math.min(startPage + pagesPerSet - 1, totalPages);
-    //return posts from this author
-    const writer = await User.findById({_id: req.params.user_id});
-    const author = writer.name;
-    const posts = await Post.find({user: writer})
-    .skip((currentPage - 1) * pagination)
-    .limit(pagination)
-    .sort({timestamp: -1}).lean();
-    const totalPosts = await Post.find({user: writer})
-    const pages = Math.ceil(totalPosts.length/pagination)
     
-    count = getPageRange(pages, currentPage)
+    // Get the user by ID from params
+    const writer = await User.findById({ _id: req.params.user_id });
+    const author = writer.name;
+
+    // Get posts by the author (writer)
+    const posts = await Post.find({ user: writer })
+        .skip((currentPage - 1) * pagination)
+        .limit(pagination)
+        .sort({ timestamp: -1 })
+        .lean();
+
+    const totalPosts = await Post.find({ user: writer });
+    const pages = Math.ceil(totalPosts.length / pagination);
+    const count = getPageRange(pages, currentPage);
 
     const hasPreviousSet = startPage > 1;
     const hasNextSet = endPage < totalPages;
@@ -249,7 +300,22 @@ ctrl.find_user = async (req, res) => {
     const nextSetStart = Math.min(totalPages, endPage + 1);
     
     let viewModel = { posts: [] };
-    
+
+    // Check if the logged-in user has saved or liked posts
+    const user = req.user;
+    const savedPosts = user ? user.posts_saved : [];
+    const likedPosts = user ? user.liked_posts : [];
+
+    // Loop through posts to set the user_saved and user_liked flags
+    for (let i in posts) {
+        // Set the user_saved flag
+        posts[i].user_saved = savedPosts.includes(posts[i]._id.toString());
+
+        // Set the user_liked flag
+        posts[i].user_liked = posts[i].likes.some(like => like.toString() === req.user.id);
+    }
+
+    // Prepare the view model
     viewModel.posts = posts;
     viewModel.currentPage = currentPage;
     viewModel.pages = count;
@@ -260,24 +326,27 @@ ctrl.find_user = async (req, res) => {
     viewModel.nextSetStart = nextSetStart;
     viewModel.author = author;
     viewModel.is_user = false;
+
+    // Add sidebar data
     viewModel = await sidebar(viewModel);
 
-    if(author == "Unknown"){
+    // Check if the author is unknown
+    if (author == "Unknown") {
         res.render('user/unknown_profile');
-    }
-    else if (req.user != null){
-        if (req.user.id == writer._id){
+    } else if (req.user != null) {
+        // If the logged-in user is viewing their own profile
+        if (req.user.id == writer._id) {
             viewModel.is_user = true;
             res.render('user/my_profile', viewModel);
-        }
-        else{
+        } else {
+            // If the logged-in user is viewing someone else's profile
             res.render('user/profile', viewModel);
-            }
+        }
+    } else {
+        // Render the profile view for a guest user
+        res.render('user/profile', viewModel);
     }
-    else{
-        res.render('user/profile', viewModel);  // We still want to show the post even if logout
-    }
-    };
+};
 
 
 ctrl.remove = async (req, res) => {

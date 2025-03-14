@@ -1,0 +1,16 @@
+{{#if saved_posts}}
+<div class="card mb-4">
+    <div class="card-header bg-warning text-dark">
+        <h5><i class="fa fa-bookmark" aria-hidden="true"></i> Saved Posts</h5>
+    </div>
+    <div class="card-body">
+        {{#each saved_posts}}
+        <a href="/posts/{{_id}}" id="link">
+            <div class="row mb-3">
+                <p><b>{{title}} @ <a href="/city/{{where.prefecture}}/{{where.city}}"><i>{{where.city}}</i></a>, <a href="/prefecture/{{where.prefecture}}"><i>{{where.prefecture}}</i></a></b> with {{likes.length}} <i class="fa fa-thumbs-o-up" aria-hidden="true"></i></p>
+            </div>
+        </a>
+        {{/each}}
+    </div>
+</div>
+{{/if}}

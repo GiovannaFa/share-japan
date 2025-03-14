@@ -60,7 +60,16 @@
                                 <img src="/public/img/share-japan_logo.png" alt="{{title}}" class="img-fluid" width="40" height="40">
                             {{/if}}
                             <p>
-                                {{likes.length}} <i class="fa fa-heart-o" aria-hidden="true"></i>
+                                {{#if user_liked}}
+                                    {{likes.length}} <i class="fa fa-heart" aria-hidden="true"></i>
+                                    {{else}}
+                                    {{likes.length}} <i class="fa fa-heart-o" aria-hidden="true"></i>
+                                {{/if}}
+                                {{#if user_saved}}
+                                    {{saved_by.length}} <i class="fa fa-flag" aria-hidden="true"></i>
+                                    {{else}}
+                                    {{saved_by.length}} <i class="fa fa-flag-o" aria-hidden="true"></i>
+                                {{/if}}
                                 {{views}} <i class="fa fa-eye" aria-hidden="true"></i>
                             </p>
                         </div>
