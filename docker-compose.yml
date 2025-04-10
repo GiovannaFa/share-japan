@@ -1,0 +1,32 @@
+version: '3.8'
+
+services:
+  # Node.js Application Service
+  app:
+    build: .
+    ports:
+      - "3000:3005"  # Map host port 3000 to container port 3000
+    volumes:
+      - .:/usr/src/app  # Mount current directory into container
+      - /usr/src/app/node_modules  # Keep node_modules in container
+    environment:
+      - NODE_ENV=development
+      - MONGO_URI=mongodb://mongodb:27017/kantarodb  # Using service name as host
+    depends_on:
+      - mongodb  # Ensure MongoDB starts first
+    restart: unless-stopped
+
+  # MongoDB Service
+  mongodb:
+    image: mongo:6
+    ports:
+      - "27017:27017"  # Optional: Expose MongoDB to host machine
+    volumes:
+      - mongodb_data:/data/db  # Persistent data storage
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=admin
+      - MONGO_INITDB_ROOT_PASSWORD=secret
+    restart: unless-stopped
+
+volumes:
+  mongodb_data:  # Named volume for MongoDB persistence

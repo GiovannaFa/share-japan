@@ -1,7 +1,7 @@
 module.exports = {
 
     database: {
-        URI : 'mongodb://localhost/kantarodb'
+	    URI : 'mongodb://mongodb:27017/kantarodb'
     }
 
     //facebook: {
