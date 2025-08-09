@@ -1,0 +1,5350 @@
+[
+    {
+        "prefecture": "Tōkyō",
+        "city": "Tokyo"
+    },
+    {
+        "prefecture": "Ōsaka",
+        "city": "Ōsaka"
+    },
+    {
+        "prefecture": "Aichi",
+        "city": "Nagoya"
+    },
+    {
+        "prefecture": "Kanagawa",
+        "city": "Yokohama"
+    },
+    {
+        "prefecture": "Fukuoka",
+        "city": "Fukuoka"
+    },
+    {
+        "prefecture": "Hokkaidō",
+        "city": "Sapporo"
+    },
+    {
+        "prefecture": "Kanagawa",
+        "city": "Kawasaki"
+    },
+    {
+        "prefecture": "Hyōgo",
+        "city": "Kōbe"
+    },
+    {
+        "prefecture": "Kyōto",
+        "city": "Kyōto"
+    },
+    {
+        "prefecture": "Saitama",
+        "city": "Saitama"
+    },
+    {
+        "prefecture": "Hiroshima",
+        "city": "Hiroshima"
+    },
+    {
+        "prefecture": "Miyagi",
+        "city": "Sendai"
+    },
+    {
+        "prefecture": "Chiba",
+        "city": "Chiba"
+    },
+    {
+        "prefecture": "Tōkyō",
+        "city": "Setagaya"
+    },
+    {
+        "prefecture": "Fukuoka",
+        "city": "Kitakyūshū"
+    },
+    {
+        "prefecture": "Ōsaka",
+        "city": "Sakai"
+    },
+    {
+        "prefecture": "Niigata",
+        "city": "Niigata"
+    },
+    {
+        "prefecture": "Shizuoka",
+        "city": "Hamamatsu"
+    },
+    {
+        "prefecture": "Tōkyō",
+        "city": "Nerima"
+    },
+    {
+        "prefecture": "Tōkyō",
+        "city": "Ōta-ku"
+    },
+    {
+        "prefecture": "Kumamoto",
+        "city": "Kumamoto"
+    },
+    {
+        "prefecture": "Kanagawa",
+        "city": "Sagamihara"
+    },
+    {
+        "prefecture": "Okayama",
+        "city": "Okayama"
+    },
+    {
+        "prefecture": "Chiba",
+        "city": "Edogawa"
+    },
+    {
+        "prefecture": "Shizuoka",
+        "city": "Shizuoka"
+    },
+    {
+        "prefecture": "Tōkyō",
+        "city": "Adachi"
+    },
+    {
+        "prefecture": "Chiba",
+        "city": "Honchō"
+    },
+    {
+        "prefecture": "Saitama",
+        "city": "Kawaguchi"
+    },
+    {
+        "prefecture": "Kagoshima",
+        "city": "Kagoshima"
+    },
+    {
+        "prefecture": "Tōkyō",
+        "city": "Itabashi"
+    },
+    {
+        "prefecture": "Tōkyō",
+        "city": "Suginami-ku"
+    },
+    {
+        "prefecture": "Tōkyō",
+        "city": "Hachiōji"
+    },
+    {
+        "prefecture": "Hyōgo",
+        "city": "Himeji"
+    },
+    {
+        "prefecture": "Tōkyō",
+        "city": "Kōtō-ku"
+    },
+    {
+        "prefecture": "Tochigi",
+        "city": "Utsunomiya"
+    },
+    {
+        "prefecture": "Ehime",
+        "city": "Matsuyama"
+    },
+    {
+        "prefecture": "Chiba",
+        "city": "Matsudo"
+    },
+    {
+        "prefecture": "Chiba",
+        "city": "Ichikawa"
+    },
+    {
+        "prefecture": "Ōsaka",
+        "city": "Higashi-ōsaka"
+    },
+    {
+        "prefecture": "Hyōgo",
+        "city": "Nishinomiya-hama"
+    },
+    {
+        "prefecture": "Ōsaka",
+        "city": "Kawachichō"
+    },
+    {
+        "prefecture": "Ōita",
+        "city": "Ōita"
+    },
+    {
+        "prefecture": "Okayama",
+        "city": "Kurashiki"
+    },
+    {
+        "prefecture": "Ishikawa",
+        "city": "Kanazawa"
+    },
+    {
+        "prefecture": "Hiroshima",
+        "city": "Fukuyama"
+    },
+    {
+        "prefecture": "Hyōgo",
+        "city": "Amagasaki"
+    },
+    {
+        "prefecture": "Tōkyō",
+        "city": "Katsushika-ku"
+    },
+    {
+        "prefecture": "Kanagawa",
+        "city": "Fujisawa"
+    },
+    {
+        "prefecture": "Tōkyō",
+        "city": "Machida"
+    },
+    {
+        "prefecture": "Chiba",
+        "city": "Kashiwa"
+    },
+    {
+        "prefecture": "Aomori",
+        "city": "Aomori"
+    },
+    {
+        "prefecture": "Aichi",
+        "city": "Toyota"
+    },
+    {
+        "prefecture": "Kagawa",
+        "city": "Takamatsu"
+    },
+    {
+        "prefecture": "Tōkyō",
+        "city": "Shinagawa-ku"
+    },
+    {
+        "prefecture": "Toyama",
+        "city": "Toyama"
+    },
+    {
+        "prefecture": "Nagasaki",
+        "city": "Nagasaki"
+    },
+    {
+        "prefecture": "Ōsaka",
+        "city": "Toyonaka"
+    },
+    {
+        "prefecture": "Gifu",
+        "city": "Gifu"
+    },
+    {
+        "prefecture": "Miyazaki",
+        "city": "Miyazaki"
+    },
+    {
+        "prefecture": "Ōsaka",
+        "city": "Hirakata"
+    },
+    {
+        "prefecture": "Kanagawa",
+        "city": "Yokosuka"
+    },
+    {
+        "prefecture": "Aichi",
+        "city": "Okazaki"
+    },
+    {
+        "prefecture": "Ōsaka",
+        "city": "Minamisuita"
+    },
+    {
+        "prefecture": "Aichi",
+        "city": "Ichinomiya"
+    },
+    {
+        "prefecture": "Gunma",
+        "city": "Takasaki"
+    },
+    {
+        "prefecture": "Aichi",
+        "city": "Toyohashi"
+    },
+    {
+        "prefecture": "Nagano",
+        "city": "Nagano"
+    },
+    {
+        "prefecture": "Saitama",
+        "city": "Kawagoe"
+    },
+    {
+        "prefecture": "Wakayama",
+        "city": "Wakayama"
+    },
+    {
+        "prefecture": "Tōkyō",
+        "city": "Kita-ku"
+    },
+    {
+        "prefecture": "Nara",
+        "city": "Nara"
+    },
+    {
+        "prefecture": "Tōkyō",
+        "city": "Shinjuku"
+    },
+    {
+        "prefecture": "Ōsaka",
+        "city": "Takatsuki"
+    },
+    {
+        "prefecture": "Tōkyō",
+        "city": "Nakano"
+    },
+    {
+        "prefecture": "Shiga",
+        "city": "Ōtsu"
+    },
+    {
+        "prefecture": "Saitama",
+        "city": "Koshigaya"
+    },
+    {
+        "prefecture": "Saitama",
+        "city": "Tokorozawa"
+    },
+    {
+        "prefecture": "Fukushima",
+        "city": "Iwaki"
+    },
+    {
+        "prefecture": "Gunma",
+        "city": "Maebashi"
+    },
+    {
+        "prefecture": "Hokkaidō",
+        "city": "Asahikawa"
+    },
+    {
+        "prefecture": "Fukushima",
+        "city": "Koriyama"
+    },
+    {
+        "prefecture": "Kōchi",
+        "city": "Kōchi"
+    },
+    {
+        "prefecture": "Okinawa",
+        "city": "Naha"
+    },
+    {
+        "prefecture": "Mie",
+        "city": "Yokkaichi"
+    },
+    {
+        "prefecture": "Aichi",
+        "city": "Kasugai"
+    },
+    {
+        "prefecture": "Akita",
+        "city": "Akita"
+    },
+    {
+        "prefecture": "Fukuoka",
+        "city": "Kurume"
+    },
+    {
+        "prefecture": "Hyōgo",
+        "city": "Ōakashichō"
+    },
+    {
+        "prefecture": "Tōkyō",
+        "city": "Toshima"
+    },
+    {
+        "prefecture": "Iwate",
+        "city": "Morioka"
+    },
+    {
+        "prefecture": "Tōkyō",
+        "city": "Meguro"
+    },
+    {
+        "prefecture": "Fukushima",
+        "city": "Fukushima"
+    },
+    {
+        "prefecture": "Ōsaka",
+        "city": "Ibaraki"
+    },
+    {
+        "prefecture": "Mie",
+        "city": "Tsu"
+    },
+    {
+        "prefecture": "Tōkyō",
+        "city": "Sumida"
+    },
+    {
+        "prefecture": "Ibaraki",
+        "city": "Mito"
+    },
+    {
+        "prefecture": "Chiba",
+        "city": "Ichihara"
+    },
+    {
+        "prefecture": "Niigata",
+        "city": "Nagaoka"
+    },
+    {
+        "prefecture": "Nara",
+        "city": "Yao"
+    },
+    {
+        "prefecture": "Fukui",
+        "city": "Fukui"
+    },
+    {
+        "prefecture": "Tōkyō",
+        "city": "Fuchū"
+    },
+    {
+        "prefecture": "Tōkyō",
+        "city": "Minato"
+    },
+    {
+        "prefecture": "Hyōgo",
+        "city": "Kakogawachō-honmachi"
+    },
+    {
+        "prefecture": "Kanagawa",
+        "city": "Hiratsuka"
+    },
+    {
+        "prefecture": "Tokushima",
+        "city": "Tokushima"
+    },
+    {
+        "prefecture": "Fukuoka",
+        "city": "Shinozaki"
+    },
+    {
+        "prefecture": "Hokkaidō",
+        "city": "Hakodate"
+    },
+    {
+        "prefecture": "Saitama",
+        "city": "Sōka"
+    },
+    {
+        "prefecture": "Yamagata",
+        "city": "Yamagata"
+    },
+    {
+        "prefecture": "Ibaraki",
+        "city": "Tsukuba-kenkyūgakuen-toshi"
+    },
+    {
+        "prefecture": "Shizuoka",
+        "city": "Fuji"
+    },
+    {
+        "prefecture": "Nagasaki",
+        "city": "Yoshiichō-shimobaru"
+    },
+    {
+        "prefecture": "Nagasaki",
+        "city": "Sasebo"
+    },
+    {
+        "prefecture": "Kanagawa",
+        "city": "Chigasaki"
+    },
+    {
+        "prefecture": "Tōkyō",
+        "city": "Bunkyō-ku"
+    },
+    {
+        "prefecture": "Kanagawa",
+        "city": "Yato"
+    },
+    {
+        "prefecture": "Nagano",
+        "city": "Matsumoto"
+    },
+    {
+        "prefecture": "Tōkyō",
+        "city": "Chōfugaoka"
+    },
+    {
+        "prefecture": "Tōkyō",
+        "city": "Shibuya-ku"
+    },
+    {
+        "prefecture": "Saga",
+        "city": "Saga"
+    },
+    {
+        "prefecture": "Saitama",
+        "city": "Kasukabe"
+    },
+    {
+        "prefecture": "Ōsaka",
+        "city": "Neya"
+    },
+    {
+        "prefecture": "Saitama",
+        "city": "Ageoshimo"
+    },
+    {
+        "prefecture": "Gunma",
+        "city": "Ōta"
+    },
+    {
+        "prefecture": "Hyōgo",
+        "city": "Takarazuka"
+    },
+    {
+        "prefecture": "Kanagawa",
+        "city": "Atsugichō"
+    },
+    {
+        "prefecture": "Aomori",
+        "city": "Hachinohe"
+    },
+    {
+        "prefecture": "Tōkyō",
+        "city": "Arakawa"
+    },
+    {
+        "prefecture": "Gunma",
+        "city": "Isesaki"
+    },
+    {
+        "prefecture": "Hiroshima",
+        "city": "Kure"
+    },
+    {
+        "prefecture": "Tōkyō",
+        "city": "Taitō"
+    },
+    {
+        "prefecture": "Tōkyō",
+        "city": "Nishitōkyō"
+    },
+    {
+        "prefecture": "Shimane",
+        "city": "Matsue"
+    },
+    {
+        "prefecture": "Chiba",
+        "city": "Yachiyo"
+    },
+    {
+        "prefecture": "Chiba",
+        "city": "Nagareyama"
+    },
+    {
+        "prefecture": "Hiroshima",
+        "city": "Higashi-Hiroshima"
+    },
+    {
+        "prefecture": "Hyōgo",
+        "city": "Itami"
+    },
+    {
+        "prefecture": "Tōkyō",
+        "city": "Kodaira"
+    },
+    {
+        "prefecture": "Mie",
+        "city": "Suzuka"
+    },
+    {
+        "prefecture": "Tōkyō",
+        "city": "Kamirenjaku"
+    },
+    {
+        "prefecture": "Saitama",
+        "city": "Kumagaya"
+    },
+    {
+        "prefecture": "Yamaguchi",
+        "city": "Yamaguchi"
+    },
+    {
+        "prefecture": "Tōkyō",
+        "city": "Hino"
+    },
+    {
+        "prefecture": "Kanagawa",
+        "city": "Odawara"
+    },
+    {
+        "prefecture": "Aichi",
+        "city": "Anjōmachi"
+    },
+    {
+        "prefecture": "Ōsaka",
+        "city": "Kishiwada"
+    },
+    {
+        "prefecture": "Shizuoka",
+        "city": "Numazu"
+    },
+    {
+        "prefecture": "Tottori",
+        "city": "Tottori"
+    },
+    {
+        "prefecture": "Niigata",
+        "city": "Jōetsu"
+    },
+    {
+        "prefecture": "Yamanashi",
+        "city": "Kōfu"
+    },
+    {
+        "prefecture": "Aichi",
+        "city": "Toyokawa"
+    },
+    {
+        "prefecture": "Tōkyō",
+        "city": "Tachikawa"
+    },
+    {
+        "prefecture": "Kyōto",
+        "city": "Uji"
+    },
+    {
+        "prefecture": "Chiba",
+        "city": "Narashino"
+    },
+    {
+        "prefecture": "Chiba",
+        "city": "Sakura"
+    },
+    {
+        "prefecture": "Kanagawa",
+        "city": "Kamakurayama"
+    },
+    {
+        "prefecture": "Ibaraki",
+        "city": "Hitachi"
+    },
+    {
+        "prefecture": "Shimane",
+        "city": "Izumo"
+    },
+    {
+        "prefecture": "Hokkaidō",
+        "city": "Tomakomai"
+    },
+    {
+        "prefecture": "Chiba",
+        "city": "Urayasu"
+    },
+    {
+        "prefecture": "Tōkyō",
+        "city": "Chūō-ku"
+    },
+    {
+        "prefecture": "Aichi",
+        "city": "Nishio"
+    },
+    {
+        "prefecture": "Aomori",
+        "city": "Hirosaki"
+    },
+    {
+        "prefecture": "Tochigi",
+        "city": "Oyama"
+    },
+    {
+        "prefecture": "Saitama",
+        "city": "Niiza"
+    },
+    {
+        "prefecture": "Toyama",
+        "city": "Takaoka"
+    },
+    {
+        "prefecture": "Hokkaidō",
+        "city": "Kushiro"
+    },
+    {
+        "prefecture": "Shizuoka",
+        "city": "Iwata"
+    },
+    {
+        "prefecture": "Hokkaidō",
+        "city": "Obihiro"
+    },
+    {
+        "prefecture": "Kanagawa",
+        "city": "Hadano"
+    },
+    {
+        "prefecture": "Yamaguchi",
+        "city": "Ube"
+    },
+    {
+        "prefecture": "Miyazaki",
+        "city": "Miyakonojō"
+    },
+    {
+        "prefecture": "Mie",
+        "city": "Matsuzaka"
+    },
+    {
+        "prefecture": "Gifu",
+        "city": "Ōgaki"
+    },
+    {
+        "prefecture": "Hyōgo",
+        "city": "Daiwanishi"
+    },
+    {
+        "prefecture": "Ibaraki",
+        "city": "Hitachi-Naka"
+    },
+    {
+        "prefecture": "Chiba",
+        "city": "Noda"
+    },
+    {
+        "prefecture": "Tochigi",
+        "city": "Tochigi"
+    },
+    {
+        "prefecture": "Aichi",
+        "city": "Kariya"
+    },
+    {
+        "prefecture": "Nagano",
+        "city": "Ueda"
+    },
+    {
+        "prefecture": "Ehime",
+        "city": "Imabari"
+    },
+    {
+        "prefecture": "Ōsaka",
+        "city": "Kawashiri"
+    },
+    {
+        "prefecture": "Tōkyō",
+        "city": "Higashimurayama"
+    },
+    {
+        "prefecture": "Saitama",
+        "city": "Kukichūō"
+    },
+    {
+        "prefecture": "Tōkyō",
+        "city": "Musashino"
+    },
+    {
+        "prefecture": "Saitama",
+        "city": "Sayama"
+    },
+    {
+        "prefecture": "Aichi",
+        "city": "Komaki"
+    },
+    {
+        "prefecture": "Tōkyō",
+        "city": "Tama"
+    },
+    {
+        "prefecture": "Tottori",
+        "city": "Yonago"
+    },
+    {
+        "prefecture": "Saitama",
+        "city": "Iruma"
+    },
+    {
+        "prefecture": "Shizuoka",
+        "city": "Fujita"
+    },
+    {
+        "prefecture": "Saitama",
+        "city": "Asaka"
+    },
+    {
+        "prefecture": "Gifu",
+        "city": "Kakamigahara"
+    },
+    {
+        "prefecture": "Tochigi",
+        "city": "Ashikaga"
+    },
+    {
+        "prefecture": "Saitama",
+        "city": "Toda"
+    },
+    {
+        "prefecture": "Okinawa",
+        "city": "Okinawa"
+    },
+    {
+        "prefecture": "Chiba",
+        "city": "Misato"
+    },
+    {
+        "prefecture": "Ōsaka",
+        "city": "Moriguchi"
+    },
+    {
+        "prefecture": "Saitama",
+        "city": "Fukayachō"
+    },
+    {
+        "prefecture": "Miyagi",
+        "city": "Ishizaki"
+    },
+    {
+        "prefecture": "Mie",
+        "city": "Kuwana"
+    },
+    {
+        "prefecture": "Ibaraki",
+        "city": "Koga"
+    },
+    {
+        "prefecture": "Ibaraki",
+        "city": "Tsuchiura"
+    },
+    {
+        "prefecture": "Yamaguchi",
+        "city": "Shūnan"
+    },
+    {
+        "prefecture": "Shiga",
+        "city": "Kusatsu"
+    },
+    {
+        "prefecture": "Ōsaka",
+        "city": "Minō"
+    },
+    {
+        "prefecture": "Shizuoka",
+        "city": "Yaizu"
+    },
+    {
+        "prefecture": "Chiba",
+        "city": "Kisarazu"
+    },
+    {
+        "prefecture": "Kanagawa",
+        "city": "Ebina"
+    },
+    {
+        "prefecture": "Aichi",
+        "city": "Inazawa"
+    },
+    {
+        "prefecture": "Ōsaka",
+        "city": "Minoo"
+    },
+    {
+        "prefecture": "Nagasaki",
+        "city": "Isahaya"
+    },
+    {
+        "prefecture": "Tōkyō",
+        "city": "Ōme"
+    },
+    {
+        "prefecture": "Kanagawa",
+        "city": "Zama"
+    },
+    {
+        "prefecture": "Chiba",
+        "city": "Narita"
+    },
+    {
+        "prefecture": "Chiba",
+        "city": "Abiko"
+    },
+    {
+        "prefecture": "Hiroshima",
+        "city": "Onomichi"
+    },
+    {
+        "prefecture": "Tōkyō",
+        "city": "Kokubunji"
+    },
+    {
+        "prefecture": "Miyagi",
+        "city": "Ōsaki"
+    },
+    {
+        "prefecture": "Yamaguchi",
+        "city": "Iwakuni"
+    },
+    {
+        "prefecture": "Aichi",
+        "city": "Seto"
+    },
+    {
+        "prefecture": "Shizuoka",
+        "city": "Ōmiyachō"
+    },
+    {
+        "prefecture": "Tōkyō",
+        "city": "Koganei"
+    },
+    {
+        "prefecture": "Fukuoka",
+        "city": "Iizuka"
+    },
+    {
+        "prefecture": "Kagoshima",
+        "city": "Kirishima"
+    },
+    {
+        "prefecture": "Kumamoto",
+        "city": "Honmachi"
+    },
+    {
+        "prefecture": "Mie",
+        "city": "Ise"
+    },
+    {
+        "prefecture": "Okinawa",
+        "city": "Uruma"
+    },
+    {
+        "prefecture": "Nara",
+        "city": "Kashiwara"
+    },
+    {
+        "prefecture": "Yamagata",
+        "city": "Tsuruoka"
+    },
+    {
+        "prefecture": "Hokkaidō",
+        "city": "Ebetsu"
+    },
+    {
+        "prefecture": "Ōsaka",
+        "city": "Daitōchō"
+    },
+    {
+        "prefecture": "Ōsaka",
+        "city": "Kadoma"
+    },
+    {
+        "prefecture": "Fukushima",
+        "city": "Aizuwakamatsu"
+    },
+    {
+        "prefecture": "Ōsaka",
+        "city": "Matsubara"
+    },
+    {
+        "prefecture": "Miyazaki",
+        "city": "Nobeoka"
+    },
+    {
+        "prefecture": "Aichi",
+        "city": "Handa"
+    },
+    {
+        "prefecture": "Saitama",
+        "city": "Kōnosu"
+    },
+    {
+        "prefecture": "Nara",
+        "city": "Ikoma"
+    },
+    {
+        "prefecture": "Saitama",
+        "city": "Honchō"
+    },
+    {
+        "prefecture": "Saga",
+        "city": "Karatsu"
+    },
+    {
+        "prefecture": "Shiga",
+        "city": "Nagahama"
+    },
+    {
+        "prefecture": "Ōita",
+        "city": "Beppu"
+    },
+    {
+        "prefecture": "Okinawa",
+        "city": "Urasoe"
+    },
+    {
+        "prefecture": "Tochigi",
+        "city": "Nasushiobara"
+    },
+    {
+        "prefecture": "Hokkaidō",
+        "city": "Kōenchō"
+    },
+    {
+        "prefecture": "Ehime",
+        "city": "Niihama"
+    },
+    {
+        "prefecture": "Tochigi",
+        "city": "Sano"
+    },
+    {
+        "prefecture": "Hiroshima",
+        "city": "Hatsukaichi"
+    },
+    {
+        "prefecture": "Shizuoka",
+        "city": "Kakegawa"
+    },
+    {
+        "prefecture": "Saitama",
+        "city": "Fujimino"
+    },
+    {
+        "prefecture": "Shiga",
+        "city": "Hikone"
+    },
+    {
+        "prefecture": "Yamaguchi",
+        "city": "Hōfu"
+    },
+    {
+        "prefecture": "Aichi",
+        "city": "Tōkai"
+    },
+    {
+        "prefecture": "Saitama",
+        "city": "Kazo"
+    },
+    {
+        "prefecture": "Iwate",
+        "city": "Ōshū"
+    },
+    {
+        "prefecture": "Shiga",
+        "city": "Higashiōmi"
+    },
+    {
+        "prefecture": "Hokkaidō",
+        "city": "Otaru"
+    },
+    {
+        "prefecture": "Tōkyō",
+        "city": "Akishima"
+    },
+    {
+        "prefecture": "Saitama",
+        "city": "Fujimi"
+    },
+    {
+        "prefecture": "Iwate",
+        "city": "Ichinoseki"
+    },
+    {
+        "prefecture": "Fukuoka",
+        "city": "Kasuga"
+    },
+    {
+        "prefecture": "Ishikawa",
+        "city": "Shirayamamachi"
+    },
+    {
+        "prefecture": "Fukuoka",
+        "city": "Ōmuta"
+    },
+    {
+        "prefecture": "Chiba",
+        "city": "Kamagaya"
+    },
+    {
+        "prefecture": "Hyōgo",
+        "city": "Sandachō"
+    },
+    {
+        "prefecture": "Kagawa",
+        "city": "Marugame"
+    },
+    {
+        "prefecture": "Ōsaka",
+        "city": "Tondabayashichō"
+    },
+    {
+        "prefecture": "Ishikawa",
+        "city": "Komatsu"
+    },
+    {
+        "prefecture": "Ōsaka",
+        "city": "Habikino"
+    },
+    {
+        "prefecture": "Shizuoka",
+        "city": "Mineshita"
+    },
+    {
+        "prefecture": "Gifu",
+        "city": "Tajimi"
+    },
+    {
+        "prefecture": "Gunma",
+        "city": "Kiryū"
+    },
+    {
+        "prefecture": "Kagoshima",
+        "city": "Kanoya"
+    },
+    {
+        "prefecture": "Hyōgo",
+        "city": "Ikeda"
+    },
+    {
+        "prefecture": "Ibaraki",
+        "city": "Toride"
+    },
+    {
+        "prefecture": "Ehime",
+        "city": "Saijō"
+    },
+    {
+        "prefecture": "Fukuoka",
+        "city": "Chikushino"
+    },
+    {
+        "prefecture": "Chiba",
+        "city": "Inzai"
+    },
+    {
+        "prefecture": "Tōkyō",
+        "city": "Hōyachō"
+    },
+    {
+        "prefecture": "Kanagawa",
+        "city": "Isehara"
+    },
+    {
+        "prefecture": "Tōkyō",
+        "city": "Shibuya"
+    },
+    {
+        "prefecture": "Fukuoka",
+        "city": "Ōnojō"
+    },
+    {
+        "prefecture": "Saitama",
+        "city": "Sakado"
+    },
+    {
+        "prefecture": "Ōsaka",
+        "city": "Kawachinagano"
+    },
+    {
+        "prefecture": "Gifu",
+        "city": "Kani"
+    },
+    {
+        "prefecture": "Ōsaka",
+        "city": "Izumisano"
+    },
+    {
+        "prefecture": "Okinawa",
+        "city": "Ginowan"
+    },
+    {
+        "prefecture": "Yamagata",
+        "city": "Sakata"
+    },
+    {
+        "prefecture": "Fukuoka",
+        "city": "Itoshima"
+    },
+    {
+        "prefecture": "Ibaraki",
+        "city": "Chikusei"
+    },
+    {
+        "prefecture": "Nagano",
+        "city": "Saku"
+    },
+    {
+        "prefecture": "Hokkaidō",
+        "city": "Chitose"
+    },
+    {
+        "prefecture": "Okayama",
+        "city": "Tsuyama"
+    },
+    {
+        "prefecture": "Aichi",
+        "city": "Kōnan"
+    },
+    {
+        "prefecture": "Fukuoka",
+        "city": "Munakata"
+    },
+    {
+        "prefecture": "Nagano",
+        "city": "Iida"
+    },
+    {
+        "prefecture": "Nagasaki",
+        "city": "Ōmura"
+    },
+    {
+        "prefecture": "Ibaraki",
+        "city": "Kamisu"
+    },
+    {
+        "prefecture": "Shizuoka",
+        "city": "Shimada"
+    },
+    {
+        "prefecture": "Tochigi",
+        "city": "Kanuma"
+    },
+    {
+        "prefecture": "Niigata",
+        "city": "Shibata"
+    },
+    {
+        "prefecture": "Hyōgo",
+        "city": "Ashiya"
+    },
+    {
+        "prefecture": "Nagano",
+        "city": "Azumino"
+    },
+    {
+        "prefecture": "Niigata",
+        "city": "Sanjō"
+    },
+    {
+        "prefecture": "Saitama",
+        "city": "Yashio"
+    },
+    {
+        "prefecture": "Chiba",
+        "city": "Yotsukaidō"
+    },
+    {
+        "prefecture": "Aichi",
+        "city": "Nisshin"
+    },
+    {
+        "prefecture": "Iwate",
+        "city": "Hanamaki Onsen"
+    },
+    {
+        "prefecture": "Tōkyō",
+        "city": "Inagi"
+    },
+    {
+        "prefecture": "Iwate",
+        "city": "Kitakami"
+    },
+    {
+        "prefecture": "Aichi",
+        "city": "Ōbu"
+    },
+    {
+        "prefecture": "Kagoshima",
+        "city": "Satsumasendai"
+    },
+    {
+        "prefecture": "Saitama",
+        "city": "Higashi-Matsuyama"
+    },
+    {
+        "prefecture": "Shizuoka",
+        "city": "Yoshiwara"
+    },
+    {
+        "prefecture": "Toyama",
+        "city": "Imizuchō"
+    },
+    {
+        "prefecture": "Hiroshima",
+        "city": "Mihara"
+    },
+    {
+        "prefecture": "Shiga",
+        "city": "Kōka"
+    },
+    {
+        "prefecture": "Chiba",
+        "city": "Mobara"
+    },
+    {
+        "prefecture": "Fukui",
+        "city": "Sakai"
+    },
+    {
+        "prefecture": "Aichi",
+        "city": "Ama"
+    },
+    {
+        "prefecture": "Hyōgo",
+        "city": "Takasagochō-takasemachi"
+    },
+    {
+        "prefecture": "Shizuoka",
+        "city": "Fukuroi"
+    },
+    {
+        "prefecture": "Shizuoka",
+        "city": "Hamakita"
+    },
+    {
+        "prefecture": "Shizuoka",
+        "city": "Gotenba"
+    },
+    {
+        "prefecture": "Ōsaka",
+        "city": "Settsu"
+    },
+    {
+        "prefecture": "Aichi",
+        "city": "Kitanagoya"
+    },
+    {
+        "prefecture": "Kyōto",
+        "city": "Kameoka"
+    },
+    {
+        "prefecture": "Mie",
+        "city": "Iga"
+    },
+    {
+        "prefecture": "Gifu",
+        "city": "Sekimachi"
+    },
+    {
+        "prefecture": "Gifu",
+        "city": "Takayama"
+    },
+    {
+        "prefecture": "Akita",
+        "city": "Yokotemachi"
+    },
+    {
+        "prefecture": "Ibaraki",
+        "city": "Ushiku"
+    },
+    {
+        "prefecture": "Tōkyō",
+        "city": "Komae"
+    },
+    {
+        "prefecture": "Ōsaka",
+        "city": "Kaizuka"
+    },
+    {
+        "prefecture": "Saitama",
+        "city": "Higashiyamato"
+    },
+    {
+        "prefecture": "Kanagawa",
+        "city": "Ayase"
+    },
+    {
+        "prefecture": "Saitama",
+        "city": "Wakō"
+    },
+    {
+        "prefecture": "Nara",
+        "city": "Kitakōriyamachō"
+    },
+    {
+        "prefecture": "Aichi",
+        "city": "Chita"
+    },
+    {
+        "prefecture": "Shiga",
+        "city": "Moriyama"
+    },
+    {
+        "prefecture": "Fukuoka",
+        "city": "Nakatsu"
+    },
+    {
+        "prefecture": "Aichi",
+        "city": "Owariasahi"
+    },
+    {
+        "prefecture": "Ehime",
+        "city": "Shikokuchūō"
+    },
+    {
+        "prefecture": "Shiga",
+        "city": "Ōmihachiman"
+    },
+    {
+        "prefecture": "Hokkaidō",
+        "city": "Muroran"
+    },
+    {
+        "prefecture": "Chiba",
+        "city": "Kimitsu"
+    },
+    {
+        "prefecture": "Niigata",
+        "city": "Kashiwazaki"
+    },
+    {
+        "prefecture": "Yamagata",
+        "city": "Yonezawa"
+    },
+    {
+        "prefecture": "Kyōto",
+        "city": "Nagaoka"
+    },
+    {
+        "prefecture": "Fukui",
+        "city": "Echizen"
+    },
+    {
+        "prefecture": "Aichi",
+        "city": "Gamagōri"
+    },
+    {
+        "prefecture": "Tōkyō",
+        "city": "Akiruno"
+    },
+    {
+        "prefecture": "Hokkaidō",
+        "city": "Iwamizawa"
+    },
+    {
+        "prefecture": "Miyagi",
+        "city": "Natori-shi"
+    },
+    {
+        "prefecture": "Saitama",
+        "city": "Hannō"
+    },
+    {
+        "prefecture": "Gifu",
+        "city": "Nakatsugawa"
+    },
+    {
+        "prefecture": "Kyōto",
+        "city": "Maizuru"
+    },
+    {
+        "prefecture": "Tochigi",
+        "city": "Mooka"
+    },
+    {
+        "prefecture": "Saitama",
+        "city": "Gyōda"
+    },
+    {
+        "prefecture": "Nara",
+        "city": "Kashiba"
+    },
+    {
+        "prefecture": "Tōkyō",
+        "city": "Tanashichō"
+    },
+    {
+        "prefecture": "Kyōto",
+        "city": "Kizugawa"
+    },
+    {
+        "prefecture": "Saitama",
+        "city": "Honjō"
+    },
+    {
+        "prefecture": "Miyagi",
+        "city": "Toyomamachi-teraike"
+    },
+    {
+        "prefecture": "Ōsaka",
+        "city": "Katano"
+    },
+    {
+        "prefecture": "Niigata",
+        "city": "Tsubame"
+    },
+    {
+        "prefecture": "Kyōto",
+        "city": "Fukuchiyama"
+    },
+    {
+        "prefecture": "Tochigi",
+        "city": "Nikkō"
+    },
+    {
+        "prefecture": "Mie",
+        "city": "Nabari"
+    },
+    {
+        "prefecture": "Hyōgo",
+        "city": "Toyooka"
+    },
+    {
+        "prefecture": "Kagoshima",
+        "city": "Aira"
+    },
+    {
+        "prefecture": "Saitama",
+        "city": "Shinkai"
+    },
+    {
+        "prefecture": "Akita",
+        "city": "Daisen"
+    },
+    {
+        "prefecture": "Ibaraki",
+        "city": "Ryūgasaki"
+    },
+    {
+        "prefecture": "Saitama",
+        "city": "Kiyose"
+    },
+    {
+        "prefecture": "Yamanashi",
+        "city": "Kai"
+    },
+    {
+        "prefecture": "Tōkyō",
+        "city": "Kunitachi"
+    },
+    {
+        "prefecture": "Saitama",
+        "city": "Warabi"
+    },
+    {
+        "prefecture": "Kumamoto",
+        "city": "Amakusa"
+    },
+    {
+        "prefecture": "Fukushima",
+        "city": "Sasagawa"
+    },
+    {
+        "prefecture": "Saga",
+        "city": "Tosu"
+    },
+    {
+        "prefecture": "Chiba",
+        "city": "Katori"
+    },
+    {
+        "prefecture": "Chiba",
+        "city": "Kandori"
+    },
+    {
+        "prefecture": "Hyōgo",
+        "city": "Miki"
+    },
+    {
+        "prefecture": "Ōsaka",
+        "city": "Izumiōtsu"
+    },
+    {
+        "prefecture": "Saitama",
+        "city": "Okegawa"
+    },
+    {
+        "prefecture": "Gunma",
+        "city": "Tatebayashi"
+    },
+    {
+        "prefecture": "Kyōto",
+        "city": "Kyōtanabe"
+    },
+    {
+        "prefecture": "Hyōgo",
+        "city": "Tatsunochō-tominaga"
+    },
+    {
+        "prefecture": "Akita",
+        "city": "Yurihonjō"
+    },
+    {
+        "prefecture": "Ibaraki",
+        "city": "Kasama"
+    },
+    {
+        "prefecture": "Gifu",
+        "city": "Inuyama"
+    },
+    {
+        "prefecture": "Tochigi",
+        "city": "Ōtawara"
+    },
+    {
+        "prefecture": "Gunma",
+        "city": "Shibukawa"
+    },
+    {
+        "prefecture": "Kyōto",
+        "city": "Jōyō"
+    },
+    {
+        "prefecture": "Fukuoka",
+        "city": "Yukuhashi"
+    },
+    {
+        "prefecture": "Aichi",
+        "city": "Hekinan"
+    },
+    {
+        "prefecture": "Fukuoka",
+        "city": "Dazaifu"
+    },
+    {
+        "prefecture": "Saitama",
+        "city": "Yoshikawa"
+    },
+    {
+        "prefecture": "Aichi",
+        "city": "Chiryū"
+    },
+    {
+        "prefecture": "Ibaraki",
+        "city": "Ishioka"
+    },
+    {
+        "prefecture": "Tōkyō",
+        "city": "Musashimurayama"
+    },
+    {
+        "prefecture": "Kumamoto",
+        "city": "Tamana"
+    },
+    {
+        "prefecture": "Kyōto",
+        "city": "Yawata-shimizui"
+    },
+    {
+        "prefecture": "Hokkaidō",
+        "city": "Eniwa"
+    },
+    {
+        "prefecture": "Saitama",
+        "city": "Tsurugashima"
+    },
+    {
+        "prefecture": "Aichi",
+        "city": "Kiyosu"
+    },
+    {
+        "prefecture": "Yamanashi",
+        "city": "Minami-Alps"
+    },
+    {
+        "prefecture": "Ehime",
+        "city": "Uwajima"
+    },
+    {
+        "prefecture": "Shiga",
+        "city": "Rittō"
+    },
+    {
+        "prefecture": "Okayama",
+        "city": "Sōja"
+    },
+    {
+        "prefecture": "Aichi",
+        "city": "Toyoake"
+    },
+    {
+        "prefecture": "Tokushima",
+        "city": "Anan"
+    },
+    {
+        "prefecture": "Ibaraki",
+        "city": "Moriya"
+    },
+    {
+        "prefecture": "Wakayama",
+        "city": "Tanabe"
+    },
+    {
+        "prefecture": "Fukui",
+        "city": "Sabae"
+    },
+    {
+        "prefecture": "Akita",
+        "city": "Ōdate"
+    },
+    {
+        "prefecture": "Ōsaka",
+        "city": "Kashiwara"
+    },
+    {
+        "prefecture": "Yamanashi",
+        "city": "Fuefuki"
+    },
+    {
+        "prefecture": "Nagano",
+        "city": "Shiojiri"
+    },
+    {
+        "prefecture": "Ibaraki",
+        "city": "Kashima"
+    },
+    {
+        "prefecture": "Tōkyō",
+        "city": "Chiyoda-ku"
+    },
+    {
+        "prefecture": "Ōita",
+        "city": "Saiki"
+    },
+    {
+        "prefecture": "Chiba",
+        "city": "Yachimata"
+    },
+    {
+        "prefecture": "Gifu",
+        "city": "Hashima"
+    },
+    {
+        "prefecture": "Fukui",
+        "city": "Tsuruga"
+    },
+    {
+        "prefecture": "Fukuoka",
+        "city": "Fukutsu"
+    },
+    {
+        "prefecture": "Nagano",
+        "city": "Ina"
+    },
+    {
+        "prefecture": "Saitama",
+        "city": "Kitamoto"
+    },
+    {
+        "prefecture": "Okinawa",
+        "city": "Tomigusuku"
+    },
+    {
+        "prefecture": "Gunma",
+        "city": "Fujioka"
+    },
+    {
+        "prefecture": "Fukuoka",
+        "city": "Yanagawa"
+    },
+    {
+        "prefecture": "Chiba",
+        "city": "Sodegaura"
+    },
+    {
+        "prefecture": "Nara",
+        "city": "Tenri"
+    },
+    {
+        "prefecture": "Miyagi",
+        "city": "Kurihara"
+    },
+    {
+        "prefecture": "Chiba",
+        "city": "Asahi"
+    },
+    {
+        "prefecture": "Shizuoka",
+        "city": "Itō"
+    },
+    {
+        "prefecture": "Ōsaka",
+        "city": "Fujiidera"
+    },
+    {
+        "prefecture": "Okinawa",
+        "city": "Nago"
+    },
+    {
+        "prefecture": "Ishikawa",
+        "city": "Kaga"
+    },
+    {
+        "prefecture": "Aichi",
+        "city": "Miyoshi"
+    },
+    {
+        "prefecture": "Aichi",
+        "city": "Nagakute"
+    },
+    {
+        "prefecture": "Kumamoto",
+        "city": "Kōshizuka"
+    },
+    {
+        "prefecture": "Yamagata",
+        "city": "Tendō"
+    },
+    {
+        "prefecture": "Miyagi",
+        "city": "Tagajō"
+    },
+    {
+        "prefecture": "Kagawa",
+        "city": "Mitoyo"
+    },
+    {
+        "prefecture": "Ōita",
+        "city": "Hita"
+    },
+    {
+        "prefecture": "Chiba",
+        "city": "Shiroi"
+    },
+    {
+        "prefecture": "Saitama",
+        "city": "Hasuda"
+    },
+    {
+        "prefecture": "Saitama",
+        "city": "Hatogaya-honchō"
+    },
+    {
+        "prefecture": "Wakayama",
+        "city": "Hashimoto"
+    },
+    {
+        "prefecture": "Kumamoto",
+        "city": "Ogōshi"
+    },
+    {
+        "prefecture": "Aichi",
+        "city": "Aisai"
+    },
+    {
+        "prefecture": "Aichi",
+        "city": "Tsushima"
+    },
+    {
+        "prefecture": "Okinawa",
+        "city": "Itoman"
+    },
+    {
+        "prefecture": "Hyōgo",
+        "city": "Tamba"
+    },
+    {
+        "prefecture": "Nara",
+        "city": "Yamatotakada"
+    },
+    {
+        "prefecture": "Wakayama",
+        "city": "Kokawa"
+    },
+    {
+        "prefecture": "Iwate",
+        "city": "Mizusawa"
+    },
+    {
+        "prefecture": "Fukuoka",
+        "city": "Yame"
+    },
+    {
+        "prefecture": "Aomori",
+        "city": "Towada"
+    },
+    {
+        "prefecture": "Yamaguchi",
+        "city": "Sanyō-Onoda"
+    },
+    {
+        "prefecture": "Ōsaka",
+        "city": "Sennan"
+    },
+    {
+        "prefecture": "Fukushima",
+        "city": "Date"
+    },
+    {
+        "prefecture": "Tochigi",
+        "city": "Shimotsuke"
+    },
+    {
+        "prefecture": "Fukushima",
+        "city": "Shirakawa"
+    },
+    {
+        "prefecture": "Fukuoka",
+        "city": "Koga"
+    },
+    {
+        "prefecture": "Miyagi",
+        "city": "Kesennuma"
+    },
+    {
+        "prefecture": "Ibaraki",
+        "city": "Jōsō"
+    },
+    {
+        "prefecture": "Miyazaki",
+        "city": "Hyūga"
+    },
+    {
+        "prefecture": "Saitama",
+        "city": "Chichibu"
+    },
+    {
+        "prefecture": "Aichi",
+        "city": "Tahara"
+    },
+    {
+        "prefecture": "Nagano",
+        "city": "Chikuma"
+    },
+    {
+        "prefecture": "Okinawa",
+        "city": "Koja"
+    },
+    {
+        "prefecture": "Ōsaka",
+        "city": "Ōsakasayama"
+    },
+    {
+        "prefecture": "Fukuoka",
+        "city": "Ogōri"
+    },
+    {
+        "prefecture": "Niigata",
+        "city": "Murakami"
+    },
+    {
+        "prefecture": "Hokkaidō",
+        "city": "Ishikari"
+    },
+    {
+        "prefecture": "Hokkaidō",
+        "city": "Kitahiroshima"
+    },
+    {
+        "prefecture": "Kagawa",
+        "city": "Kan’onjichō"
+    },
+    {
+        "prefecture": "Shizuoka",
+        "city": "Kosai"
+    },
+    {
+        "prefecture": "Chiba",
+        "city": "Tōgane"
+    },
+    {
+        "prefecture": "Chiba",
+        "city": "Choshi"
+    },
+    {
+        "prefecture": "Aichi",
+        "city": "Tokoname"
+    },
+    {
+        "prefecture": "Kumamoto",
+        "city": "Uki"
+    },
+    {
+        "prefecture": "Ishikawa",
+        "city": "Nonoichi"
+    },
+    {
+        "prefecture": "Gifu",
+        "city": "Minokamo"
+    },
+    {
+        "prefecture": "Kanagawa",
+        "city": "Zushi"
+    },
+    {
+        "prefecture": "Tōkyō",
+        "city": "Fussa"
+    },
+    {
+        "prefecture": "Yamaguchi",
+        "city": "Kudamatsu"
+    },
+    {
+        "prefecture": "Okayama",
+        "city": "Tama"
+    },
+    {
+        "prefecture": "Kyōto",
+        "city": "Mukōchō"
+    },
+    {
+        "prefecture": "Gifu",
+        "city": "Mizuho"
+    },
+    {
+        "prefecture": "Iwate",
+        "city": "Takizawa"
+    },
+    {
+        "prefecture": "Ōsaka",
+        "city": "Takaishi"
+    },
+    {
+        "prefecture": "Fukuoka",
+        "city": "Nōgata"
+    },
+    {
+        "prefecture": "Gifu",
+        "city": "Toki"
+    },
+    {
+        "prefecture": "Ōsaka",
+        "city": "Shijōnawate"
+    },
+    {
+        "prefecture": "Nagano",
+        "city": "Chino"
+    },
+    {
+        "prefecture": "Tokushima",
+        "city": "Narutochō-mitsuishi"
+    },
+    {
+        "prefecture": "Saga",
+        "city": "Imarichō-kō"
+    },
+    {
+        "prefecture": "Niigata",
+        "city": "Minamiuonuma"
+    },
+    {
+        "prefecture": "Saitama",
+        "city": "Hidaka"
+    },
+    {
+        "prefecture": "Gunma",
+        "city": "Annaka"
+    },
+    {
+        "prefecture": "Fukushima",
+        "city": "Nihonmatsu"
+    },
+    {
+        "prefecture": "Shiga",
+        "city": "Konan"
+    },
+    {
+        "prefecture": "Nara",
+        "city": "Sakurai"
+    },
+    {
+        "prefecture": "Niigata",
+        "city": "Sado"
+    },
+    {
+        "prefecture": "Saitama",
+        "city": "Hanyū"
+    },
+    {
+        "prefecture": "Saitama",
+        "city": "Hamura"
+    },
+    {
+        "prefecture": "Wakayama",
+        "city": "Funato"
+    },
+    {
+        "prefecture": "Aomori",
+        "city": "Mutsu"
+    },
+    {
+        "prefecture": "Niigata",
+        "city": "Tōkamachi"
+    },
+    {
+        "prefecture": "Ibaraki",
+        "city": "Naka"
+    },
+    {
+        "prefecture": "Kagoshima",
+        "city": "Izumi"
+    },
+    {
+        "prefecture": "Ōita",
+        "city": "Usa"
+    },
+    {
+        "prefecture": "Fukushima",
+        "city": "Minami-Sōma"
+    },
+    {
+        "prefecture": "Okinawa",
+        "city": "Miyakojima"
+    },
+    {
+        "prefecture": "Saitama",
+        "city": "Shiraoka"
+    },
+    {
+        "prefecture": "Miyagi",
+        "city": "Shiogama"
+    },
+    {
+        "prefecture": "Miyagi",
+        "city": "Tomiya"
+    },
+    {
+        "prefecture": "Ibaraki",
+        "city": "Bandō"
+    },
+    {
+        "prefecture": "Ibaraki",
+        "city": "Tsukubamirai"
+    },
+    {
+        "prefecture": "Hiroshima",
+        "city": "Fuchū"
+    },
+    {
+        "prefecture": "Kyōto",
+        "city": "Kyōtango"
+    },
+    {
+        "prefecture": "Iwate",
+        "city": "Miyako"
+    },
+    {
+        "prefecture": "Aomori",
+        "city": "Goshogawara"
+    },
+    {
+        "prefecture": "Kagawa",
+        "city": "Sakaidechō"
+    },
+    {
+        "prefecture": "Kumamoto",
+        "city": "Arao"
+    },
+    {
+        "prefecture": "Miyazaki",
+        "city": "Nichinan"
+    },
+    {
+        "prefecture": "Shizuoka",
+        "city": "Susono"
+    },
+    {
+        "prefecture": "Ibaraki",
+        "city": "Yūki"
+    },
+    {
+        "prefecture": "Fukuoka",
+        "city": "Nakagawa"
+    },
+    {
+        "prefecture": "Shimane",
+        "city": "Hamada"
+    },
+    {
+        "prefecture": "Shiga",
+        "city": "Yasu"
+    },
+    {
+        "prefecture": "Hiroshima",
+        "city": "Miyoshi"
+    },
+    {
+        "prefecture": "Saitama",
+        "city": "Satte"
+    },
+    {
+        "prefecture": "Ōsaka",
+        "city": "Hannan"
+    },
+    {
+        "prefecture": "Ishikawa",
+        "city": "Nanao"
+    },
+    {
+        "prefecture": "Akita",
+        "city": "Noshiromachi"
+    },
+    {
+        "prefecture": "Chiba",
+        "city": "Tomisato"
+    },
+    {
+        "prefecture": "Mie",
+        "city": "Kameyama"
+    },
+    {
+        "prefecture": "Nagano",
+        "city": "Suzaka"
+    },
+    {
+        "prefecture": "Fukuoka",
+        "city": "Asakura"
+    },
+    {
+        "prefecture": "Aichi",
+        "city": "Higashiura"
+    },
+    {
+        "prefecture": "Gunma",
+        "city": "Midori"
+    },
+    {
+        "prefecture": "Yamaguchi",
+        "city": "Hikari"
+    },
+    {
+        "prefecture": "Kumamoto",
+        "city": "Yamaga"
+    },
+    {
+        "prefecture": "Chiba",
+        "city": "Ōamishirasato"
+    },
+    {
+        "prefecture": "Nagano",
+        "city": "Suwa"
+    },
+    {
+        "prefecture": "Ishikawa",
+        "city": "Nomimachi"
+    },
+    {
+        "prefecture": "Saga",
+        "city": "Takeochō-takeo"
+    },
+    {
+        "prefecture": "Wakayama",
+        "city": "Shimotsuchō-kominami"
+    },
+    {
+        "prefecture": "Fukuoka",
+        "city": "Chikugo"
+    },
+    {
+        "prefecture": "Aichi",
+        "city": "Takahama"
+    },
+    {
+        "prefecture": "Ibaraki",
+        "city": "Omitama"
+    },
+    {
+        "prefecture": "Kanagawa",
+        "city": "Suzukawa"
+    },
+    {
+        "prefecture": "Okinawa",
+        "city": "Ishigaki"
+    },
+    {
+        "prefecture": "Chiba",
+        "city": "Sanmu"
+    },
+    {
+        "prefecture": "Ibaraki",
+        "city": "Ami"
+    },
+    {
+        "prefecture": "Gifu",
+        "city": "Ena"
+    },
+    {
+        "prefecture": "Fukuoka",
+        "city": "Kasuya"
+    },
+    {
+        "prefecture": "Aichi",
+        "city": "Iwakura"
+    },
+    {
+        "prefecture": "Yamagata",
+        "city": "Higashine"
+    },
+    {
+        "prefecture": "Wakayama",
+        "city": "Kamidani"
+    },
+    {
+        "prefecture": "Toyama",
+        "city": "Tonami"
+    },
+    {
+        "prefecture": "Hyōgo",
+        "city": "Ono"
+    },
+    {
+        "prefecture": "Ibaraki",
+        "city": "Hitachi-ota"
+    },
+    {
+        "prefecture": "Nagano",
+        "city": "Okaya"
+    },
+    {
+        "prefecture": "Toyama",
+        "city": "Nanto"
+    },
+    {
+        "prefecture": "Niigata",
+        "city": "Gosen"
+    },
+    {
+        "prefecture": "Shizuoka",
+        "city": "Kikugawa"
+    },
+    {
+        "prefecture": "Gunma",
+        "city": "Tomioka"
+    },
+    {
+        "prefecture": "Hokkaidō",
+        "city": "Noboribetsu"
+    },
+    {
+        "prefecture": "Kagawa",
+        "city": "Sanuki"
+    },
+    {
+        "prefecture": "Kagoshima",
+        "city": "Hioki"
+    },
+    {
+        "prefecture": "Yamanashi",
+        "city": "Fujiyoshida"
+    },
+    {
+        "prefecture": "Kōchi",
+        "city": "Nakai"
+    },
+    {
+        "prefecture": "Tottori",
+        "city": "Kurayoshi"
+    },
+    {
+        "prefecture": "Shiga",
+        "city": "Takashima"
+    },
+    {
+        "prefecture": "Shizuoka",
+        "city": "Izunokuni"
+    },
+    {
+        "prefecture": "Fukuoka",
+        "city": "Shimeo"
+    },
+    {
+        "prefecture": "Okayama",
+        "city": "Kasaoka"
+    },
+    {
+        "prefecture": "Kumamoto",
+        "city": "Kikuchi"
+    },
+    {
+        "prefecture": "Fukuoka",
+        "city": "Tamagawa"
+    },
+    {
+        "prefecture": "Ibaraki",
+        "city": "Hokota"
+    },
+    {
+        "prefecture": "Mie",
+        "city": "Shima"
+    },
+    {
+        "prefecture": "Hokkaidō",
+        "city": "Hokuto"
+    },
+    {
+        "prefecture": "Saga",
+        "city": "Ogimachi"
+    },
+    {
+        "prefecture": "Fukushima",
+        "city": "Kitakata"
+    },
+    {
+        "prefecture": "Hyōgo",
+        "city": "Kariya"
+    },
+    {
+        "prefecture": "Gunma",
+        "city": "Numata"
+    },
+    {
+        "prefecture": "Saitama",
+        "city": "Inuma"
+    },
+    {
+        "prefecture": "Chiba",
+        "city": "Tateyama"
+    },
+    {
+        "prefecture": "Tochigi",
+        "city": "Sakura"
+    },
+    {
+        "prefecture": "Shimane",
+        "city": "Masuda"
+    },
+    {
+        "prefecture": "Miyagi",
+        "city": "Iwanuma"
+    },
+    {
+        "prefecture": "Okinawa",
+        "city": "Nanjō"
+    },
+    {
+        "prefecture": "Yamaguchi",
+        "city": "Hagi"
+    },
+    {
+        "prefecture": "Aichi",
+        "city": "Tōgō"
+    },
+    {
+        "prefecture": "Hokkaidō",
+        "city": "Otofuke"
+    },
+    {
+        "prefecture": "Hyōgo",
+        "city": "Goshikichō-aihara-minamidani"
+    },
+    {
+        "prefecture": "Saitama",
+        "city": "Sugito"
+    },
+    {
+        "prefecture": "Toyama",
+        "city": "Himi"
+    },
+    {
+        "prefecture": "Aichi",
+        "city": "Shinshiro"
+    },
+    {
+        "prefecture": "Ōsaka",
+        "city": "Kumatori"
+    },
+    {
+        "prefecture": "Yamanashi",
+        "city": "Hokuto"
+    },
+    {
+        "prefecture": "Kumamoto",
+        "city": "Kikuyō"
+    },
+    {
+        "prefecture": "Shizuoka",
+        "city": "Nagaizumi"
+    },
+    {
+        "prefecture": "Miyazaki",
+        "city": "Kobayashi"
+    },
+    {
+        "prefecture": "Mie",
+        "city": "Inabe"
+    },
+    {
+        "prefecture": "Aichi",
+        "city": "Taketoyo"
+    },
+    {
+        "prefecture": "Shizuoka",
+        "city": "Makinohara"
+    },
+    {
+        "prefecture": "Aichi",
+        "city": "Yatomi"
+    },
+    {
+        "prefecture": "Nagasaki",
+        "city": "Shimabara"
+    },
+    {
+        "prefecture": "Kagoshima",
+        "city": "Taniyama-chūō"
+    },
+    {
+        "prefecture": "Nagano",
+        "city": "Nakano"
+    },
+    {
+        "prefecture": "Hyōgo",
+        "city": "Awaji"
+    },
+    {
+        "prefecture": "Aichi",
+        "city": "Kōta"
+    },
+    {
+        "prefecture": "Okayama",
+        "city": "Akaiwa"
+    },
+    {
+        "prefecture": "Hyōgo",
+        "city": "Kasai"
+    },
+    {
+        "prefecture": "Chiba",
+        "city": "Futtsu"
+    },
+    {
+        "prefecture": "Okayama",
+        "city": "Maniwa"
+    },
+    {
+        "prefecture": "Toyama",
+        "city": "Uozu"
+    },
+    {
+        "prefecture": "Gunma",
+        "city": "Ōizumi"
+    },
+    {
+        "prefecture": "Nagasaki",
+        "city": "Minamishimabara"
+    },
+    {
+        "prefecture": "Kanagawa",
+        "city": "Miura"
+    },
+    {
+        "prefecture": "Akita",
+        "city": "Yuzawa"
+    },
+    {
+        "prefecture": "Ibaraki",
+        "city": "Shimotsuma"
+    },
+    {
+        "prefecture": "Ibaraki",
+        "city": "Kitaibaraki"
+    },
+    {
+        "prefecture": "Nagasaki",
+        "city": "Obita"
+    },
+    {
+        "prefecture": "Nagano",
+        "city": "Komoro"
+    },
+    {
+        "prefecture": "Hyōgo",
+        "city": "Sumoto"
+    },
+    {
+        "prefecture": "Okinawa",
+        "city": "Amami"
+    },
+    {
+        "prefecture": "Nagasaki",
+        "city": "Unzen"
+    },
+    {
+        "prefecture": "Kanagawa",
+        "city": "Nanbei"
+    },
+    {
+        "prefecture": "Hyōgo",
+        "city": "Katō"
+    },
+    {
+        "prefecture": "Okinawa",
+        "city": "Katsuren-haebaru"
+    },
+    {
+        "prefecture": "Niigata",
+        "city": "Agano"
+    },
+    {
+        "prefecture": "Mie",
+        "city": "Komono"
+    },
+    {
+        "prefecture": "Ehime",
+        "city": "Ōzu"
+    },
+    {
+        "prefecture": "Niigata",
+        "city": "Itoigawa"
+    },
+    {
+        "prefecture": "Ibaraki",
+        "city": "Kasumigaura"
+    },
+    {
+        "prefecture": "Yamagata",
+        "city": "Sagae"
+    },
+    {
+        "prefecture": "Okinawa",
+        "city": "Yomitan"
+    },
+    {
+        "prefecture": "Kanagawa",
+        "city": "Aizawa"
+    },
+    {
+        "prefecture": "Niigata",
+        "city": "Shirone"
+    },
+    {
+        "prefecture": "Toyama",
+        "city": "Kurobeshin"
+    },
+    {
+        "prefecture": "Ehime",
+        "city": "Masaki"
+    },
+    {
+        "prefecture": "Fukuoka",
+        "city": "Nakama"
+    },
+    {
+        "prefecture": "Hokkaidō",
+        "city": "Takikawa"
+    },
+    {
+        "prefecture": "Hyōgo",
+        "city": "Tamba-Sasayama"
+    },
+    {
+        "prefecture": "Tochigi",
+        "city": "Mibu"
+    },
+    {
+        "prefecture": "Niigata",
+        "city": "Mitsuke"
+    },
+    {
+        "prefecture": "Kagoshima",
+        "city": "Kaseda-shirakame"
+    },
+    {
+        "prefecture": "Miyagi",
+        "city": "Higashimatsushima"
+    },
+    {
+        "prefecture": "Ibaraki",
+        "city": "Inashiki"
+    },
+    {
+        "prefecture": "Ibaraki",
+        "city": "Hitachiomiya"
+    },
+    {
+        "prefecture": "Akita",
+        "city": "Ōmagari"
+    },
+    {
+        "prefecture": "Gifu",
+        "city": "Gujō"
+    },
+    {
+        "prefecture": "Tokushima",
+        "city": "Yoshinogawa"
+    },
+    {
+        "prefecture": "Ibaraki",
+        "city": "Sakuragawa"
+    },
+    {
+        "prefecture": "Miyagi",
+        "city": "Shibata"
+    },
+    {
+        "prefecture": "Kagoshima",
+        "city": "Ibusuki"
+    },
+    {
+        "prefecture": "Hyōgo",
+        "city": "Nishiwaki"
+    },
+    {
+        "prefecture": "Saitama",
+        "city": "Miyoshidai"
+    },
+    {
+        "prefecture": "Aomori",
+        "city": "Misawa"
+    },
+    {
+        "prefecture": "Shiga",
+        "city": "Maibara"
+    },
+    {
+        "prefecture": "Okayama",
+        "city": "Ibara"
+    },
+    {
+        "prefecture": "Fukuoka",
+        "city": "Umi"
+    },
+    {
+        "prefecture": "Gifu",
+        "city": "Mizunami"
+    },
+    {
+        "prefecture": "Ibaraki",
+        "city": "Tōkai"
+    },
+    {
+        "prefecture": "Nara",
+        "city": "Katsuragi"
+    },
+    {
+        "prefecture": "Chiba",
+        "city": "Minami-Bōsō"
+    },
+    {
+        "prefecture": "Aichi",
+        "city": "Kanie"
+    },
+    {
+        "prefecture": "Fukushima",
+        "city": "Sōma"
+    },
+    {
+        "prefecture": "Ishikawa",
+        "city": "Tsubata"
+    },
+    {
+        "prefecture": "Shimane",
+        "city": "Yasugichō"
+    },
+    {
+        "prefecture": "Shizuoka",
+        "city": "Kannan"
+    },
+    {
+        "prefecture": "Hiroshima",
+        "city": "Fuchūchō"
+    },
+    {
+        "prefecture": "Tokushima",
+        "city": "Komatsushimachō"
+    },
+    {
+        "prefecture": "Fukuoka",
+        "city": "Kanada"
+    },
+    {
+        "prefecture": "Gunma",
+        "city": "Tamamura"
+    },
+    {
+        "prefecture": "Kyōto",
+        "city": "Seika"
+    },
+    {
+        "prefecture": "Kumamoto",
+        "city": "Uto"
+    },
+    {
+        "prefecture": "Ōita",
+        "city": "Usuki"
+    },
+    {
+        "prefecture": "Chiba",
+        "city": "Sōsa"
+    },
+    {
+        "prefecture": "Kumamoto",
+        "city": "Miyajima"
+    },
+    {
+        "prefecture": "Tokushima",
+        "city": "Awa"
+    },
+    {
+        "prefecture": "Okayama",
+        "city": "Setouchi"
+    },
+    {
+        "prefecture": "Chiba",
+        "city": "Isumi"
+    },
+    {
+        "prefecture": "Miyagi",
+        "city": "Rifu"
+    },
+    {
+        "prefecture": "Iwate",
+        "city": "Ōfunato"
+    },
+    {
+        "prefecture": "Ibaraki",
+        "city": "Tomobe"
+    },
+    {
+        "prefecture": "Saitama",
+        "city": "Morohongō"
+    },
+    {
+        "prefecture": "Shimane",
+        "city": "Unnan"
+    },
+    {
+        "prefecture": "Tokushima",
+        "city": "Aizumi"
+    },
+    {
+        "prefecture": "Fukuoka",
+        "city": "Kamata"
+    },
+    {
+        "prefecture": "Kumamoto",
+        "city": "Ōzu"
+    },
+    {
+        "prefecture": "Gifu",
+        "city": "Kaizu"
+    },
+    {
+        "prefecture": "Ishikawa",
+        "city": "Kahoku"
+    },
+    {
+        "prefecture": "Ehime",
+        "city": "Iyo"
+    },
+    {
+        "prefecture": "Fukushima",
+        "city": "Tamura"
+    },
+    {
+        "prefecture": "Ehime",
+        "city": "Seiyo"
+    },
+    {
+        "prefecture": "Hokkaidō",
+        "city": "Abashiri"
+    },
+    {
+        "prefecture": "Iwate",
+        "city": "Ofunato"
+    },
+    {
+        "prefecture": "Okinawa",
+        "city": "Nishihara"
+    },
+    {
+        "prefecture": "Gifu",
+        "city": "Motosu"
+    },
+    {
+        "prefecture": "Nagasaki",
+        "city": "Gotō"
+    },
+    {
+        "prefecture": "Iwate",
+        "city": "Kuji"
+    },
+    {
+        "prefecture": "Yamagata",
+        "city": "Shinjō"
+    },
+    {
+        "prefecture": "Aichi",
+        "city": "Fusō"
+    },
+    {
+        "prefecture": "Shizuoka",
+        "city": "Atami"
+    },
+    {
+        "prefecture": "Ehime",
+        "city": "Tōon"
+    },
+    {
+        "prefecture": "Hyōgo",
+        "city": "Shisō"
+    },
+    {
+        "prefecture": "Niigata",
+        "city": "Uonuma"
+    },
+    {
+        "prefecture": "Saitama",
+        "city": "Minamishiro"
+    },
+    {
+        "prefecture": "Hyōgo",
+        "city": "Harima"
+    },
+    {
+        "prefecture": "Niigata",
+        "city": "Ojiya"
+    },
+    {
+        "prefecture": "Fukui",
+        "city": "Ōno"
+    },
+    {
+        "prefecture": "Nara",
+        "city": "Kōryō"
+    },
+    {
+        "prefecture": "Hiroshima",
+        "city": "Shōbara"
+    },
+    {
+        "prefecture": "Hokkaidō",
+        "city": "Date"
+    },
+    {
+        "prefecture": "Okayama",
+        "city": "Asakuchi"
+    },
+    {
+        "prefecture": "Miyagi",
+        "city": "Shirakawa-tsuda"
+    },
+    {
+        "prefecture": "Miyagi",
+        "city": "Shiroishi"
+    },
+    {
+        "prefecture": "Hyōgo",
+        "city": "Taishi"
+    },
+    {
+        "prefecture": "Nara",
+        "city": "Gojō"
+    },
+    {
+        "prefecture": "Kagoshima",
+        "city": "Minamikyūshū"
+    },
+    {
+        "prefecture": "Iwate",
+        "city": "Shima"
+    },
+    {
+        "prefecture": "Ōita",
+        "city": "Bungoōno"
+    },
+    {
+        "prefecture": "Iwate",
+        "city": "Kamaishi"
+    },
+    {
+        "prefecture": "Hokkaidō",
+        "city": "Wakabadai"
+    },
+    {
+        "prefecture": "Fukuoka",
+        "city": "Shingū"
+    },
+    {
+        "prefecture": "Yamanashi",
+        "city": "Yamanashi"
+    },
+    {
+        "prefecture": "Kagoshima",
+        "city": "Sō"
+    },
+    {
+        "prefecture": "Miyagi",
+        "city": "Watari"
+    },
+    {
+        "prefecture": "Ōita",
+        "city": "Yufu"
+    },
+    {
+        "prefecture": "Fukuoka",
+        "city": "Ōsawa"
+    },
+    {
+        "prefecture": "Kumamoto",
+        "city": "Mashiki"
+    },
+    {
+        "prefecture": "Kōchi",
+        "city": "Shimanto"
+    },
+    {
+        "prefecture": "Kagoshima",
+        "city": "Minamisatsuma"
+    },
+    {
+        "prefecture": "Shizuoka",
+        "city": "Omaezaki"
+    },
+    {
+        "prefecture": "Niigata",
+        "city": "Kameda-honchō"
+    },
+    {
+        "prefecture": "Aichi",
+        "city": "Ōharu"
+    },
+    {
+        "prefecture": "Toyama",
+        "city": "Namerikawa"
+    },
+    {
+        "prefecture": "Chiba",
+        "city": "Yōkaichiba"
+    },
+    {
+        "prefecture": "Yamaguchi",
+        "city": "Nagato"
+    },
+    {
+        "prefecture": "Saitama",
+        "city": "Yorii"
+    },
+    {
+        "prefecture": "Kōchi",
+        "city": "Kōnan"
+    },
+    {
+        "prefecture": "Saitama",
+        "city": "Mizuho"
+    },
+    {
+        "prefecture": "Shimane",
+        "city": "Ōdachō-ōda"
+    },
+    {
+        "prefecture": "Okayama",
+        "city": "Bizen"
+    },
+    {
+        "prefecture": "Shimane",
+        "city": "Sakaiminato"
+    },
+    {
+        "prefecture": "Saga",
+        "city": "Kanzakimachi-kanzaki"
+    },
+    {
+        "prefecture": "Ibaraki",
+        "city": "Namegata"
+    },
+    {
+        "prefecture": "Nagano",
+        "city": "Komagane"
+    },
+    {
+        "prefecture": "Chiba",
+        "city": "Maebara"
+    },
+    {
+        "prefecture": "Shizuoka",
+        "city": "Shimizuchō"
+    },
+    {
+        "prefecture": "Kagawa",
+        "city": "Zentsujichó"
+    },
+    {
+        "prefecture": "Aomori",
+        "city": "Kuroishi"
+    },
+    {
+        "prefecture": "Akita",
+        "city": "Katagami"
+    },
+    {
+        "prefecture": "Kanagawa",
+        "city": "Hayama"
+    },
+    {
+        "prefecture": "Kyōto",
+        "city": "Ayabe"
+    },
+    {
+        "prefecture": "Ehime",
+        "city": "Yawatahama-shi"
+    },
+    {
+        "prefecture": "Niigata",
+        "city": "Myōkō"
+    },
+    {
+        "prefecture": "Kumamoto",
+        "city": "Hitoyoshi"
+    },
+    {
+        "prefecture": "Kyōto",
+        "city": "Shimotoba"
+    },
+    {
+        "prefecture": "Ibaraki",
+        "city": "Ibaraki"
+    },
+    {
+        "prefecture": "Kanagawa",
+        "city": "Ōiso"
+    },
+    {
+        "prefecture": "Tochigi",
+        "city": "Yaita"
+    },
+    {
+        "prefecture": "Fukuoka",
+        "city": "Sasaguri"
+    },
+    {
+        "prefecture": "Kyōto",
+        "city": "Nantan"
+    },
+    {
+        "prefecture": "Okinawa",
+        "city": "Yaese"
+    },
+    {
+        "prefecture": "Nara",
+        "city": "Tawaramoto"
+    },
+    {
+        "prefecture": "Fukuoka",
+        "city": "Okagaki"
+    },
+    {
+        "prefecture": "Tochigi",
+        "city": "Kaminokawa"
+    },
+    {
+        "prefecture": "Aomori",
+        "city": "Tsuruno"
+    },
+    {
+        "prefecture": "Ibaraki",
+        "city": "Sekiyado"
+    },
+    {
+        "prefecture": "Yamanashi",
+        "city": "Chūō"
+    },
+    {
+        "prefecture": "Gifu",
+        "city": "Yunoshima"
+    },
+    {
+        "prefecture": "Yamaguchi",
+        "city": "Yanai"
+    },
+    {
+        "prefecture": "Fukui",
+        "city": "Ono"
+    },
+    {
+        "prefecture": "Fukushima",
+        "city": "Motomiya"
+    },
+    {
+        "prefecture": "Yamagata",
+        "city": "Nanyō"
+    },
+    {
+        "prefecture": "Aomori",
+        "city": "Hirakawachō"
+    },
+    {
+        "prefecture": "Yamanashi",
+        "city": "Tsuru"
+    },
+    {
+        "prefecture": "Hyōgo",
+        "city": "Inami"
+    },
+    {
+        "prefecture": "Saitama",
+        "city": "Kamisato"
+    },
+    {
+        "prefecture": "Yamagata",
+        "city": "Kaminoyama"
+    },
+    {
+        "prefecture": "Hiroshima",
+        "city": "Kaita"
+    },
+    {
+        "prefecture": "Akita",
+        "city": "Kitaakita"
+    },
+    {
+        "prefecture": "Fukuoka",
+        "city": "Chikuzen"
+    },
+    {
+        "prefecture": "Hyōgo",
+        "city": "Inagawa"
+    },
+    {
+        "prefecture": "Gifu",
+        "city": "Yōrō"
+    },
+    {
+        "prefecture": "Kagoshima",
+        "city": "Shibushi"
+    },
+    {
+        "prefecture": "Yamanashi",
+        "city": "Kōshū"
+    },
+    {
+        "prefecture": "Nagano",
+        "city": "Tōmi"
+    },
+    {
+        "prefecture": "Tochigi",
+        "city": "Takanezawa"
+    },
+    {
+        "prefecture": "Nagasaki",
+        "city": "Togitsu"
+    },
+    {
+        "prefecture": "Akita",
+        "city": "Hanawa"
+    },
+    {
+        "prefecture": "Okayama",
+        "city": "Takahashi"
+    },
+    {
+        "prefecture": "Nagasaki",
+        "city": "Hirado"
+    },
+    {
+        "prefecture": "Nagasaki",
+        "city": "Saikaichō-kobagō"
+    },
+    {
+        "prefecture": "Shizuoka",
+        "city": "Yoshida"
+    },
+    {
+        "prefecture": "Hyōgo",
+        "city": "Asago"
+    },
+    {
+        "prefecture": "Niigata",
+        "city": "Maki"
+    },
+    {
+        "prefecture": "Toyama",
+        "city": "Oyabe"
+    },
+    {
+        "prefecture": "Miyazaki",
+        "city": "Saito"
+    },
+    {
+        "prefecture": "Saitama",
+        "city": "Matsubushi"
+    },
+    {
+        "prefecture": "Shizuoka",
+        "city": "Izu"
+    },
+    {
+        "prefecture": "Fukuoka",
+        "city": "Sue"
+    },
+    {
+        "prefecture": "Nagasaki",
+        "city": "Tsushima"
+    },
+    {
+        "prefecture": "Saitama",
+        "city": "Ogawa"
+    },
+    {
+        "prefecture": "Hyōgo",
+        "city": "Aioi"
+    },
+    {
+        "prefecture": "Miyagi",
+        "city": "Taiwa"
+    },
+    {
+        "prefecture": "Kagawa",
+        "city": "Higashikagawa"
+    },
+    {
+        "prefecture": "Aichi",
+        "city": "Agui"
+    },
+    {
+        "prefecture": "Okinawa",
+        "city": "Chatan"
+    },
+    {
+        "prefecture": "Yamanashi",
+        "city": "Nirasaki"
+    },
+    {
+        "prefecture": "Fukui",
+        "city": "Obama"
+    },
+    {
+        "prefecture": "Tokushima",
+        "city": "Mima"
+    },
+    {
+        "prefecture": "Hokkaidō",
+        "city": "Honchō"
+    },
+    {
+        "prefecture": "Niigata",
+        "city": "Tainai"
+    },
+    {
+        "prefecture": "Ōita",
+        "city": "Hiji"
+    },
+    {
+        "prefecture": "Miyagi",
+        "city": "Kakuda"
+    },
+    {
+        "prefecture": "Fukuoka",
+        "city": "Mizumaki"
+    },
+    {
+        "prefecture": "Nara",
+        "city": "Ōuda-yamaguchi"
+    },
+    {
+        "prefecture": "Saga",
+        "city": "Kashima"
+    },
+    {
+        "prefecture": "Ishikawa",
+        "city": "Wajimazakimachi"
+    },
+    {
+        "prefecture": "Ōita",
+        "city": "Kitsuki"
+    },
+    {
+        "prefecture": "Shimane",
+        "city": "Hikawa"
+    },
+    {
+        "prefecture": "Iwate",
+        "city": "Yahaba"
+    },
+    {
+        "prefecture": "Kanagawa",
+        "city": "Ninomiya"
+    },
+    {
+        "prefecture": "Okayama",
+        "city": "Niimi"
+    },
+    {
+        "prefecture": "Ibaraki",
+        "city": "Takahagi"
+    },
+    {
+        "prefecture": "Mie",
+        "city": "Shingū"
+    },
+    {
+        "prefecture": "Fukuoka",
+        "city": "Ukiha"
+    },
+    {
+        "prefecture": "Ibaraki",
+        "city": "Itako"
+    },
+    {
+        "prefecture": "Nara",
+        "city": "Ikaruga"
+    },
+    {
+        "prefecture": "Hiroshima",
+        "city": "Akitakata"
+    },
+    {
+        "prefecture": "Hokkaidō",
+        "city": "Nemuro"
+    },
+    {
+        "prefecture": "Fukui",
+        "city": "Awara"
+    },
+    {
+        "prefecture": "Kagoshima",
+        "city": "Ichikikushikino"
+    },
+    {
+        "prefecture": "Hokkaidō",
+        "city": "Nayoro"
+    },
+    {
+        "prefecture": "Saga",
+        "city": "Ureshinomachi-shimojuku"
+    },
+    {
+        "prefecture": "Kagawa",
+        "city": "Miki"
+    },
+    {
+        "prefecture": "Fukuoka",
+        "city": "Miyanaga"
+    },
+    {
+        "prefecture": "Gifu",
+        "city": "Tarui"
+    },
+    {
+        "prefecture": "Ishikawa",
+        "city": "Uchinada"
+    },
+    {
+        "prefecture": "Hokkaidō",
+        "city": "Makubetsu"
+    },
+    {
+        "prefecture": "Gunma",
+        "city": "Ōra"
+    },
+    {
+        "prefecture": "Iwate",
+        "city": "Tōno"
+    },
+    {
+        "prefecture": "Hiroshima",
+        "city": "Ōtake"
+    },
+    {
+        "prefecture": "Nagano",
+        "city": "Ōmachi"
+    },
+    {
+        "prefecture": "Yamagata",
+        "city": "Nagai"
+    },
+    {
+        "prefecture": "Ōita",
+        "city": "Kunisakimachi-tsurugawa"
+    },
+    {
+        "prefecture": "Gifu",
+        "city": "Ginan"
+    },
+    {
+        "prefecture": "Wakayama",
+        "city": "Arida"
+    },
+    {
+        "prefecture": "Kōchi",
+        "city": "Tosa"
+    },
+    {
+        "prefecture": "Mie",
+        "city": "Tōin"
+    },
+    {
+        "prefecture": "Shizuoka",
+        "city": "Sagara"
+    },
+    {
+        "prefecture": "Kōchi",
+        "city": "Kami"
+    },
+    {
+        "prefecture": "Okayama",
+        "city": "Mimasaka"
+    },
+    {
+        "prefecture": "Yamanashi",
+        "city": "Fujikawaguchiko"
+    },
+    {
+        "prefecture": "Miyazaki",
+        "city": "Mimata"
+    },
+    {
+        "prefecture": "Chiba",
+        "city": "Omigawa"
+    },
+    {
+        "prefecture": "Saga",
+        "city": "Miyaki"
+    },
+    {
+        "prefecture": "Gifu",
+        "city": "Yamagata"
+    },
+    {
+        "prefecture": "Wakayama",
+        "city": "Aridagawa"
+    },
+    {
+        "prefecture": "Iwate",
+        "city": "Ninohe"
+    },
+    {
+        "prefecture": "Toyama",
+        "city": "Tateyama"
+    },
+    {
+        "prefecture": "Tochigi",
+        "city": "Nogi"
+    },
+    {
+        "prefecture": "Nagano",
+        "city": "Minowa"
+    },
+    {
+        "prefecture": "Nagasaki",
+        "city": "Iki"
+    },
+    {
+        "prefecture": "Tokushima",
+        "city": "Ishii"
+    },
+    {
+        "prefecture": "Kumamoto",
+        "city": "Aso"
+    },
+    {
+        "prefecture": "Akita",
+        "city": "Oga"
+    },
+    {
+        "prefecture": "Chiba",
+        "city": "Narutō"
+    },
+    {
+        "prefecture": "Hiroshima",
+        "city": "Etajima"
+    },
+    {
+        "prefecture": "Tochigi",
+        "city": "Nasukarasuyama"
+    },
+    {
+        "prefecture": "Aomori",
+        "city": "Oirase"
+    },
+    {
+        "prefecture": "Fukuoka",
+        "city": "Buzen"
+    },
+    {
+        "prefecture": "Nara",
+        "city": "Gose"
+    },
+    {
+        "prefecture": "Aichi",
+        "city": "Ōguchi"
+    },
+    {
+        "prefecture": "Kagoshima",
+        "city": "Isa"
+    },
+    {
+        "prefecture": "Akita",
+        "city": "Senboku"
+    },
+    {
+        "prefecture": "Ibaraki",
+        "city": "Sakai"
+    },
+    {
+        "prefecture": "Kumamoto",
+        "city": "Kamiamakusa"
+    },
+    {
+        "prefecture": "Miyagi",
+        "city": "Misato"
+    },
+    {
+        "prefecture": "Aichi",
+        "city": "Ishiki"
+    },
+    {
+        "prefecture": "Iwate",
+        "city": "Hachimantai"
+    },
+    {
+        "prefecture": "Nara",
+        "city": "Ōji"
+    },
+    {
+        "prefecture": "Miyagi",
+        "city": "Ōgawara"
+    },
+    {
+        "prefecture": "Toyama",
+        "city": "Nyūzen"
+    },
+    {
+        "prefecture": "Tokushima",
+        "city": "Miyoshi"
+    },
+    {
+        "prefecture": "Kanagawa",
+        "city": "Yugawara"
+    },
+    {
+        "prefecture": "Ōsaka",
+        "city": "Sanga"
+    },
+    {
+        "prefecture": "Tōkyō",
+        "city": "Minamikarasuyama"
+    },
+    {
+        "prefecture": "Tochigi",
+        "city": "Nasu"
+    },
+    {
+        "prefecture": "Hiroshima",
+        "city": "Takehara"
+    },
+    {
+        "prefecture": "Gifu",
+        "city": "Ikeda"
+    },
+    {
+        "prefecture": "Yamaguchi",
+        "city": "Mine"
+    },
+    {
+        "prefecture": "Hokkaidō",
+        "city": "Nakashunbetsu"
+    },
+    {
+        "prefecture": "Kumamoto",
+        "city": "Minamata"
+    },
+    {
+        "prefecture": "Gifu",
+        "city": "Ōno"
+    },
+    {
+        "prefecture": "Hokkaidō",
+        "city": "Mobetsu"
+    },
+    {
+        "prefecture": "Akita",
+        "city": "Nikaho"
+    },
+    {
+        "prefecture": "Kagawa",
+        "city": "Tadotsu"
+    },
+    {
+        "prefecture": "Hiroshima",
+        "city": "Kumano"
+    },
+    {
+        "prefecture": "Wakayama",
+        "city": "Gobō"
+    },
+    {
+        "prefecture": "Kagawa",
+        "city": "Ayagawa"
+    },
+    {
+        "prefecture": "Tokushima",
+        "city": "Kitajima"
+    },
+    {
+        "prefecture": "Gifu",
+        "city": "Furukawa"
+    },
+    {
+        "prefecture": "Kanagawa",
+        "city": "Uenohara"
+    },
+    {
+        "prefecture": "Mie",
+        "city": "Meiwa"
+    },
+    {
+        "prefecture": "Aichi",
+        "city": "Mihama"
+    },
+    {
+        "prefecture": "Gifu",
+        "city": "Kasamatsuchō"
+    },
+    {
+        "prefecture": "Chiba",
+        "city": "Yokoshibahikari"
+    },
+    {
+        "prefecture": "Tōkyō",
+        "city": "Itsukaichi"
+    },
+    {
+        "prefecture": "Yamagata",
+        "city": "Takahata"
+    },
+    {
+        "prefecture": "Yamagata",
+        "city": "Murayama"
+    },
+    {
+        "prefecture": "Hyōgo",
+        "city": "Yabu"
+    },
+    {
+        "prefecture": "Fukui",
+        "city": "Honmachi"
+    },
+    {
+        "prefecture": "Okinawa",
+        "city": "Nakagusuku"
+    },
+    {
+        "prefecture": "Shimane",
+        "city": "Gōtsuchō"
+    },
+    {
+        "prefecture": "Saga",
+        "city": "Shiroishi"
+    },
+    {
+        "prefecture": "Ōita",
+        "city": "Bungotakada"
+    },
+    {
+        "prefecture": "Hokkaidō",
+        "city": "Shinhidaka"
+    },
+    {
+        "prefecture": "Yamanashi",
+        "city": "Ōtsuki"
+    },
+    {
+        "prefecture": "Gunma",
+        "city": "Yoshioka"
+    },
+    {
+        "prefecture": "Aichi",
+        "city": "Kozakai-chō"
+    },
+    {
+        "prefecture": "Miyagi",
+        "city": "Kami"
+    },
+    {
+        "prefecture": "Kagoshima",
+        "city": "Ōkuchi-shinohara"
+    },
+    {
+        "prefecture": "Tochigi",
+        "city": "Mashiko"
+    },
+    {
+        "prefecture": "Hokkaidō",
+        "city": "Fukagawa"
+    },
+    {
+        "prefecture": "Fukuoka",
+        "city": "Fukuyoshi"
+    },
+    {
+        "prefecture": "Nagasaki",
+        "city": "Matsuura"
+    },
+    {
+        "prefecture": "Nara",
+        "city": "Kanmaki"
+    },
+    {
+        "prefecture": "Hokkaidō",
+        "city": "Furano"
+    },
+    {
+        "prefecture": "Shiga",
+        "city": "Hino"
+    },
+    {
+        "prefecture": "Shiga",
+        "city": "Aishō"
+    },
+    {
+        "prefecture": "Yamanashi",
+        "city": "Shōwa"
+    },
+    {
+        "prefecture": "Ibaraki",
+        "city": "Yachiyo"
+    },
+    {
+        "prefecture": "Kōchi",
+        "city": "Ino"
+    },
+    {
+        "prefecture": "Gifu",
+        "city": "Mino"
+    },
+    {
+        "prefecture": "Fukushima",
+        "city": "Yanagawamachi-saiwaichō"
+    },
+    {
+        "prefecture": "Aomori",
+        "city": "Namioka"
+    },
+    {
+        "prefecture": "Chiba",
+        "city": "Ōhara"
+    },
+    {
+        "prefecture": "Fukushima",
+        "city": "Nishigō"
+    },
+    {
+        "prefecture": "Hokkaidō",
+        "city": "Bibai"
+    },
+    {
+        "prefecture": "Shizuoka",
+        "city": "Shimogamo"
+    },
+    {
+        "prefecture": "Kōchi",
+        "city": "Susaki"
+    },
+    {
+        "prefecture": "Shizuoka",
+        "city": "Kanaya"
+    },
+    {
+        "prefecture": "Ehime",
+        "city": "Tobe"
+    },
+    {
+        "prefecture": "Chiba",
+        "city": "Shisui"
+    },
+    {
+        "prefecture": "Hokkaidō",
+        "city": "Rumoi"
+    },
+    {
+        "prefecture": "Kagoshima",
+        "city": "Satsuma"
+    },
+    {
+        "prefecture": "Ishikawa",
+        "city": "Hakui"
+    },
+    {
+        "prefecture": "Miyazaki",
+        "city": "Takanabe"
+    },
+    {
+        "prefecture": "Yamagata",
+        "city": "Shōnai"
+    },
+    {
+        "prefecture": "Wakayama",
+        "city": "Shirahama"
+    },
+    {
+        "prefecture": "Chiba",
+        "city": "Sakae"
+    },
+    {
+        "prefecture": "Saitama",
+        "city": "Namegawa"
+    },
+    {
+        "prefecture": "Saitama",
+        "city": "Kisai"
+    },
+    {
+        "prefecture": "Kagoshima",
+        "city": "Makurazaki"
+    },
+    {
+        "prefecture": "Fukuoka",
+        "city": "Hirokawa"
+    },
+    {
+        "prefecture": "Shizuoka",
+        "city": "Ryūyō"
+    },
+    {
+        "prefecture": "Okinawa",
+        "city": "Yonabaru"
+    },
+    {
+        "prefecture": "Kyōto",
+        "city": "Yosano"
+    },
+    {
+        "prefecture": "Nara",
+        "city": "Shinjō"
+    },
+    {
+        "prefecture": "Fukui",
+        "city": "Echizen"
+    },
+    {
+        "prefecture": "Ōita",
+        "city": "Taketa"
+    },
+    {
+        "prefecture": "Gunma",
+        "city": "Karuizawa"
+    },
+    {
+        "prefecture": "Shizuoka",
+        "city": "Niiyama"
+    },
+    {
+        "prefecture": "Gifu",
+        "city": "Ibigawa"
+    },
+    {
+        "prefecture": "Shizuoka",
+        "city": "Fukude"
+    },
+    {
+        "prefecture": "Hokkaidō",
+        "city": "Kushiro"
+    },
+    {
+        "prefecture": "Saitama",
+        "city": "Kitatajima"
+    },
+    {
+        "prefecture": "Gifu",
+        "city": "Gōdo"
+    },
+    {
+        "prefecture": "Hokkaidō",
+        "city": "Mukaiengaru"
+    },
+    {
+        "prefecture": "Toyama",
+        "city": "Kamiichi"
+    },
+    {
+        "prefecture": "Kōchi",
+        "city": "Sukumo"
+    },
+    {
+        "prefecture": "Nagano",
+        "city": "Iiyama"
+    },
+    {
+        "prefecture": "Hyōgo",
+        "city": "Fukusaki"
+    },
+    {
+        "prefecture": "Ehime",
+        "city": "Ainan"
+    },
+    {
+        "prefecture": "Aomori",
+        "city": "Shimokizukuri"
+    },
+    {
+        "prefecture": "Hyōgo",
+        "city": "Taka"
+    },
+    {
+        "prefecture": "Fukushima",
+        "city": "Aizumisato"
+    },
+    {
+        "prefecture": "Nara",
+        "city": "Tanbaichichō"
+    },
+    {
+        "prefecture": "Kagoshima",
+        "city": "Akune"
+    },
+    {
+        "prefecture": "Hokkaidō",
+        "city": "Motomachi"
+    },
+    {
+        "prefecture": "Fukui",
+        "city": "Eiheiji"
+    },
+    {
+        "prefecture": "Kagawa",
+        "city": "Utazu"
+    },
+    {
+        "prefecture": "Saga",
+        "city": "Arita"
+    },
+    {
+        "prefecture": "Nagano",
+        "city": "Shimomura"
+    },
+    {
+        "prefecture": "Fukuoka",
+        "city": "Onga"
+    },
+    {
+        "prefecture": "Fukuoka",
+        "city": "Miyatoko"
+    },
+    {
+        "prefecture": "Ishikawa",
+        "city": "Shika"
+    },
+    {
+        "prefecture": "Nagano",
+        "city": "Tatsuno"
+    },
+    {
+        "prefecture": "Akita",
+        "city": "Misato"
+    },
+    {
+        "prefecture": "Miyazaki",
+        "city": "Kunitomi"
+    },
+    {
+        "prefecture": "Tōkyō",
+        "city": "Shimokodanaka"
+    },
+    {
+        "prefecture": "Hokkaidō",
+        "city": "Memuro-minami"
+    },
+    {
+        "prefecture": "Gifu",
+        "city": "Kitagata"
+    },
+    {
+        "prefecture": "Hokkaidō",
+        "city": "Yoichi"
+    },
+    {
+        "prefecture": "Saga",
+        "city": "Taku"
+    },
+    {
+        "prefecture": "Kanagawa",
+        "city": "Kishi"
+    },
+    {
+        "prefecture": "Iwate",
+        "city": "Rikuzen-Takata"
+    },
+    {
+        "prefecture": "Kanagawa",
+        "city": "Oyama"
+    },
+    {
+        "prefecture": "Hokkaidō",
+        "city": "Minamishibetsuchō"
+    },
+    {
+        "prefecture": "Saitama",
+        "city": "Yoshimi"
+    },
+    {
+        "prefecture": "Kagawa",
+        "city": "Mure"
+    },
+    {
+        "prefecture": "Nara",
+        "city": "Heguri"
+    },
+    {
+        "prefecture": "Ōsaka",
+        "city": "Toyono"
+    },
+    {
+        "prefecture": "Saitama",
+        "city": "Ranzan"
+    },
+    {
+        "prefecture": "Yamagata",
+        "city": "Miyauchi"
+    },
+    {
+        "prefecture": "Ibaraki",
+        "city": "Shirosato"
+    },
+    {
+        "prefecture": "Miyagi",
+        "city": "Shichigahama"
+    },
+    {
+        "prefecture": "Mie",
+        "city": "Toba"
+    },
+    {
+        "prefecture": "Hiroshima",
+        "city": "Kitahiroshima"
+    },
+    {
+        "prefecture": "Gifu",
+        "city": "Mitake"
+    },
+    {
+        "prefecture": "Miyazaki",
+        "city": "Ebino"
+    },
+    {
+        "prefecture": "Nagasaki",
+        "city": "Shin-Kamigotō"
+    },
+    {
+        "prefecture": "Fukuoka",
+        "city": "Kiyama"
+    },
+    {
+        "prefecture": "Yamagata",
+        "city": "Kahoku"
+    },
+    {
+        "prefecture": "Miyazaki",
+        "city": "Kadogawa"
+    },
+    {
+        "prefecture": "Shizuoka",
+        "city": "Mori"
+    },
+    {
+        "prefecture": "Kagawa",
+        "city": "Mannō"
+    },
+    {
+        "prefecture": "Fukushima",
+        "city": "Miharu"
+    },
+    {
+        "prefecture": "Gunma",
+        "city": "Minakami"
+    },
+    {
+        "prefecture": "Kanagawa",
+        "city": "Ōi"
+    },
+    {
+        "prefecture": "Okinawa",
+        "city": "Kitanakagusuku"
+    },
+    {
+        "prefecture": "Tōkyō",
+        "city": "Hinode"
+    },
+    {
+        "prefecture": "Nara",
+        "city": "Kawai"
+    },
+    {
+        "prefecture": "Shizuoka",
+        "city": "Arai"
+    },
+    {
+        "prefecture": "Hyōgo",
+        "city": "Shingūchō-shingū"
+    },
+    {
+        "prefecture": "Fukuoka",
+        "city": "Tsuiki"
+    },
+    {
+        "prefecture": "Fukushima",
+        "city": "Yabuki"
+    },
+    {
+        "prefecture": "Aichi",
+        "city": "Minamichita"
+    },
+    {
+        "prefecture": "Miyazaki",
+        "city": "Kushima"
+    },
+    {
+        "prefecture": "Chiba",
+        "city": "Katsuura"
+    },
+    {
+        "prefecture": "Yamaguchi",
+        "city": "Kumage"
+    },
+    {
+        "prefecture": "Hokkaidō",
+        "city": "Shiraoi"
+    },
+    {
+        "prefecture": "Ōsaka",
+        "city": "Tadaoka-higashi"
+    },
+    {
+        "prefecture": "Kyōto",
+        "city": "Miyazu"
+    },
+    {
+        "prefecture": "Hokkaidō",
+        "city": "Sunagawa"
+    },
+    {
+        "prefecture": "Miyazaki",
+        "city": "Shintomi"
+    },
+    {
+        "prefecture": "Nara",
+        "city": "Ōyodo"
+    },
+    {
+        "prefecture": "Kumamoto",
+        "city": "Mifune"
+    },
+    {
+        "prefecture": "Aomori",
+        "city": "Nanbu"
+    },
+    {
+        "prefecture": "Aomori",
+        "city": "Tōhoku"
+    },
+    {
+        "prefecture": "Ishikawa",
+        "city": "Nakanoto"
+    },
+    {
+        "prefecture": "Kōchi",
+        "city": "Aki"
+    },
+    {
+        "prefecture": "Shizuoka",
+        "city": "Fujioka"
+    },
+    {
+        "prefecture": "Shizuoka",
+        "city": "Shuzenji"
+    },
+    {
+        "prefecture": "Saga",
+        "city": "Yoshinogari"
+    },
+    {
+        "prefecture": "Shimane",
+        "city": "Taishachō-kizukikita"
+    },
+    {
+        "prefecture": "Hyōgo",
+        "city": "Kasumi"
+    },
+    {
+        "prefecture": "Kyōto",
+        "city": "Ōyamazaki"
+    },
+    {
+        "prefecture": "Tottori",
+        "city": "Kotoura"
+    },
+    {
+        "prefecture": "Mie",
+        "city": "Owase"
+    },
+    {
+        "prefecture": "Fukuoka",
+        "city": "Tachiarai"
+    },
+    {
+        "prefecture": "Shizuoka",
+        "city": "Mikkabi"
+    },
+    {
+        "prefecture": "Tottori",
+        "city": "Yurihama"
+    },
+    {
+        "prefecture": "Iwate",
+        "city": "Ishidoriyachō-eso"
+    },
+    {
+        "prefecture": "Mie",
+        "city": "Kumano"
+    },
+    {
+        "prefecture": "Ibaraki",
+        "city": "Ōarai"
+    },
+    {
+        "prefecture": "Aomori",
+        "city": "Gonohe"
+    },
+    {
+        "prefecture": "Nagano",
+        "city": "Usuda"
+    },
+    {
+        "prefecture": "Aichi",
+        "city": "Toyoyama"
+    },
+    {
+        "prefecture": "Nagano",
+        "city": "Minamiminowa"
+    },
+    {
+        "prefecture": "Nara",
+        "city": "Taima"
+    },
+    {
+        "prefecture": "Ishikawa",
+        "city": "Noto"
+    },
+    {
+        "prefecture": "Hokkaidō",
+        "city": "Yakumo"
+    },
+    {
+        "prefecture": "Ōita",
+        "city": "Tsukumiura"
+    },
+    {
+        "prefecture": "Okayama",
+        "city": "Ochiai"
+    },
+    {
+        "prefecture": "Tottori",
+        "city": "Yazu"
+    },
+    {
+        "prefecture": "Kumamoto",
+        "city": "Ashikita"
+    },
+    {
+        "prefecture": "Hokkaidō",
+        "city": "Tōbetsu"
+    },
+    {
+        "prefecture": "Iwate",
+        "city": "Shizukuishi"
+    },
+    {
+        "prefecture": "Wakayama",
+        "city": "Kasagi"
+    },
+    {
+        "prefecture": "Nagano",
+        "city": "Miyota"
+    },
+    {
+        "prefecture": "Kōchi",
+        "city": "Shimanto"
+    },
+    {
+        "prefecture": "Hyōgo",
+        "city": "Sayō"
+    },
+    {
+        "prefecture": "Ōsaka",
+        "city": "Kanan"
+    },
+    {
+        "prefecture": "Ibaraki",
+        "city": "Daigo"
+    },
+    {
+        "prefecture": "Iwate",
+        "city": "Kanegasaki"
+    },
+    {
+        "prefecture": "Tottori",
+        "city": "Daisen"
+    },
+    {
+        "prefecture": "Kumamoto",
+        "city": "Nagasu"
+    },
+    {
+        "prefecture": "Nagano",
+        "city": "Shimohata"
+    },
+    {
+        "prefecture": "Kyōto",
+        "city": "Kumiyama"
+    },
+    {
+        "prefecture": "Ehime",
+        "city": "Uchiko"
+    },
+    {
+        "prefecture": "Gunma",
+        "city": "Nakanojōmachi"
+    },
+    {
+        "prefecture": "Miyagi",
+        "city": "Wakuya"
+    },
+    {
+        "prefecture": "Miyazaki",
+        "city": "Kawaminami"
+    },
+    {
+        "prefecture": "Fukuoka",
+        "city": "Kawasaki"
+    },
+    {
+        "prefecture": "Hokkaidō",
+        "city": "Kutchan"
+    },
+    {
+        "prefecture": "Mie",
+        "city": "Tamaki"
+    },
+    {
+        "prefecture": "Iwate",
+        "city": "Maesawa"
+    },
+    {
+        "prefecture": "Mie",
+        "city": "Kawagoe"
+    },
+    {
+        "prefecture": "Wakayama",
+        "city": "Kamitonda"
+    },
+    {
+        "prefecture": "Ibaraki",
+        "city": "Tone"
+    },
+    {
+        "prefecture": "Akita",
+        "city": "Mitane"
+    },
+    {
+        "prefecture": "Tochigi",
+        "city": "Nakagawa"
+    },
+    {
+        "prefecture": "Fukushima",
+        "city": "Aizubange"
+    },
+    {
+        "prefecture": "Fukuoka",
+        "city": "Kurate"
+    },
+    {
+        "prefecture": "Hiroshima",
+        "city": "Sera"
+    },
+    {
+        "prefecture": "Hokkaidō",
+        "city": "Mori"
+    },
+    {
+        "prefecture": "Tochigi",
+        "city": "Haga"
+    },
+    {
+        "prefecture": "Hokkaidō",
+        "city": "Betsukai"
+    },
+    {
+        "prefecture": "Yamagata",
+        "city": "Obanazawa"
+    },
+    {
+        "prefecture": "Iwate",
+        "city": "Hirono"
+    },
+    {
+        "prefecture": "Tokushima",
+        "city": "Matsushige"
+    },
+    {
+        "prefecture": "Kagoshima",
+        "city": "Nishinoomote"
+    },
+    {
+        "prefecture": "Wakayama",
+        "city": "Kushimoto"
+    },
+    {
+        "prefecture": "Chiba",
+        "city": "Kujūkuri"
+    },
+    {
+        "prefecture": "Ōsaka",
+        "city": "Misaki"
+    },
+    {
+        "prefecture": "Yamaguchi",
+        "city": "Suō-Ōshima"
+    },
+    {
+        "prefecture": "Chiba",
+        "city": "Yokoshiba"
+    },
+    {
+        "prefecture": "Yamaguchi",
+        "city": "Tabuse"
+    },
+    {
+        "prefecture": "Aomori",
+        "city": "Fujisaki"
+    },
+    {
+        "prefecture": "Yamanashi",
+        "city": "Ichikawamisato"
+    },
+    {
+        "prefecture": "Kumamoto",
+        "city": "Asagiri"
+    },
+    {
+        "prefecture": "Mie",
+        "city": "Kihoku"
+    },
+    {
+        "prefecture": "Iwate",
+        "city": "Yamada"
+    },
+    {
+        "prefecture": "Ibaraki",
+        "city": "Miho"
+    },
+    {
+        "prefecture": "Nagasaki",
+        "city": "Hasami"
+    },
+    {
+        "prefecture": "Gifu",
+        "city": "Anpachi"
+    },
+    {
+        "prefecture": "Ōita",
+        "city": "Tsukawaki"
+    },
+    {
+        "prefecture": "Aomori",
+        "city": "Shimada"
+    },
+    {
+        "prefecture": "Tōkyō",
+        "city": "Haramachida"
+    },
+    {
+        "prefecture": "Fukushima",
+        "city": "Ishikawa"
+    },
+    {
+        "prefecture": "Aomori",
+        "city": "Shichinohe"
+    },
+    {
+        "prefecture": "Fukushima",
+        "city": "Minamiaizu"
+    },
+    {
+        "prefecture": "Yamagata",
+        "city": "Kawaii"
+    },
+    {
+        "prefecture": "Gunma",
+        "city": "Shintō"
+    },
+    {
+        "prefecture": "Mie",
+        "city": "Taki"
+    },
+    {
+        "prefecture": "Akita",
+        "city": "Kakunodatemachi"
+    },
+    {
+        "prefecture": "Kagoshima",
+        "city": "Kisanuki"
+    },
+    {
+        "prefecture": "Gunma",
+        "city": "Itakura"
+    },
+    {
+        "prefecture": "Tottori",
+        "city": "Hokuei"
+    },
+    {
+        "prefecture": "Yamanashi",
+        "city": "Fujikawa"
+    },
+    {
+        "prefecture": "Nagano",
+        "city": "Sakaki"
+    },
+    {
+        "prefecture": "Nagasaki",
+        "city": "Furukawamen"
+    },
+    {
+        "prefecture": "Wakayama",
+        "city": "Nachikatsuura"
+    },
+    {
+        "prefecture": "Fukui",
+        "city": "Wakasa"
+    },
+    {
+        "prefecture": "Fukuoka",
+        "city": "Ōki"
+    },
+    {
+        "prefecture": "Nagano",
+        "city": "Fujimi"
+    },
+    {
+        "prefecture": "Hyōgo",
+        "city": "Kamigōri"
+    },
+    {
+        "prefecture": "Niigata",
+        "city": "Seirō"
+    },
+    {
+        "prefecture": "Chiba",
+        "city": "Tako"
+    },
+    {
+        "prefecture": "Tokushima",
+        "city": "Higashimiyoshi"
+    },
+    {
+        "prefecture": "Kagoshima",
+        "city": "Tarumizu"
+    },
+    {
+        "prefecture": "Kagoshima",
+        "city": "Chiran"
+    },
+    {
+        "prefecture": "Chiba",
+        "city": "Chōsei"
+    },
+    {
+        "prefecture": "Kagawa",
+        "city": "Shōdoshima"
+    },
+    {
+        "prefecture": "Yamagata",
+        "city": "Yamanobe"
+    },
+    {
+        "prefecture": "Shimane",
+        "city": "Okinoshima"
+    },
+    {
+        "prefecture": "Fukuoka",
+        "city": "Ashiya"
+    },
+    {
+        "prefecture": "Akita",
+        "city": "Ugo"
+    },
+    {
+        "prefecture": "Iwate",
+        "city": "Taneichi"
+    },
+    {
+        "prefecture": "Fukushima",
+        "city": "Inawashiro"
+    },
+    {
+        "prefecture": "Okayama",
+        "city": "Wake"
+    },
+    {
+        "prefecture": "Nagasaki",
+        "city": "Kawatana"
+    },
+    {
+        "prefecture": "Saitama",
+        "city": "Hatoyama"
+    },
+    {
+        "prefecture": "Okinawa",
+        "city": "Kadena"
+    },
+    {
+        "prefecture": "Fukushima",
+        "city": "Tanagura"
+    },
+    {
+        "prefecture": "Okayama",
+        "city": "Yakage"
+    },
+    {
+        "prefecture": "Hyōgo",
+        "city": "Shin'onsen"
+    },
+    {
+        "prefecture": "Kumamoto",
+        "city": "Yamato"
+    },
+    {
+        "prefecture": "Aomori",
+        "city": "Hashikami"
+    },
+    {
+        "prefecture": "Miyagi",
+        "city": "Matsushima"
+    },
+    {
+        "prefecture": "Ōsaka",
+        "city": "Taishi"
+    },
+    {
+        "prefecture": "Tokushima",
+        "city": "Itano"
+    },
+    {
+        "prefecture": "Chiba",
+        "city": "Tōnoshō"
+    },
+    {
+        "prefecture": "Saitama",
+        "city": "Kamikawa"
+    },
+    {
+        "prefecture": "Okinawa",
+        "city": "Motobu"
+    },
+    {
+        "prefecture": "Iwate",
+        "city": "Senmayachō-senmaya"
+    },
+    {
+        "prefecture": "Kagawa",
+        "city": "Tonoshō"
+    },
+    {
+        "prefecture": "Yamagata",
+        "city": "Yuza"
+    },
+    {
+        "prefecture": "Okayama",
+        "city": "Misaki"
+    },
+    {
+        "prefecture": "Ishikawa",
+        "city": "Suzu"
+    },
+    {
+        "prefecture": "Fukuoka",
+        "city": "Keisen"
+    },
+    {
+        "prefecture": "Yamagata",
+        "city": "Akayu"
+    },
+    {
+        "prefecture": "Shizuoka",
+        "city": "Kanbara"
+    },
+    {
+        "prefecture": "Hokkaidō",
+        "city": "Ashibetsu"
+    },
+    {
+        "prefecture": "Kyōto",
+        "city": "Kyōtamba"
+    },
+    {
+        "prefecture": "Aomori",
+        "city": "Itayanagi"
+    },
+    {
+        "prefecture": "Yamagata",
+        "city": "Shirataka"
+    },
+    {
+        "prefecture": "Nagano",
+        "city": "Takamori"
+    },
+    {
+        "prefecture": "Hiroshima",
+        "city": "Saka"
+    },
+    {
+        "prefecture": "Okayama",
+        "city": "Hayashima"
+    },
+    {
+        "prefecture": "Gunma",
+        "city": "Kanra"
+    },
+    {
+        "prefecture": "Fukushima",
+        "city": "Kawamata"
+    },
+    {
+        "prefecture": "Chiba",
+        "city": "Chikura"
+    },
+    {
+        "prefecture": "Nagano",
+        "city": "Matsukawa"
+    },
+    {
+        "prefecture": "Gunma",
+        "city": "Higashiagatsuma"
+    },
+    {
+        "prefecture": "Aomori",
+        "city": "Nobeji"
+    },
+    {
+        "prefecture": "Fukushima",
+        "city": "Kasaishi"
+    },
+    {
+        "prefecture": "Miyagi",
+        "city": "Marumori"
+    },
+    {
+        "prefecture": "Aomori",
+        "city": "Tsuruta"
+    },
+    {
+        "prefecture": "Shizuoka",
+        "city": "Okabechō-okabe"
+    },
+    {
+        "prefecture": "Kōchi",
+        "city": "Sakawa"
+    },
+    {
+        "prefecture": "Wakayama",
+        "city": "Minabe"
+    },
+    {
+        "prefecture": "Kagoshima",
+        "city": "Ōsako"
+    },
+    {
+        "prefecture": "Nara",
+        "city": "Unebichō"
+    },
+    {
+        "prefecture": "Iwate",
+        "city": "Iwate"
+    },
+    {
+        "prefecture": "Ishikawa",
+        "city": "Hōdatsushimizu"
+    },
+    {
+        "prefecture": "Hokkaidō",
+        "city": "Urakawa"
+    },
+    {
+        "prefecture": "Saga",
+        "city": "Shiotachō-matsusaki"
+    },
+    {
+        "prefecture": "Hokkaidō",
+        "city": "Iwanai"
+    },
+    {
+        "prefecture": "Kōchi",
+        "city": "Tosashimizu"
+    },
+    {
+        "prefecture": "Okayama",
+        "city": "Kagamino"
+    },
+    {
+        "prefecture": "Shizuoka",
+        "city": "Maisaka"
+    },
+    {
+        "prefecture": "Aomori",
+        "city": "Iwaka"
+    },
+    {
+        "prefecture": "Yamaguchi",
+        "city": "Hirao"
+    },
+    {
+        "prefecture": "Nara",
+        "city": "Ōiwa"
+    },
+    {
+        "prefecture": "Kagoshima",
+        "city": "Yakushima"
+    },
+    {
+        "prefecture": "Miyagi",
+        "city": "Zaō"
+    },
+    {
+        "prefecture": "Shiga",
+        "city": "Ryūō"
+    },
+    {
+        "prefecture": "Miyagi",
+        "city": "Yamamoto"
+    },
+    {
+        "prefecture": "Hokkaidō",
+        "city": "Hidaka"
+    },
+    {
+        "prefecture": "Miyazaki",
+        "city": "Mitai"
+    },
+    {
+        "prefecture": "Tochigi",
+        "city": "Motegi"
+    },
+    {
+        "prefecture": "Chiba",
+        "city": "Ichinomiya"
+    },
+    {
+        "prefecture": "Shimane",
+        "city": "Okuizumo"
+    },
+    {
+        "prefecture": "Kōchi",
+        "city": "Muroto-misakicho"
+    },
+    {
+        "prefecture": "Chiba",
+        "city": "Kemigawa"
+    },
+    {
+        "prefecture": "Hokkaidō",
+        "city": "Kuriyama"
+    },
+    {
+        "prefecture": "Fukushima",
+        "city": "Koori"
+    },
+    {
+        "prefecture": "Okayama",
+        "city": "Kuse"
+    },
+    {
+        "prefecture": "Shizuoka",
+        "city": "Higashiizu"
+    },
+    {
+        "prefecture": "Tokushima",
+        "city": "Kamiita"
+    },
+    {
+        "prefecture": "Hokkaidō",
+        "city": "Honmachi"
+    },
+    {
+        "prefecture": "Iwate",
+        "city": "Ichinohe"
+    },
+    {
+        "prefecture": "Okinawa",
+        "city": "Kin"
+    },
+    {
+        "prefecture": "Tochigi",
+        "city": "Ichikai"
+    },
+    {
+        "prefecture": "Niigata",
+        "city": "Tagami"
+    },
+    {
+        "prefecture": "Chiba",
+        "city": "Matsuo"
+    },
+    {
+        "prefecture": "Nagano",
+        "city": "Yamanouchi"
+    },
+    {
+        "prefecture": "Mie",
+        "city": "Asahi"
+    },
+    {
+        "prefecture": "Kumamoto",
+        "city": "Hikawadai"
+    },
+    {
+        "prefecture": "Wakayama",
+        "city": "Yuasa"
+    },
+    {
+        "prefecture": "Hyōgo",
+        "city": "Ichikawa"
+    },
+    {
+        "prefecture": "Okayama",
+        "city": "Satoshō"
+    },
+    {
+        "prefecture": "Chiba",
+        "city": "Iioka"
+    },
+    {
+        "prefecture": "Okayama",
+        "city": "Shōō"
+    },
+    {
+        "prefecture": "Mie",
+        "city": "Minamiise"
+    },
+    {
+        "prefecture": "Kanagawa",
+        "city": "Hakone"
+    },
+    {
+        "prefecture": "Saitama",
+        "city": "Ogose"
+    },
+    {
+        "prefecture": "Kumamoto",
+        "city": "Nishi"
+    },
+    {
+        "prefecture": "Miyagi",
+        "city": "Minamisanriku"
+    },
+    {
+        "prefecture": "Toyama",
+        "city": "Asahi"
+    },
+    {
+        "prefecture": "Okinawa",
+        "city": "Onna"
+    },
+    {
+        "prefecture": "Gunma",
+        "city": "Chiyoda"
+    },
+    {
+        "prefecture": "Niigata",
+        "city": "Arakawa"
+    },
+    {
+        "prefecture": "Gunma",
+        "city": "Miyato"
+    },
+    {
+        "prefecture": "Saitama",
+        "city": "Ogano"
+    },
+    {
+        "prefecture": "Kanagawa",
+        "city": "Fujino"
+    },
+    {
+        "prefecture": "Iwate",
+        "city": "Ōtsuchi"
+    },
+    {
+        "prefecture": "Gunma",
+        "city": "Meiwa"
+    },
+    {
+        "prefecture": "Kanagawa",
+        "city": "Matsuda-sōryō"
+    },
+    {
+        "prefecture": "Tottori",
+        "city": "Iwai"
+    },
+    {
+        "prefecture": "Yamagata",
+        "city": "Nakayama"
+    },
+    {
+        "prefecture": "Tokushima",
+        "city": "Nakagawa"
+    },
+    {
+        "prefecture": "Hyōgo",
+        "city": "Kamikawa"
+    },
+    {
+        "prefecture": "Aomori",
+        "city": "Kanagichō"
+    },
+    {
+        "prefecture": "Hokkaidō",
+        "city": "Naganuma"
+    },
+    {
+        "prefecture": "Nagano",
+        "city": "Obuse"
+    },
+    {
+        "prefecture": "Miyagi",
+        "city": "Murata"
+    },
+    {
+        "prefecture": "Hokkaidō",
+        "city": "Kamifurano"
+    },
+    {
+        "prefecture": "Okayama",
+        "city": "Kibichūō"
+    },
+    {
+        "prefecture": "Tottori",
+        "city": "Hōki"
+    },
+    {
+        "prefecture": "Aomori",
+        "city": "Rokunohe"
+    },
+    {
+        "prefecture": "Saitama",
+        "city": "Tokigawa"
+    },
+    {
+        "prefecture": "Nagano",
+        "city": "Mochizuki"
+    },
+    {
+        "prefecture": "Yamanashi",
+        "city": "Minobu"
+    },
+    {
+        "prefecture": "Nagano",
+        "city": "Kiso"
+    },
+    {
+        "prefecture": "Mie",
+        "city": "Kihō"
+    },
+    {
+        "prefecture": "Aomori",
+        "city": "Nakasato"
+    },
+    {
+        "prefecture": "Chiba",
+        "city": "Shirako"
+    },
+    {
+        "prefecture": "Tottori",
+        "city": "Nanbu"
+    },
+    {
+        "prefecture": "Kumamoto",
+        "city": "Minamiaso"
+    },
+    {
+        "prefecture": "Okinawa",
+        "city": "Tokunoshima"
+    },
+    {
+        "prefecture": "Tochigi",
+        "city": "Shioya"
+    },
+    {
+        "prefecture": "Hokkaidō",
+        "city": "Higashikagura"
+    },
+    {
+        "prefecture": "Nagano",
+        "city": "Iizuna"
+    },
+    {
+        "prefecture": "Aomori",
+        "city": "Rokkasho"
+    },
+    {
+        "prefecture": "Shimane",
+        "city": "Ōnan"
+    },
+    {
+        "prefecture": "Kōchi",
+        "city": "Kuroshio"
+    },
+    {
+        "prefecture": "Gifu",
+        "city": "Yaotsu"
+    },
+    {
+        "prefecture": "Fukui",
+        "city": "Takahama"
+    },
+    {
+        "prefecture": "Nagano",
+        "city": "Sakuho"
+    },
+    {
+        "prefecture": "Nara",
+        "city": "Nikaidō-kaminoshōchō"
+    },
+    {
+        "prefecture": "Toyama",
+        "city": "Inami"
+    },
+    {
+        "prefecture": "Miyazaki",
+        "city": "Tsunō"
+    },
+    {
+        "prefecture": "Aomori",
+        "city": "Hiranai"
+    },
+    {
+        "prefecture": "Kumamoto",
+        "city": "Iwashita"
+    },
+    {
+        "prefecture": "Fukuoka",
+        "city": "Kawara"
+    },
+    {
+        "prefecture": "Niigata",
+        "city": "Iwamuro-onsen"
+    },
+    {
+        "prefecture": "Aomori",
+        "city": "Kamikita-kita"
+    },
+    {
+        "prefecture": "Aomori",
+        "city": "Kominato"
+    },
+    {
+        "prefecture": "Gifu",
+        "city": "Kami-kawabe"
+    },
+    {
+        "prefecture": "Hokkaidō",
+        "city": "Biei"
+    },
+    {
+        "prefecture": "Saga",
+        "city": "Yamaguchi"
+    },
+    {
+        "prefecture": "Aichi",
+        "city": "Asuke"
+    },
+    {
+        "prefecture": "Hokkaidō",
+        "city": "Akabira"
+    },
+    {
+        "prefecture": "Fukui",
+        "city": "Torihama"
+    },
+    {
+        "prefecture": "Kumamoto",
+        "city": "Kushijima"
+    },
+    {
+        "prefecture": "Kanagawa",
+        "city": "Nakaechi"
+    },
+    {
+        "prefecture": "Kanagawa",
+        "city": "Yamakita"
+    },
+    {
+        "prefecture": "Saitama",
+        "city": "Minano"
+    },
+    {
+        "prefecture": "Hokkaidō",
+        "city": "Shimizu"
+    },
+    {
+        "prefecture": "Nagano",
+        "city": "Ikeda"
+    },
+    {
+        "prefecture": "Okinawa",
+        "city": "Nakoushi"
+    },
+    {
+        "prefecture": "Kanagawa",
+        "city": "Nakao"
+    },
+    {
+        "prefecture": "Shizuoka",
+        "city": "Kawai"
+    },
+    {
+        "prefecture": "Iwate",
+        "city": "Fujisawachō-niinuma"
+    },
+    {
+        "prefecture": "Kumamoto",
+        "city": "Nagaoki"
+    },
+    {
+        "prefecture": "Shizuoka",
+        "city": "Yui"
+    },
+    {
+        "prefecture": "Nagano",
+        "city": "Iijima"
+    },
+    {
+        "prefecture": "Okayama",
+        "city": "Katsuyama"
+    },
+    {
+        "prefecture": "Fukuoka",
+        "city": "Hirayama"
+    },
+    {
+        "prefecture": "Kumamoto",
+        "city": "Sekimachi"
+    },
+    {
+        "prefecture": "Kumamoto",
+        "city": "Taragi"
+    },
+    {
+        "prefecture": "Fukuoka",
+        "city": "Soeda"
+    },
+    {
+        "prefecture": "Chiba",
+        "city": "Ōtaki"
+    },
+    {
+        "prefecture": "Aomori",
+        "city": "Ōwani"
+    },
+    {
+        "prefecture": "Aomori",
+        "city": "Ōhata"
+    },
+    {
+        "prefecture": "Nara",
+        "city": "Ōuda-daitō"
+    },
+    {
+        "prefecture": "Nagano",
+        "city": "Hakubachō"
+    },
+    {
+        "prefecture": "Nagano",
+        "city": "Miyada"
+    },
+    {
+        "prefecture": "Iwate",
+        "city": "Iwaizumi"
+    },
+    {
+        "prefecture": "Miyazaki",
+        "city": "Takaharu"
+    },
+    {
+        "prefecture": "Hokkaidō",
+        "city": "Setana"
+    }
+]

@@ -106,5 +106,10 @@ module.exports = app => {
     router.get('/user/profile', user.index);
     router.get('/user/profile/:user_id', user.find_user);
 
+    // Under maintainance
+    router.get('/under_maintenance', (req, res) => {
+        res.render('maintenance', { layout: 'empty_page.hbs'});
+    });
+
     app.use(router);
 };
