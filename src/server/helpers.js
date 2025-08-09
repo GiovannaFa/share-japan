@@ -43,12 +43,18 @@ helpers.ifLengthGreaterThan = function(value, length, options) {
     return options.inverse(this);
 };
 
-helpers.ifLengthDictGreaterThan = function(value, length, options) {
-    if (Object.keys(value).length > length) {
+helpers.ifLengthDictGreaterThan = function (value, length, options) {
+    const hasData = Object.values(value).some(
+        // For each prefecture object
+        (categories) => Object.keys(categories).length > length
+    );
+
+    if (hasData) {
         return options.fn(this);
     }
     return options.inverse(this);
 };
+
 
 helpers.toJson = function(object) {
     return JSON.stringify(object);

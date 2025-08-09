@@ -1,0 +1,237 @@
+[
+    {
+        "category": "Travel",
+        "subcategory": [
+            "Internet Access",
+            "Accommodations",
+            "Visa",
+            "JR Pass & Transportation",
+            "Money & Currencies",
+            "Health Insurance",
+            "Travel Guides",
+            "Travel Apps",
+            "Day Trips and Excursions"
+        ]
+    },
+    {
+        "category": "Food",
+        "subcategory": [
+            "Restaurants",
+            "Street Food",
+            "Izakaya",
+            "Kaiseki",
+            "Bentô",
+            "Ramen",
+            "Sushi",
+            "Wagyu"
+        ]
+    },
+    {
+        "category": "Life in Japan",
+        "subcategory": [
+            "Work in Japan",
+            "Study in Japan",
+            "Cost of Living",
+            "Healthcare",
+            "Cultural Etiquette",
+            "Dating and Socializing",
+            "Real Estate and Housing",
+            "Shopping",
+            "Night Life"
+        ]
+    },
+    {
+        "category": "History",
+        "subcategory": [
+            "Samurai",
+            "World War II",
+            "Jomon Period (c. 14,000 BCE - 300 BCE)",
+            "Yayoi Period (c. 300 BCE - 300 CE)",
+            "Kofun Period (c. 300 CE - 538 CE)",
+            "Asuka Period (538 CE - 710 CE)",
+            "Nara Period (710 CE - 794 CE)",
+            "Heian Period (794 CE - 1185 CE)",
+            "Kamakura Period (1185 CE - 1333 CE)",
+            "Muromachi Period (1336 CE - 1573 CE)",
+            "Azuchi-Momoyama Period (1573 CE - 1603 CE)",
+            "Edo Period (1603 CE - 1868 CE)",
+            "Meiji Period (1868 CE - 1912 CE)",
+            "Taisho Period (1912 CE - 1926 CE)",
+            "Showa Period (1926 CE - 1989 CE)",
+            "Heisei Period (1989 CE - 2019 CE)",
+            "Reiwa Period (2019 CE - present)"
+        ]
+    },
+    {
+        "category": "Tradition and Festivities",
+        "subcategory": [
+            "Tea Ceremony",
+            "Cherry Blossom Festivals",
+            "Matsuri",
+            "Obon",
+            "New Year (Shogatsu)",
+            "Setsubun",
+            "Tanabata (Star Festival)",
+            "Shichi-Go-San",
+            "Koshogatsu (Little New Year)",
+            "Hinamatsuri (Girls' Day)",
+            "Aoi Matsuri (Hollyhock Festival)",
+            "Gion Matsuri",
+            "Mochi-tsuki (Rice Cake Festival)",
+            "Moon Viewing (Tsukimi)",
+            "Yukata Festivals",
+            "Koyo (Autumn Leaf Viewing)",
+            "Shinji Matsuri",
+            "Nabe Parties (Hot Pot)"
+        ]
+    },
+    {
+        "category": "Religion and Spirituality",
+        "subcategory": [
+            "Shinto",
+            "Buddhism",
+            "Temples",
+            "Shrines",
+            "Kami (Spirits/Gods)",
+            "Meditation Practices (Zazen)",
+            "Pilgrimages",
+            "Obon (Honoring Ancestors)",
+            "Matsuris",
+            "Hatsumode (New Year)"
+        ]
+    },
+    {
+        "category": "Language and Curiosity",
+        "subcategory": [
+            "Romaji",
+            "Hiragana and Katakana",
+            "Keigo",
+            "Onomatopoeia",
+            "Proverbs and Idioms",
+            "Language Learning Tips",
+            "Japanese Slang",
+            "Kanji",
+            "Dialects"
+        ]
+    },
+    {
+        "category": "Anime and Manga",
+        "subcategory": [
+            "Anime",
+            "Manga",
+            "Series",
+            "Conventions",
+            "Cosplay",
+            "Genres"
+        ]
+    },
+    {
+        "category": "Movies and TV Shows",
+        "subcategory": [
+            "Classic Films",
+            "Dramas",
+            "Actors & Directors",
+            "Modern Cinema",
+            "Film Festivals",
+            "Censorship and Filmmaking Regulations",
+            "TV Shows"
+        ]
+    },
+    {
+        "category": "Music",
+        "subcategory": [
+            "J-Pop",
+            "Traditional Music",
+            "Idol Groups",
+            "Music Festivals",
+            "J-Rock",
+            "J-Hip Hop",
+            "Enka",
+            "Visual Kei",
+            "Karaoke",
+            "Indie Music Scene",
+            "Japanese Music Instruments"
+        ]
+    },
+    {
+        "category": "Technology",
+        "subcategory": [
+            "Video Games and Consoles",
+            "Robotics",
+            "Gadgets",
+            "AI and Machine Learning",
+            "Automotive Industry",
+            "Nanotechnology"
+        ]
+    },
+    {
+        "category": "Nature and Outdoors",
+        "subcategory": [
+            "Hiking",
+            "Hot Springs (Onsen Towns)",
+            "National Parks",
+            "Mountains and Volcanoes",
+            "Beaches",
+            "Cherry Blossom Viewing (Hanami)",
+            "Wildlife and Bird Watching",
+            "Cycling",
+            "Canoeing and Kayaking",
+            "Camping",
+            "Gardens and Landscapes",
+            "Autumn Leaves Viewing (Koyo)",
+            "Caving and Karst Landscapes",
+            "Skiing and Snowboarding"
+        ]
+    },
+    {
+        "category": "Art and Culture",
+        "subcategory": [
+            "Calligraphy",
+            "Ukiyo-e",
+            "Ikebana (Flower Arranging)",
+            "Origami",
+            "Kimono and Textile Art",
+            "Noh, Kabuki, and Bunraku (Traditional Theatre)",
+            "Japanese Architecture",
+            "Sumi-e (Ink Painting)",
+            "Netsuke",
+            "Tatami and Room Design",
+            "Japanese Photography",
+            "Japanese Pottery and Ceramics"
+        ]
+    },
+    {
+        "category": "Fashion",
+        "subcategory": [
+            "Designers",
+            "Kimono and Yukata",
+            "Harajuku Fashion",
+            "Gyaru",
+            "Fashion Week"
+        ]
+    },
+    {
+        "category": "Books",
+        "subcategory": [
+            "Magazines",
+            "Classic Literature",
+            "Modern Fiction",
+            "Non-Fiction",
+            "Manga and Light Novels",
+            "Poetry",
+            "Language Learning",
+            "Children's Books",
+            "Historical Books",
+            "Mystery and Thriller",
+            "Fantasy and Science Fiction",
+            "Graphic Novels",
+            "Philosophy and Psychology",
+            "Cookbooks",
+            "Art and Design Books",
+            "Memoirs and Autobiographies",
+            "Young Adult (YA)",
+            "Philosophical Novels",
+            "Short Stories"
+        ]
+    }
+]
