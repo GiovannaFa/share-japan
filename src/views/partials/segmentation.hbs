@@ -1,36 +1,39 @@
 {{#ifLengthDictGreaterThan about_posts 0}}
-    {{#each about_posts}}
-        <div class="region">
-            <!-- Prefecture link -->
-            <h3>Prefecture: <a href="/prefecture/{{ @key }}">{{ @key }}</a></h3>
-            <div class="city-list">
-                {{#each this}}
-                    <div class="city">
-                        <!-- City link (Prefecture and City) -->
-                        <h4>City: <a href="/city/{{ @../key }}/{{ @key }}">{{ @key }}</a></h4>
-                        <div class="topics">
-                            {{#each this}}
-                                <div class="category-box">
-                                    <p>Category: <a href="/select/{{ @../../key }}/{{ @../key }}/{{ @key }}">{{ @key }}</a></p>
-                                    <div class="topics-list">
-                                        {{#each this}}
-                                            <p>
-                                                Subcategory: 
-                                                <!-- Subcategory link (Prefecture, City, Category, Subcategory) -->
-                                                <a href="/select/{{ @../../../key }}/{{ @../../key }}/{{ @../key }}/{{ @key }}">
-                                                    {{this}} posts about {{ @key }}
-                                                </a>
-                                            </p>
-                                        {{/each}}
-                                    </div>
-                                </div>
-                            {{/each}}
-                        </div>
-                    </div>
-                {{/each}}
+  {{#each about_posts}}
+    <!-- Prefecture name -->
+    <h3 class="mb-4 text-capitalize">{{@key}}</h3>
+
+    <div class="row g-3">
+      {{#each this}}
+        <div class="col-md-6">
+          <div class="card h-100 shadow-sm">
+            <a href="/select/{{@../key}}/{{@key}}">
+            {{#if this.image}}
+                <img src="/public/upload/{{this._id}}/{{this.image}}" class="card-img-top" alt="{{this.title}}">
+            {{else}}
+            <div class="card-img-container">
+                <img src="/public/upload/share-japan_logo.jpeg" class="card-img-top" alt="{{this.title}}">
             </div>
+            {{/if}}
+            </a>
+            <div class="card-body">
+              <h5 class="card-title">
+                <a href="/select/{{@../key}}/{{@key}}" class="text-decoration-none text-dark">
+                  {{this.title}}
+                </a>
+              </h5>
+              <p class="text-muted mb-1">
+                Category: {{@key}}
+              </p>
+              <p class="mb-0">
+                {{this.num}} posts
+              </p>
+            </div>
+          </div>
         </div>
-    {{/each}}
+      {{/each}}
+    </div>
+  {{/each}}
 {{else}}
     {{#if loggedUser}}
         <div class="no-posts">

@@ -9,18 +9,29 @@
     <div class="container p-4">
         <div class="row">
             <div class="col-md-6">
-                {{> messages}}
-                {{> errors}}
-                {{{ body }}}
+            {{> messages}}
+            {{> errors}}
+            {{{ body }}}
             </div>
-            <div class="col-md-1"></div>
+
             {{#if show_counting}}
-                <div class="col-md-5">
-                    {{> segmentation }}
+            <div class="col-md-6" style="max-height: 100vh; overflow-y: auto;">
+                <div class="segmentation-scroll">
+                {{> segmentation }}
                 </div>
+            </div>
+            {{else}}
+            <!-- Full right half + center its contents -->
+            <div class="col-md-6 d-flex justify-content-center" style="max-height: 80vh; overflow-y: auto;">
+                <!-- Optional max width so two 36rem cards + gap fit nicely -->
+                <div class="w-100 mt-4 ps-10" style="max-width: 80rem;">
+                {{> menu }}
+                </div>
+            </div>
             {{/if}}
         </div>
     </div>
+
 
     {{>footer}}
     <!-- Bootstrap CSS -->

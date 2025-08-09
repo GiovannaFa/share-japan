@@ -1,6 +1,5 @@
 html, body {
     height: 100%;
-    margin: 0;
   }
   
 body {
@@ -351,4 +350,57 @@ i{
     border-bottom: 0;
     border-left: 0.3em solid transparent;
     float: none; /* Remove float */
+}
+
+.card-img-container {
+  position: relative;
+  width: 100%;
+  padding-top: 66.66%; /* 3:2 aspect ratio */
+  background-color: #f8f9fa; /* subtle background */
+}
+
+.card-img-container img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  max-width: 80%;
+  max-height: 80%;
+  transform: translate(-50%, -50%);
+  object-fit: contain;
+}
+
+.image-container {
+  position: relative; /* makes child absolute positioning relative to this container */
+  display: inline-block; /* keeps size to content */
+}
+
+.map-image {
+  display: block;
+  width: 100%; /* or fixed width */
+}
+
+.overlay-text {
+  position: absolute;
+  top: 2%; /* adjust vertical position */
+  left: -30%; /* adjust horizontal position */
+  color: black;
+  font-size: 1.5rem;
+  font-weight: bold;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.orange-button {
+  background-color: #e4572e; /* orange */
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.orange-button:hover {
+  background-color: #d14620; /* darker orange on hover */
 }
