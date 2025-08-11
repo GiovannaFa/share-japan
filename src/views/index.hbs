@@ -1,13 +1,5 @@
 <div class="image-container">
-<div class="overlay-text">
-    <p>Share your experience in Japan <br>Share your knowledge about Japan</p>
-    {{#if loggedUser}}
-        <button class="orange-button" onclick="window.location.href='/form'">Write a story</button>
-    {{else}}
-        <button class="orange-button" onclick="window.location.href='/user/login'">Write a story</button>
-    {{/if}}
-</div>
-<img class="jpmap img-responsive" src="/public/img/jp_map.png" alt="Japan map" usemap="#jpmap" hidefocus="true"/>
+<img class="jpmap img-fluid" style="max-height: 100vh;" src="/public/img/jp_map.png" alt="Japan map" usemap="#jpmap" hidefocus="true"/>
 <map name="jpmap">
     <area target="" alt="Kagoshima" title="Kagoshima" href="/select/Kagoshima" coords="64,982,52,1000,63,1014,57,1034,67,1045,80,1046,86,1038,75,1025,81,1015,91,1010,88,1019,88,1027,96,1033,91,1045,87,1051,97,1052,106,1044,111,1037,114,1024,116,1014,93,991,79,982" shape="poly">
     <area target="" alt="Miyazaki" title="Miyazaki" href="/select/Miyazaki" coords="119,934,133,936,149,933,148,943,140,954,136,964,136,973,131,983,130,993,130,1002,129,1010,129,1023,125,1030,119,1020,116,1009,107,1001,103,993,97,987,106,980,110,971,110,961,106,950,112,938" shape="poly">
@@ -57,4 +49,13 @@
     <area target="" alt="Kagawa" title="Kagawa" href="/select/Kagawa" coords="243,835,249,826,256,822,265,822,274,821,285,823,275,833,263,832,254,839,250,840" shape="poly">
     <area target="" alt="Okinawa" title="Okinawa" href="/select/Okinawa" coords="714,978,714,968,714,959,721,950,719,940,729,938,733,929,743,925,736,937,729,956,721,964" shape="poly">
 </map>
+    <div class="overlay-text">
+        <p>Share your experience<br>and your knowledge about Japan</p>
+
+        {{#if loggedUser}}
+        <button class="orange-button" onclick="window.location.href='/form'">Write a story</button>
+        {{else}}
+        <button class="orange-button" onclick="window.location.href='/user/login'">Write a story</button>
+        {{/if}}
+    </div>
 </div>
