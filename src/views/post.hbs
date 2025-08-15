@@ -1,117 +1,105 @@
-<div class="card">
-    <div class="card-header">
-        <h4><b>{{post.title}}</b></h4>
+<div class="card border-0 shadow-sm">
+  <!-- Header -->
+  <div class="card-body pb-2">
+    <nav class="small text-muted mb-2">
+      <a href="/">Home</a> /
+      <a href="/prefecture/{{post.where.prefecture}}">{{post.where.prefecture}}</a> /
+      <a href="/city/{{post.where.prefecture}}/{{post.where.city}}">{{post.where.city}}</a>
+    </nav>
+
+    <h1 class="h2 mb-3">{{post.title}}</h1>
+
+    <div class="d-flex flex-wrap align-items-center text-muted small">
+      <span>by <a href="/user/profile/{{author._id}}">{{author.name}}</a></span>
+      <span class="mx-2">•</span>
+      <span><i class="fa fa-clock-o"></i> {{timeago post.timestamp}}</span>
+      <span class="mx-2">•</span>
+      <span><i class="fa fa-map-marker"></i> {{post.where.city}}, {{post.where.prefecture}}</span>
     </div>
-    <div class="card-body">
-        <div id="main">
-            <p>
-                @ <a href="/city/{{post.where.prefecture}}/{{post.where.city}}"><i>{{post.where.city}}</i></a>, <a href="/prefecture/{{post.where.prefecture}}"><i>{{post.where.prefecture}}</i></a></i>,
-                about
-                <a href="/topic/{{post.about.category}}/{{post.about.subcategory}}">
-                    <i>{{post.about.subcategory}}</i>
-                </a>,
-                <a href="/topic/{{post.about.category}}">
-                    <i>{{post.about.category}}</i>
-                </a>
-                by <a id="link" href="/user/profile/{{ author._id }}"><i>{{author.name}}</i></a>
-            </p>
-            <div class="d-flex">
-                <div class="col-md-6 d-flex align-items-center">
-                    <div class="text-left w-100">
-                        <div class="text-center">
-                            <p>{{post.description}}</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 d-flex align-items-center">
-                    {{#if post.filenames}}
-                        <div id="carouselExampleIndicators" class="carousel slide w-100">
-                            <ol class="carousel-indicators">
-                                {{#each post.filenames}}
-                                    {{#if @first}}
-                                        <li data-target="#carouselExampleIndicators" data-slide-to="{{@index}}" class="active"></li>
-                                    {{else}}
-                                        <li data-target="#carouselExampleIndicators" data-slide-to="{{@index}}"></li>
-                                    {{/if}}
-                                {{/each}}
-                            </ol>
-                            <div class="carousel-inner">
-                                {{#each post.filenames}}
-                                    <div class="carousel-item {{#if @first}}active{{/if}}">
-                                        {{#ifExtensionEquals this "mp4"}}
-                                            <video class="d-block mx-auto" width="80%" controls>
-                                                <source src="/public/upload/{{ ../post._id }}/{{this}}" type="video/mp4" />
-                                            </video>
-                                        {{else}}
-                                            <img src="/public/upload/{{ ../post._id }}/{{this}}" class="d-block mx-auto" style="width: 60%;">
-                                        {{/ifExtensionEquals}}
-                                    </div>
-                                {{/each}}
-                            </div>
-                            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                <span class="sr-only">Previous</span>
-                            </a>
-                            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                <span class="sr-only">Next</span>
-                            </a>
-                        </div>
-                    {{else}}
-                         <img src="/public/img/share-japan_logo.png" class="d-block mx-auto" style="width: 10%;">
-                    {{/if}}
-                </div>
-            </div>
+  </div>
+
+  <!-- Content: text (8) + compact carousel (4) -->
+  <div class="px-3 pb-3">
+    <div class="row">
+      <!-- Text -->
+      <div class="col-md-8">
+        <article class="post-body">
+          <p class="mb-0">{{post.description}}</p>
+        </article>
+
+        <!-- Actions / stats — modern look + old JS hooks -->
+        <div class="d-flex flex-wrap align-items-center mt-3">
+          {{#if user}}
+            <button class="btn btn-light btn-chip mr-2" id="btn-like" data-id="{{post._id}}" type="button">
+              {{!-- modern heart icon, but JS only cares about the count --}}
+              {{#if user_liked}}<i class="fa fa-heart text-danger"></i>{{else}}<i class="fa fa-heart-o"></i>{{/if}}
+              <span class="ml-1 likes-count">{{post.likes.length}}</span>
+            </button>
+
+            <button class="btn btn-light btn-chip mr-3" id="btn-save" data-id="{{post._id}}" type="button">
+              {{#if user_saved}}<i class="fa fa-flag text-warning"></i>{{else}}<i class="fa fa-flag-o"></i>{{/if}}
+              <span class="ml-1 saves-count">{{post.saved_by.length}}</span>
+            </button>
+          {{else}}
+            <a class="btn btn-light btn-chip mr-2" href="/user/login">
+              <i class="fa fa-heart-o"></i> <span class="ml-1">{{post.likes.length}}</span>
+            </a>
+            <a class="btn btn-light btn-chip mr-3" href="/user/login">
+              <i class="fa fa-flag-o"></i> <span class="ml-1">{{post.saved_by.length}}</span>
+            </a>
+          {{/if}}
+
+          <span class="text-muted small mr-3"><i class="fa fa-eye"></i> {{post.views}}</span>
+
+          {{!-- invisible anchors that scripts.js reloads --}}
+          <div id="likes" class="d-none"><span class="likes-count">{{post.likes.length}}</span></div>
+          <div id="saves" class="d-none"><span class="saves-count">{{post.saved_by.length}}</span></div>
         </div>
-        <div class="d-flex justify-content-between align-items-center">
-            {{#if user}}
-                <button class="btn btn-success" id="btn-like" data-id="{{post._id}}">
-                    <i class="fa fa-thumbs-o-up" aria-hidden="true"></i>
-                </button>
-                <button class="btn btn-success" id="btn-save" data-id="{{post._id}}">
-                    <i class="fa fa-flag" aria-hidden="true"> Save post in your profile</i>
-                </button>
-            {{else}}
-                <button class="btn btn-success">
-                    <a href="/user/login">
-                        <i class="fa fa-thumbs-o-up" aria-hidden="true"></i>
-                    </a>
-                </button>
-                <button class="btn btn-success">
-                    <a href="/user/login">
-                        <i class="fa fa-flag" aria-hidden="true"></i>
-                    </a>
-                </button>
+      </div>
+
+      <!-- Compact carousel (always on the right) -->
+      <aside class="col-md-4 mt-3 mt-md-0">
+        {{#if post.filenames}}
+          <div id="postCarousel-{{post._id}}" class="carousel slide post-carousel mb-2" data-ride="carousel">
+            {{#if post.filenames.[1]}}
+            <ol class="carousel-indicators">
+              {{#each post.filenames}}
+                <li data-target="#postCarousel-{{@../post._id}}" data-slide-to="{{@index}}" class="{{#if @first}}active{{/if}}"></li>
+              {{/each}}
+            </ol>
             {{/if}}
-            {{#if user_liked}}
-                <div id="likes">
-                    <span class="likes-count">{{post.likes.length}}</span>
-                    <i class="fa fa-heart" aria-hidden="true"></i>
-                </div>
+
+            <div class="carousel-inner">
+              {{#each post.filenames}}
+              <div class="carousel-item {{#if @first}}active{{/if}}">
+                {{#ifExtensionEquals this "mp4"}}
+                  <video class="post-media-compact" controls preload="metadata">
+                    <source src="/public/upload/{{../post._id}}/{{this}}" type="video/mp4" />
+                  </video>
                 {{else}}
-                <div id="likes">
-                    <span class="likes-count">{{post.likes.length}}</span>
-                    <i class="fa fa-heart-o" aria-hidden="true"></i>
-                </div>
-            {{/if}}
-            {{#if user_saved}}
-                <div id="saves">
-                    <span class="saves-count">{{post.saved_by.length}}</span>
-                    <i class="fa fa-flag" aria-hidden="true"></i>
-                </div>
-                {{else}}
-                <div id="saves">
-                    <span class="saves-count">{{post.saved_by.length}}</span>
-                    <i class="fa fa-flag-o" aria-hidden="true"></i>
-                </div>
-            {{/if}}
-            <div>
-                {{post.views}}<i class="fa fa-eye" aria-hidden="true"></i>
+                  <img src="/public/upload/{{../post._id}}/{{this}}" class="post-media-compact" alt="{{../post.title}}">
+                {{/ifExtensionEquals}}
+              </div>
+              {{/each}}
             </div>
-            <div class="black">
-                <i class="fa fa-clock-o" aria-hidden="true"></i>
-                {{timeago post.timestamp}}
-            </div>
-        </div>
+
+            {{#if post.filenames.[1]}}
+            <a class="carousel-control-prev" href="#postCarousel-{{post._id}}" role="button" data-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#postCarousel-{{post._id}}" role="button" data-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="sr-only">Next</span>
+            </a>
+            {{/if}}
+          </div>
+        {{else}}
+          <figure class="post-aside shadow-sm rounded d-flex align-items-center justify-content-center">
+            <img src="/public/img/share-japan_logo.png" alt="Share Japan" style="width: 40%;">
+          </figure>
+        {{/if}}
+      </aside>
     </div>
+  </div>
 </div>

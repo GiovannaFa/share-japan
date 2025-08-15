@@ -7,8 +7,8 @@
   <ul class="list-group list-group-flush">
     {{#each popular}}
     <li class="list-group-item px-3 py-3">
-      <a href="/posts/{{_id}}" class="popular-link d-flex gap-3 align-items-start text-reset text-decoration-none">
-        {{!-- Thumbnail (first filename if exists, else placeholder) --}}
+      <a href="/posts/{{_id}}" class="popular-link d-flex align-items-start text-reset text-decoration-none">
+        {{!-- Thumbnail (first filename if exists, else logo) --}}
         {{#if filenames.length}}
           <img src="/public/upload/{{_id}}/{{lookup filenames 0}}" alt="{{title}}"
                class="rounded popular-thumb" width="64" height="64" loading="lazy">
@@ -17,21 +17,21 @@
                class="rounded popular-thumb" width="64" height="64" loading="lazy">
         {{/if}}
 
-        <div class="flex-grow-1">
-          <h6 class="mb-1 fw-semibold line-clamp-2">{{title}}</h6>
+        <div class="flex-grow-1 popular-text">
+          <h6 class="mb-1 font-weight-semibold line-clamp-2">{{title}}</h6>
 
           <div class="text-muted small mb-1">
             {{#if where.city}}{{where.city}}, {{/if}}{{where.prefecture}}
           </div>
 
-          <div class="d-flex gap-3 small text-muted">
-            <span class="d-inline-flex align-items-center">
-              <i class="fa fa-thumbs-o-up me-1" aria-hidden="true"></i>{{likes.length}}
+          <div class="d-flex small text-muted">
+            <span class="stat d-inline-flex align-items-center">
+              <i class="fa fa-thumbs-o-up mr-1" aria-hidden="true"></i>{{likes.length}}
             </span>
 
             {{#gt saved_by_length 0}}
-            <span class="d-inline-flex align-items-center">
-              <i class="fa fa-bookmark-o me-1" aria-hidden="true"></i>{{saved_by_length}}
+            <span class="stat d-inline-flex align-items-center">
+              <i class="fa fa-bookmark-o mr-1" aria-hidden="true"></i>{{saved_by_length}}
             </span>
             {{/gt}}
           </div>
@@ -42,4 +42,3 @@
   </ul>
 </div>
 {{/if}}
-

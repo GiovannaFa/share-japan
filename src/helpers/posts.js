@@ -9,6 +9,7 @@ module.exports = {
                     "where": 1,
                     "likes": 1,
                     "saved_by": 1,
+                    "filenames": 1,
                     // Use $ifNull to ensure saved_by is always an array, even if it's missing
                     "saved_by_length": { "$size": { "$ifNull": ["$saved_by", []] } },
                     "length": { "$size": "$likes" }
