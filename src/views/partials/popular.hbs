@@ -1,23 +1,45 @@
 {{#if popular}}
 <div class="card mb-4">
-    <div class="card-header bg-light text-black">
-        <h5><i class="fa fa-paper-plane" aria-hidden="true"></i> Popular Reviews</h5>
-    </div>
-    <div class="card-body">
-        {{#each popular}}
-        <a href="/posts/{{_id}}" id="link">
-            <div class="row mb-3">
-                <p><b>{{title}} @ <a href="/city/{{where.prefecture}}/{{where.city}}"><i>{{where.city}}</i></a>, <a href="/prefecture/{{where.prefecture}}"><i>{{where.prefecture}}</i></a></b> with {{likes.length}} <i class="fa fa-thumbs-o-up" aria-hidden="true"></i>
-                
-                <!-- Only show "Saved by x users" if there are any saved_by -->
-                {{#gt saved_by_length 0}}
-                    | Saved by {{saved_by_length}} user{{#gt saved_by_length 1}}s{{/gt}}
-                {{/gt}}
-                
-                </p>
-            </div>
-        </a>
-        {{/each}}
-    </div>
+  <div class="card-header bg-light text-black">
+    <h5 class="mb-0"><i class="fa fa-paper-plane" aria-hidden="true"></i> Popular posts</h5>
+  </div>
+
+  <ul class="list-group list-group-flush">
+    {{#each popular}}
+    <li class="list-group-item px-3 py-3">
+      <a href="/posts/{{_id}}" class="popular-link d-flex gap-3 align-items-start text-reset text-decoration-none">
+        {{!-- Thumbnail (first filename if exists, else placeholder) --}}
+        {{#if filenames.length}}
+          <img src="/public/upload/{{_id}}/{{lookup filenames 0}}" alt="{{title}}"
+               class="rounded popular-thumb" width="64" height="64" loading="lazy">
+        {{else}}
+          <img src="/public/img/share-japan_logo.png" alt="{{title}}"
+               class="rounded popular-thumb" width="64" height="64" loading="lazy">
+        {{/if}}
+
+        <div class="flex-grow-1">
+          <h6 class="mb-1 fw-semibold line-clamp-2">{{title}}</h6>
+
+          <div class="text-muted small mb-1">
+            {{#if where.city}}{{where.city}}, {{/if}}{{where.prefecture}}
+          </div>
+
+          <div class="d-flex gap-3 small text-muted">
+            <span class="d-inline-flex align-items-center">
+              <i class="fa fa-thumbs-o-up me-1" aria-hidden="true"></i>{{likes.length}}
+            </span>
+
+            {{#gt saved_by_length 0}}
+            <span class="d-inline-flex align-items-center">
+              <i class="fa fa-bookmark-o me-1" aria-hidden="true"></i>{{saved_by_length}}
+            </span>
+            {{/gt}}
+          </div>
+        </div>
+      </a>
+    </li>
+    {{/each}}
+  </ul>
 </div>
 {{/if}}
+
