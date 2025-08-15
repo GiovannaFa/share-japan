@@ -1,101 +1,77 @@
-<div>
-    <div class="card-header bg-light text-black">
-        <i class="fa fa-newspaper-o" aria-hidden="true"></i> Posts concerning {{ concerning }}
-        {{!-- <p><a href="/form">Leave a post!</a></p> --}}
-    </div>
-    <div id="main">
-        <div class="card-body">
-            {{#if posts}}
-                {{#each posts}}
-                <div class="row">
-                    <div class="col-md-10">
-                        <div class="card-header text-left">
-                            <i class="black"><i class="fa fa-clock-o" aria-hidden="true"></i> {{timeago timestamp}}</i><br>
-                            @ <a href="/city/{{where.prefecture}}/{{where.city}}"><i>{{where.city}}</i></a>, <a href="/prefecture/{{where.prefecture}}"><i>{{where.prefecture}}</i></a></i>,
-                            about
-                            <a href="/topic/{{about.category}}/{{about.subcategory}}">
-                                <i>{{about.subcategory}}</i>,
-                            </a>
-                            <a href="/topic/{{about.category}}">
-                                <i>{{about.category}}</i>
-                            </a>
-                            published by <a href="/user/profile/{{ user }}"><i> {{ author }}</i></a>
-                        </div>
-                        <a id="link" href="/posts/{{ _id  }}">
-                            <div class="card-body col-md-10 text-center">
-                                <h1>{{title}}</h1>
-                                {{#if filenames}}
-                                    <div id="carousel-{{@index}}" class="carousel slide">
-                                        <ol class="carousel-indicators">
-                                            {{#each filenames}}
-                                                {{#if @first}}
-                                                    <li data-target="#carousel-{{@../index}}" data-slide-to="{{@index}}" class="active"></li>
-                                                {{else}}
-                                                    <li data-target="#carousel-{{@../index}}" data-slide-to="{{@index}}"></li>
-                                                {{/if}}
-                                            {{/each}}
-                                        </ol>
-                                        <div class="carousel-inner">
-                                            {{#each filenames}}
-                                                <div class="carousel-item {{#if @first}}active{{/if}}">
-                                                    {{#ifExtensionEquals this "mp4"}}
-                                                        <video controls>
-                                                            <source src="/public/upload/{{ ../_id }}/{{this}}" type="video/mp4" class="img-fluid" width="300" height="300">
-                                                        </video>
-                                                    {{else}}
-                                                        <img src="/public/upload/{{ ../_id }}/{{this}}" alt="{{../title}}" class="img-fluid" width="300" height="300">
-                                                    {{/ifExtensionEquals}}
-                                                </div>
-                                            {{/each}}
-                                        </div>
-                                        <a class="carousel-control-prev" href="#carousel-{{@index}}" role="button" data-slide="prev">
-                                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                            <span class="sr-only">Previous</span>
-                                        </a>
-                                        <a class="carousel-control-next" href="#carousel-{{@index}}" role="button" data-slide="next">
-                                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                            <span class="sr-only">Next</span>
-                                        </a>
-                                    </div>
-                                {{else}}
-                                    <img src="/public/img/share-japan_logo.png" alt="{{title}}" class="img-fluid" width="40" height="40">
-                                {{/if}}
-                                <p>
-                                    {{#if user_liked}}
-                                        {{likes.length}} <i class="fa fa-heart" aria-hidden="true"></i>
-                                        {{else}}
-                                        {{likes.length}} <i class="fa fa-heart-o" aria-hidden="true"></i>
-                                    {{/if}}
-                                    {{#if user_saved}}
-                                        {{saved_by.length}} <i class="fa fa-flag" aria-hidden="true"></i>
-                                        {{else}}
-                                        {{saved_by.length}} <i class="fa fa-flag-o" aria-hidden="true"></i>
-                                    {{/if}}
-                                    {{views}} <i class="fa fa-eye" aria-hidden="true"></i>
-                                </p>
-                            </div>
-                            <br>
-                        </a>
-                    </div>
-                </div>
-                {{/each}}
+<div class="card-header bg-light text-black">
+  <i class="fa fa-newspaper-o" aria-hidden="true"></i>
+  Posts concerning {{concerning}}
+</div>
+
+<div id="main" class="p-3">
+  {{#if posts}}
+    <div class="row">
+      {{#each posts}}
+      <div class="col-md-6 mb-4">
+        <div class="card h-100 shadow-sm border-0">
+
+          {{!-- Thumbnail (first file only, else placeholder) --}}
+          {{#if filenames.[0]}}
+            {{#ifExtensionEquals filenames.[0] "mp4"}}
+              <video class="card-img-top post-media" controls preload="metadata">
+                <source src="/public/upload/{{_id}}/{{filenames.[0]}}" type="video/mp4">
+              </video>
             {{else}}
-                {{#if loggedUser}}
-                    <div class="no-posts">
-                        <p>
-                            No posts have been published yet for {{concerning}}. <br>
-                            Be the first, click <a href="/form">here</a>.
-                        </p>
-                    </div>
+              <img src="/public/upload/{{_id}}/{{filenames.[0]}}" class="card-img-top post-media" alt="{{title}}">
+            {{/ifExtensionEquals}}
+          {{else}}
+            <img src="/public/img/share-japan_logo.png" class="card-img-top p-4" alt="{{title}}">
+          {{/if}}
+
+          <div class="card-body">
+            <h5 class="card-title line-clamp-2 mb-2">
+              <a href="/posts/{{_id}}" class="text-reset text-decoration-none">{{title}}</a>
+            </h5>
+
+            <p class="card-text small text-muted mb-0">
+              <i class="fa fa-clock-o"></i> {{timeago timestamp}}<br>
+              @ <a href="/city/{{where.prefecture}}/{{where.city}}" class="text-muted">{{where.city}}</a>,
+              <a href="/prefecture/{{where.prefecture}}" class="text-muted">{{where.prefecture}}</a><br>
+              about
+              <a href="/topic/{{about.category}}/{{about.subcategory}}" class="text-muted">{{about.subcategory}}</a>,
+              <a href="/topic/{{about.category}}" class="text-muted">{{about.category}}</a><br>
+              by <a href="/user/profile/{{user}}" class="text-muted">{{author}}</a>
+            </p>
+          </div>
+
+          <div class="card-footer bg-white border-0 pt-0">
+            <div class="d-flex justify-content-between small text-muted">
+              <span>
+                {{#if user_liked}}
+                  {{likes.length}} <i class="fa fa-heart text-danger"></i>
                 {{else}}
-                    <div class="no-posts">
-                        <p>
-                            No posts have been published yet for {{concerning}}. <br>
-                            Be the first, click <a href="/user/login">here</a>.
-                        </p>
-                    </div>
+                  {{likes.length}} <i class="fa fa-heart-o"></i>
                 {{/if}}
-            {{/if}}
+              </span>
+              <span>
+                {{#if user_saved}}
+                  {{saved_by.length}} <i class="fa fa-flag"></i>
+                {{else}}
+                  {{saved_by.length}} <i class="fa fa-flag-o"></i>
+                {{/if}}
+              </span>
+              <span>
+                {{views}} <i class="fa fa-eye"></i>
+              </span>
+            </div>
+          </div>
+
         </div>
+      </div>
+      {{/each}}
     </div>
+  {{else}}
+    <div class="text-center p-5">
+      {{#if loggedUser}}
+        <p>No posts have been published yet for {{concerning}}. <a href="/form">Be the first!</a></p>
+      {{else}}
+        <p>No posts have been published yet for {{concerning}}. <a href="/user/login">Log in</a> to publish one.</p>
+      {{/if}}
+    </div>
+  {{/if}}
 </div>
